@@ -1,0 +1,603 @@
+/* ============================================================
+   PROJECT BASE CSS
+   Shared styles for all three project detail pages.
+   Imports the same design tokens (colors, fonts) via the
+   same CSS variables already defined in style.css.
+   Each project page links BOTH style.css AND project-base.css.
+============================================================ */
+
+/* ── PROJECT NAV ─────────────────────────────────────────────
+   Thin bar at the top: site name left, back link right.
+   Mirrors the main site nav visually.
+─────────────────────────────────────────────────────────── */
+.proj-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px clamp(24px, 5vw, 80px);
+  background-color: rgba(240, 241, 243, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.proj-nav-name {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.proj-nav-back {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.proj-nav-back:hover {
+  color: var(--color-text);
+}
+
+/* ── PROJECT HERO ────────────────────────────────────────────
+   Full-width opening: title, metadata grid, summary, image.
+─────────────────────────────────────────────────────────── */
+.proj-hero {
+  padding-top: 140px;                        /* clears fixed nav */
+  padding-bottom: 80px;
+  padding-left: clamp(24px, 5vw, 80px);
+  padding-right: clamp(24px, 5vw, 80px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Section index tag [00] */
+.proj-index-tag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--color-muted);
+  margin-bottom: 20px;
+}
+
+/* Large project title — dominant typographic element */
+.proj-title {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0 0 48px;
+}
+
+/* Hairline divider */
+.proj-rule {
+  border: none;
+  border-top: 1px solid var(--color-line);
+  margin: 40px 0;
+}
+
+/* Metadata grid — Role / Tools / Timeline / Type in columns */
+.proj-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px 40px;
+  margin-bottom: 48px;
+}
+
+.proj-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Small label above each meta value */
+.proj-meta-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.proj-meta-value {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* One-sentence italic summary */
+.proj-summary {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 0 56px;
+}
+
+/* ── IMAGE PLACEHOLDERS ──────────────────────────────────────
+   Full-width and sectional image areas.
+   Replace the div with <img> when ready.
+─────────────────────────────────────────────────────────── */
+
+/* Full-width hero image area */
+.proj-img-full {
+  width: 100%;
+  min-height: 480px;
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+/* Half-width or inline image area */
+.proj-img-half {
+  width: 100%;
+  min-height: 320px;
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Label inside placeholder */
+.proj-img-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-line);
+}
+
+/* ── NUMBERED SECTIONS ───────────────────────────────────────
+   Each case study section: [01] RESEARCH & DISCOVERY etc.
+─────────────────────────────────────────────────────────── */
+.proj-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px clamp(24px, 5vw, 80px);
+  border-top: 1px solid var(--color-line);
+}
+
+/* [01] index number */
+.proj-section-idx {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Section title — serif, mid-size */
+.proj-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.15;
+  margin: 0 0 40px;
+}
+
+/* Two-column layout for section content (label + body) */
+.proj-cols {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px 48px;
+  margin-bottom: 36px;
+}
+
+/* Left column — small uppercase label */
+.proj-sub {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-top: 4px;       /* optical alignment with first line of body */
+}
+
+/* Right column — body text */
+.proj-body {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.95;
+}
+
+/* ── STATS ROW ───────────────────────────────────────────────
+   Key numbers displayed in a bordered grid — project scale,
+   timeline, community size, etc.
+─────────────────────────────────────────────────────────── */
+.proj-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  border: 1px solid var(--color-line);
+  margin: 48px 0;
+}
+
+.proj-stat-item {
+  padding: 28px 28px 24px;
+  border-right: 1px solid var(--color-line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proj-stat-item:last-child {
+  border-right: none;
+}
+
+/* Large serif number */
+.proj-stat-num {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.proj-stat-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ── PROCESS STEPS ───────────────────────────────────────────
+   Numbered sequential stages — journey map, workflow steps.
+─────────────────────────────────────────────────────────── */
+.proj-steps {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0;
+}
+
+.proj-step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--color-line);
+  align-items: baseline;
+}
+
+.proj-step:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* Muted serif step number */
+.proj-step-num {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--color-line);
+  line-height: 1.5;
+}
+
+.proj-step-title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.proj-step-desc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-muted);
+  line-height: 1.75;
+}
+
+/* ── NUMBERED ITEMS ──────────────────────────────────────────
+   Findings, features, pain points — each with a number,
+   a bold title, and a short description.
+─────────────────────────────────────────────────────────── */
+.proj-items {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0;
+}
+
+.proj-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.proj-item:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* Small sans number */
+.proj-item-num {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  padding-top: 3px;
+}
+
+.proj-item-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.proj-item-desc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-muted);
+  line-height: 1.75;
+}
+
+/* ── CALLOUT BLOCK ───────────────────────────────────────────
+   Design challenge, HMW, or key statement.
+   Left-ruled, slightly tinted background.
+─────────────────────────────────────────────────────────── */
+.proj-callout {
+  border-left: 2px solid var(--color-text);
+  padding: 22px 28px;
+  margin: 36px 0;
+  background: rgba(200, 205, 216, 0.07);
+}
+
+.proj-callout-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 10px;
+}
+
+.proj-callout-text {
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 2vw, 21px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.55;
+}
+
+/* ── METHOD TAGS ─────────────────────────────────────────────
+   Small bordered pills for listing methods, tools, or types.
+─────────────────────────────────────────────────────────── */
+.proj-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.proj-tag {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border: 1px solid var(--color-line);
+  padding: 6px 14px;
+  line-height: 1;
+}
+
+/* ── QUOTE BLOCK ─────────────────────────────────────────────
+   User quotes / testimonials from testing.
+─────────────────────────────────────────────────────────── */
+.proj-quote {
+  border-left: 1px solid var(--color-line);
+  padding: 10px 20px;
+  margin: 20px 0 8px;
+}
+
+.proj-quote-text {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+.proj-quote-attr {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  margin-top: 8px;
+}
+
+/* ── TWO-COLUMN FACTS ────────────────────────────────────────
+   Side-by-side pairs — before/after, question/answer.
+─────────────────────────────────────────────────────────── */
+.proj-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+  margin: 32px 0;
+}
+
+.proj-two-col-cell {
+  background: var(--color-bg);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proj-two-col-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.proj-two-col-text {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.75;
+}
+
+/* Placeholder text block — dotted border, prompts user to fill */
+.proj-placeholder {
+  border: 1px dashed var(--color-line);
+  padding: 20px 24px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: 0.08em;
+  line-height: 1.7;
+  margin-top: 8px;
+}
+
+/* ── SECTION IMAGE AREAS ─────────────────────────────────────
+   Used inside numbered sections for process / prototype shots.
+─────────────────────────────────────────────────────────── */
+.proj-section-img {
+  width: 100%;
+  min-height: 360px;
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.proj-section-img--short {
+  min-height: 240px;
+}
+
+/* Two-up image grid */
+.proj-img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 40px 0;
+}
+
+/* ── PROJECT NAV FOOTER ──────────────────────────────────────
+   Back to work + Next project links at the bottom.
+─────────────────────────────────────────────────────────── */
+.proj-nav-footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px clamp(24px, 5vw, 80px) 80px;
+  border-top: 1px solid var(--color-line);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.proj-nav-footer a {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.proj-nav-footer a:hover {
+  color: var(--color-text);
+}
+
+.proj-nav-footer-next {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 300;
+  color: var(--color-text) !important;
+  display: block;
+  margin-top: 8px;
+  letter-spacing: -0.01em;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────
+─────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+
+  .proj-title {
+    font-size: clamp(36px, 10vw, 60px);
+  }
+
+  .proj-cols {
+    grid-template-columns: 1fr;    /* stack label above body */
+    gap: 8px 0;
+  }
+
+  .proj-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .proj-stat-item:nth-child(even) {
+    border-right: none;
+  }
+
+  .proj-step {
+    grid-template-columns: 36px 1fr;
+    gap: 0 16px;
+  }
+
+  .proj-item {
+    grid-template-columns: 32px 1fr;
+    gap: 0 14px;
+  }
+
+  .proj-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .proj-meta-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .proj-img-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proj-nav-footer {
+    flex-direction: column;
+    gap: 32px;
+  }
+}

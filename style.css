@@ -1,0 +1,1533 @@
+/* ============================================================
+   RESET & BASE
+   Removes browser default spacing and sets box-sizing
+   so padding doesn't accidentally expand element sizes.
+============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   ROOT VARIABLES
+   All colors and fonts defined in one place.
+   Change a value here and it updates everywhere.
+============================================================ */
+:root {
+  --color-bg:        #F0F1F3;   /* cool pale blue-gray white */
+  --color-surface:   #E4E6EA;   /* cool light gray for surfaces */
+  --color-text:      #1C1C1E;   /* soft black, slightly cool */
+  --color-muted:     #9099A6;   /* steel blue-gray for labels */
+  --color-accent:    #4A5260;   /* dark steel for hover states */
+  --color-line:      #CDD0D6;   /* cool hairline dividers */
+
+  --font-serif:  'Cormorant Garamond', Georgia, serif;
+  --font-sans:   'DM Sans', system-ui, sans-serif;
+
+  --max-width: 1100px;          /* maximum content width */
+  --side-pad:  clamp(24px, 5vw, 80px); /* responsive side padding */
+}
+
+/* ============================================================
+   SCROLL SNAP
+   proximity — only snaps when near a snap point, never forces.
+   Calm and editorial, not bouncy or locked.
+   scroll-behavior: smooth for anchor-link navigation.
+============================================================ */
+html {
+  scroll-snap-type: y proximity;   /* gentle snap — doesn't trap the user */
+  scroll-behavior: smooth;
+}
+
+/* Each snap target — aligns its top edge to the viewport top.
+   scroll-margin-top compensates for the fixed nav (~66px tall). */
+.hero {
+  scroll-snap-align: start;
+}
+
+.work,
+#about-poster,
+#about-exp,
+.contact {
+  scroll-snap-align: start;
+  scroll-margin-top: 66px;         /* nav height offset */
+}
+
+/* ============================================================
+   BODY
+   Sets background color, default font, text color, and
+   a gentle fade-in when the page first loads.
+============================================================ */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.8;
+  opacity: 0;                    /* starts invisible */
+  animation: fadeIn 0.8s ease forwards; /* fades in on load */
+}
+
+/* The fade-in animation */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ============================================================
+   GRAIN OVERLAY
+   A full-screen fixed layer with a noise SVG pattern.
+   It sits on top of everything but lets clicks pass through.
+   Gives the page a tactile, printed-paper feel.
+============================================================ */
+.grain-overlay {
+  position: fixed;
+  inset: 0;                      /* covers the entire viewport */
+  pointer-events: none;          /* won't block clicks */
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+/* ============================================================
+   NAVIGATION
+   Fixed to the top. Thin, all-caps, minimal.
+   Name on left, links on right.
+============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px var(--side-pad);
+  background-color: rgba(240, 241, 243, 0.88); /* slightly see-through, cool toned */
+  backdrop-filter: blur(8px);                  /* frosted glass effect */
+  border-bottom: 1px solid var(--color-line);
+}
+
+.nav-name {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* Removes the default bullet points from the nav list */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.nav-active {
+  color: var(--color-text);
+}
+
+/* ============================================================
+   SHARED SECTION STYLES
+   Every section shares this padding and max-width.
+============================================================ */
+section {
+  position: relative;           /* needed for absolute-positioned decorations */
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 120px var(--side-pad);
+  overflow: hidden;
+}
+
+/* Small index label like [01] [02] — editorial marker */
+.section-index {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  margin-bottom: 12px;
+}
+
+/* Section heading — small, all-caps, quiet */
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 60px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-line);
+}
+/* ============================================================
+   TEXT LINKS
+   Reusable inline link style for project body text.
+   Prevents default blue browser links and keeps the site editorial.
+============================================================ */
+.text-link {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: rgba(28, 28, 30, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Keeps visited links from turning purple/blue */
+.text-link:visited {
+  color: var(--color-text);
+}
+
+/* Subtle hover, consistent with the quiet editorial style */
+.text-link:hover {
+  color: var(--color-muted);
+  text-decoration-color: var(--color-muted);
+}
+
+/* Small upper-right arrow for external links */
+.external-link::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.28em;
+  font-size: 0.78em;
+  line-height: 1;
+  transform: translateY(-0.08em);
+}
+
+/* ============================================================
+   HERO SECTION — FULL-BLEED EXHIBITION POSTER
+   The hero breaks out of all width constraints and fills
+   the entire browser window like a physical poster.
+   Every element is placed absolutely on the canvas.
+============================================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: none;               /* BREAKS OUT of the 1100px section limit */
+  margin: 0;                     /* no auto-centering */
+  padding: 0;                    /* no side padding — true full bleed */
+  min-height: 100vh;             /* full screen height */
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+/* ── DRIFT KEYFRAMES ─────────────────────────────────────────
+   9 distinct drift animations — one per letter of "Giselle.C".
+   Movement range is 25px–40px so the drift is clearly visible
+   while still feeling calm and atmospheric, not flashy.
+   All use ease-in-out + alternate infinite for smooth reversal.
+───────────────────────────────────────────────────────── */
+@keyframes drift-a {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(55px, -40px); }
+}
+
+@keyframes drift-b {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(-48px, 52px); }
+}
+
+@keyframes drift-c {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(44px, 58px); }
+}
+
+@keyframes drift-d {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(-58px, -36px); }
+}
+
+@keyframes drift-e {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(62px, 34px); }
+}
+
+@keyframes drift-f {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(-42px, 56px); }
+}
+
+@keyframes drift-g {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(50px, -52px); }
+}
+
+@keyframes drift-h {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(-52px, 44px); }
+}
+
+@keyframes drift-i {
+  from { transform: translate(0px, 0px); }
+  to   { transform: translate(46px, -50px); }
+}
+
+/* ── BACKGROUND LETTER FRAGMENTS ────────────────────────────
+   All 9 characters of "Giselle.C" placed as individual
+   atmospheric elements. Each has a unique position, size,
+   blur, and drift direction — they are fragments of the
+   name dissolving into the background, not decoration.
+───────────────────────────────────────────────────────── */
+.hero-letter {
+  position: absolute;
+  font-family: var(--font-serif);
+  font-weight: 320;
+  line-height: 1;
+  color: #949698;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* G — large, crops off the top-left corner */
+.hero-letter--G {
+  font-size: clamp(280px, 36vw, 460px);
+  top: -40px;
+  left: -30px;
+  filter: blur(17px);
+  opacity: 0.65;
+  animation: drift-a 20s ease-in-out infinite alternate;
+}
+
+/* i — tall thin stroke, upper-center area */
+.hero-letter--i {
+  font-size: clamp(200px, 26vw, 360px);
+  top: 40px;
+  left: 25%;
+  filter: blur(12px);
+  opacity: 0.45;
+  animation: drift-b 18s ease-in-out infinite alternate;
+}
+
+/* s — center-left area */
+.hero-letter--s {
+  font-size: clamp(180px, 23vw, 320px);
+  top: 20%;
+  left: 32%;
+  filter: blur(12px);
+  opacity: 0.42;
+  animation: drift-c 25s ease-in-out infinite alternate;
+}
+
+/* e (first) — upper-center, slightly right of s */
+.hero-letter--e1 {
+  font-size: clamp(180px, 23vw, 320px);
+  top: 20%;
+  left: 45%;
+  filter: blur(14px);
+  opacity: 0.38;
+  animation: drift-d 18s ease-in-out infinite alternate;
+}
+
+/* l (first) — tall, center area */
+.hero-letter--l1 {
+  font-size: clamp(220px, 25vw, 360px);
+  top: 30%;
+  left: 58%;
+  filter: blur(16px);
+  opacity: 0.40;
+  animation: drift-e 25s ease-in-out infinite alternate;
+}
+
+/* l (second) — slightly offset from first l */
+.hero-letter--l2 {
+  font-size: clamp(220px, 25vw, 360px);
+  top: 30%;
+  left: 67%;
+  filter: blur(20px);
+  opacity: 0.35;
+  animation: drift-f 17s ease-in-out infinite alternate;
+}
+
+/* e (second) — lower portion, fades toward bottom */
+.hero-letter--e2 {
+  font-size: clamp(140px, 18vw, 260px);
+  bottom: 14%;
+  left: 76%;
+  filter: blur(10px);
+  opacity: 0.32;
+  animation: drift-g 15s ease-in-out infinite alternate;
+}
+
+/* . (dot) — the period in "Giselle.C", floats as a soft round form */
+.hero-letter--dot {
+  font-size: clamp(300px, 38vw, 500px); /* large size makes dot a visible circle */
+ top: 16%;
+  left: 83%;
+  filter: blur(13px);
+  opacity: 0.28;
+  animation: drift-h 25s ease-in-out infinite alternate;
+}
+
+/* C — right side, crops off the right viewport edge */
+.hero-letter--C {
+  font-size: clamp(240px, 30vw, 420px);
+  top: 22%;
+  right: -60px;
+  filter: blur(20px);
+  opacity: 0.48;
+  animation: drift-i 20s ease-in-out infinite alternate;
+}
+/* ── REDUCED MOTION ──────────────────────────────────────────
+   If the user has "Reduce Motion" enabled in their system
+   settings (common for people with vestibular disorders),
+   all drift animations are disabled completely.
+   The letters remain visible — only the movement stops.
+───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-letter {
+    animation: none;
+  }
+}
+
+/* ── [00] INDEX LABEL — top right ───────────────────────── */
+.hero-index {
+  position: absolute;
+  /* CHANGED: moved from upper-right to just above the Arizona / 2026 label */
+  top: calc(52% - 22px);
+  left: 52px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--color-muted);
+  z-index: 2;
+}
+
+/* ── SCATTERED METADATA TAGS ─────────────────────────────
+   Small exhibition-style labels placed at different points
+   on the poster canvas. Subtle — they annotate the space
+   rather than compete with the typography.
+───────────────────────────────────────────────────────── */
+.hero-tag {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  opacity: 0.7;                  /* slightly faded — subordinate to all other text */
+  z-index: 2;
+}
+
+/* Department label — upper left, below the nav */
+.hero-tag--dept {
+  top: 48px;
+  left: 52px;
+}
+
+/* Location / year — mid-left, floats in the open space */
+.hero-tag--loc {
+  top: 52%;
+  left: 52px;
+}
+
+/* ── STATEMENT — center-right ───────────────────────────────
+   Placed in the open right-center zone of the poster,
+   between the background letters and the right edge.
+   Feels like a wall text label in a gallery space.
+───────────────────────────────────────────────────────── */
+.hero-statement {
+  position: absolute;
+  top: 38%;
+  right: 68px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 2.1;
+  color: #4A5060;                /* slightly darker than muted — more readable */
+  max-width: 230px;
+  text-align: right;
+  z-index: 2;
+}
+
+/* ── NAME BLOCK — bottom left ───────────────────────────────
+   The only fully sharp, readable version of "Giselle.C".
+   Sits at the lower-left like a title credit on a poster.
+   The background letter fragments are the visual mass;
+   this is the anchor that makes the page readable.
+───────────────────────────────────────────────────────── */
+.hero-nameblock {
+  position: absolute;
+  bottom: 95px;
+  left: 52px;
+  z-index: 2;
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(40px, 3.8vw, 56px);
+  line-height: 1.0;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.hero-role {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ── BOTTOM FOOTER LINE ─────────────────────────────────────
+   Thin hairline rule with two small labels — like the
+   printed footer on an exhibition poster.
+───────────────────────────────────────────────────────── */
+.hero-meta {
+  position: absolute;
+  bottom: 32px;
+  left: 52px;
+  right: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  border-top: 1px solid var(--color-line);
+  padding-top: 14px;
+}
+
+.hero-meta-left,
+.hero-meta-right {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   DECORATIVE BLUR SHAPES
+   These are simple CSS divs with a blur filter applied.
+   They sit in the background as abstract visual elements,
+   inspired by the grainy blurred shapes in reference image 1.
+============================================================ */
+.blur-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);           /* the blur creates the soft, abstract look */
+  opacity: 0.18;
+  pointer-events: none;         /* decorative only, doesn't affect clicks */
+  background: #8A95A8;          /* cool blue-gray */
+  z-index: 0;
+}
+
+/* About blur shape — smaller, offset to the left */
+.blur-shape--about {
+  width: 340px;
+  height: 280px;
+  bottom: 60px;
+  left: -60px;
+}
+
+
+/* ============================================================
+   WORK / GALLERY SECTION
+   Horizontal scrolling row of project placeholders.
+   Each item has a slightly different height for editorial rhythm.
+============================================================ */
+.work {
+  padding-top: 100px;
+  padding-bottom: 140px;
+}
+.visual-archive {
+  padding-top: 100px;
+  padding-bottom: 140px;
+}
+
+/* ── WORK INDEX — editorial archive list ─────────────────────
+   Replaces the old horizontal gallery.
+   Each project is a full-width row with hairline borders.
+   Large serif title, small uppercase metadata, arrow on right.
+─────────────────────────────────────────────────────────── */
+.work-index {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each project row — acts as the clickable link */
+.work-index-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-top: 1px solid var(--color-line);
+  padding: 36px 0;
+  transition: background-color 0.2s ease;
+}
+
+/* Bottom border on last item */
+.work-index-item:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* Subtle background tint on hover */
+.work-index-item:hover {
+  background-color: rgba(200, 205, 216, 0.08);
+}
+
+/* Inner flex row: number | body | right (year + arrow) */
+.work-index-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* Large muted project number */
+.work-index-num {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 300;
+  color: var(--color-line);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 72px;
+  padding-top: 4px;
+}
+
+/* Center column — title, categories, description */
+.work-index-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Large serif project title */
+.work-index-title {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+.work-index-item:hover .work-index-title {
+  color: var(--color-accent);
+}
+
+/* Small uppercase category tags */
+.work-index-cats {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* One-line description — quiet, subordinate */
+.work-index-desc {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-muted);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* Right column — year stacked above arrow */
+.work-index-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+
+.work-index-year {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Arrow — shifts right on hover */
+.work-index-arrow {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  color: var(--color-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.work-index-item:hover .work-index-arrow {
+  transform: translateX(6px);
+  color: var(--color-text);
+}
+
+/* ============================================================
+   ABOUT SECTION — EDITORIAL POSTER + EXPERIENCE GRID
+   Full-bleed. Poster: Stacey Wang-inspired cold editorial composition.
+   Experience: archive grid, no timeline.
+   Blurred mist blobs used as atmospheric decoration/dividers.
+============================================================ */
+
+.about {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-line);
+}
+
+.about-header {
+  padding: 72px 52px 0;
+}
+
+/* ── POSTER ZONE ─────────────────────────────────────────────
+   Full-bleed canvas. "Giselle.C" sits large in background
+   (like Stacey Wang's name in pink, but cold misty serif).
+   Cut-out photo overlaps the text at higher z-index.
+   Small scattered labels annotate the space.
+───────────────────────────────────────────────────────── */
+.about-poster {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Large poster name — the main background element.
+   Less blurred than the hero letters so it reads as intentional.
+   Like "STACEY WANG" in pink, but our cool gray serif version. */
+.about-poster-name {
+  position: absolute;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(130px, 18vw, 260px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #C8CDD8;
+  filter: blur(15px);
+  opacity: 0.45;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  /* CHANGED: moved from center to lower-left to match blue box position */
+  top: auto;
+  bottom: 12%;
+  left: 40px;
+  transform: none;
+  z-index: 0;
+}
+
+/* Atmospheric mist blobs — blurred shapes that float as decoration.
+   Inspired by hero background letters: same blur, same cool gray. */
+.about-mist {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Mist blob 1 — in the poster zone, upper-left */
+.about-mist--1 {
+  width: 400px;
+  height: 300px;
+  top: 5%;
+  left: -60px;
+  background: #A8B0C0;
+  filter: blur(80px);
+  opacity: 0.14;
+}
+
+/* Mist blob 2 — in the experience zone, center-right */
+.about-mist--2 {
+  width: 500px;
+  height: 350px;
+  top: 10%;
+  right: -80px;
+  background: #B0BAC8;
+  filter: blur(90px);
+  opacity: 0.12;
+}
+
+/* Mist blob 3 — experience zone, bottom-left */
+.about-mist--3 {
+  width: 380px;
+  height: 260px;
+  bottom: 8%;
+  left: 20%;
+  background: #9AA4B4;
+  filter: blur(100px);
+  opacity: 0.10;
+}
+
+/* ── PHOTO WRAP ─────────────────────────────────────────────
+   Single absolute rule — centered at 65% of poster width
+   so the portrait sits in the target zone (center-right).
+   overflow:visible lets smear bands bleed left past the edge. */
+.about-photo-wrap {
+  position: absolute;
+  top: 0;
+  left: 65%;
+  transform: translateX(-50%);
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  overflow: visible;
+}
+
+/* Single portrait image — smear effect is baked into the PNG from Photoshop.
+   No extra layers needed. Size and position unchanged. */
+.about-photo {
+  height: 88vh;
+  max-height: 820px;
+  width: auto;
+  display: block;
+}
+
+
+
+/* Small scattered annotation labels — like captions on a poster */
+/* CHANGED: position: absolute so labels can be freely placed anywhere in the poster */
+.about-scatter {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  z-index: 3;
+}
+
+/* Role label — upper left, near the top of the poster */
+/* CHANGED: moved up to sit near the top edge, matching the left blue-line position */
+.about-scatter--role {
+  top: 62px;
+  left: 52px;
+}
+
+/* Field label — CHANGED: moved from mid-left to upper-right, matching first right blue-line */
+.about-scatter--field {
+  top: 62px;   /* same height as role label on the left */
+  left: auto;  /* cancel left */
+  right: 52px; /* anchor to right edge instead */
+}
+
+/* Location — CHANGED: moved from lower-left to upper-right, just below the field line */
+.about-scatter--loc {
+  top: 82px;   /* slightly below field to match the second right blue-line */
+  bottom: auto; /* cancel bottom */
+  left: auto;
+  right: 52px;
+}
+
+/* Bio text — occupies left column of the poster */
+.about-poster-bio {
+  position: absolute;
+  top: 50%;
+  left: 52px;
+  transform: translateY(-50%);
+  max-width: 300px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-poster-bio p {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--color-text);
+}
+
+/* ── EXPERIENCE + EDUCATION GRID ─────────────────────────────
+   Archive format: 4 cards in a row.
+   Each card is a cold typographic entry — no lines, no dots.
+   Blurred mist blobs float behind as atmospheric decoration.
+───────────────────────────────────────────────────────── */
+.about-exp {
+  position: relative;
+  padding: 72px 52px 100px;
+  border-top: 1px solid var(--color-line);
+  overflow: hidden;
+}
+
+/* Section header — matches the editorial label style */
+.about-exp-header {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 52px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Thin rule extending after the label */
+.about-exp-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+
+/* 4-column grid on desktop */
+.about-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* auto-fits any number of entries */
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual experience card — thin top border, editorial spacing */
+.about-exp-item {
+  padding-top: 24px;
+  padding-right: 32px;
+  border-top: 1px solid var(--color-line);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Active item (current / ongoing) — slightly more prominent top border */
+.about-exp-item--active {
+  border-top-color: var(--color-accent);
+}
+
+/* Category label — CURRENTLY / PREVIOUSLY / EDUCATION */
+.about-exp-cat {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Organization name — large serif, main visual anchor */
+.about-exp-org {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Role / degree */
+.about-exp-role {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+/* Location · Date — smallest, most subordinate */
+.about-exp-detail {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--color-muted);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* ── CAPABILITY INDEX ────────────────────────────────────────
+   Archive-catalog layout. Same padding rhythm as .about-exp.
+   No icons, no bars — pure typographic index.
+─────────────────────────────────────────────────────────── */
+.about-skills {
+  padding: 72px 52px 100px;
+  border-top: 1px solid var(--color-line);
+}
+
+/* Each category block — hairline above, label + items below */
+.skills-group {
+  display: grid;
+  /* label takes ~160px left column; items fill the rest */
+  grid-template-columns: 160px 1fr;
+  align-items: baseline;
+  gap: 0 40px;
+  padding: 22px 0;
+  border-top: 1px solid var(--color-line);
+}
+
+/* First group has no top border — the wrapper border is enough */
+.skills-group:first-of-type {
+  border-top: none;
+  padding-top: 32px;
+}
+
+/* Category label — same small uppercase style as .about-exp-cat */
+.skills-cat {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-top: 2px;   /* optical alignment with first item */
+}
+
+/* Skills list — wraps naturally across available width */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;          /* vertical rhythm between wrapped rows */
+}
+
+/* Individual skill — separated by a quiet dot middot */
+.skills-item {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  line-height: 1.9;
+}
+
+/* Dot separator between skills — added via CSS so HTML stays clean */
+.skills-item::after {
+  content: "·";
+  margin: 0 10px;
+  color: var(--color-line);
+}
+
+/* Remove dot after the very last item in each list */
+.skills-item:last-child::after {
+  content: none;
+}
+
+/* ── RESPONSIVE — MOBILE ─────────────────────────────────── */
+@media (max-width: 760px) {
+
+  /* Capability Index — stack label above items on mobile */
+  .about-skills {
+    padding: 52px 24px 72px;
+  }
+
+  .skills-group {
+    grid-template-columns: 1fr;   /* single column: label then items */
+    gap: 10px 0;
+    padding: 20px 0;
+  }
+
+  .about-poster {
+    min-height: 70vh;
+  }
+
+  .about-photo-wrap {
+    left: 50%;
+    transform: translateX(-40%);
+  }
+
+  .about-photo {
+    height: 65vh;
+  }
+
+  .about-poster-bio {
+    max-width: 180px;
+    left: 20px;
+  }
+
+  .about-scatter--field,
+  .about-scatter--loc {
+    display: none;
+  }
+
+  .about-exp {
+    padding: 52px 24px 80px;
+  }
+
+  .about-exp-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 20px;
+  }
+
+  .about-mist--2,
+  .about-mist--3 {
+    opacity: 0.07;
+  }
+}
+
+/* ============================================================
+   CONTACT / INDEX SECTION
+============================================================ */
+/* ============================================================
+   CONTACT — editorial poster layout
+   Full-height section: title top-left, CV top-right,
+   role labels mid, large contact bar pinned to bottom.
+============================================================ */
+.contact {
+  border-top: 1px solid var(--color-line);
+  /* relative so the aside and bar can be absolutely positioned */
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;    /* CHANGED: content stacks from top, not spread out */
+  padding-top: 80px;
+  padding-bottom: 0;            /* bar handles its own bottom spacing */
+}
+
+/* [03] index label — sits inline at top, above the title */
+.contact-index {
+  display: block;
+  margin-bottom: 24px;
+}
+
+/* CV link cluster — upper right corner */
+.contact-aside {
+  position: absolute;
+  top: 80px;
+  right: var(--side-pad);
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-aside-link {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-aside-link:hover {
+  color: var(--color-muted);
+}
+
+.contact-aside-sub {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Large display title */
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 9vw, 130px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-top: 12px;
+  margin-bottom: 52px;            /* CHANGED: breathing room below the big title */
+}
+
+/* "Looking for Opportunity" — sits above role labels */
+.contact-roles-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;            /* CHANGED: small gap before role labels */
+}
+
+.contact-role-title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text);       /* darker — visually distinct from role labels */
+}
+
+/* Role labels — muted to distinguish from the "Looking for Opportunity" above */
+.contact-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+/* Spacer — flex:1 撐滿 roles 和 bar 之間的所有剩餘空間 */
+.contact-spacer {
+  flex: 1;
+}
+
+.contact-role {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Bottom bar — margin-top:auto pushes to bottom; tall padding for breathing room */
+.contact-bar {
+  display: flex;
+  align-items: center;            /* CHANGED: center vertically for visual weight */
+  gap: clamp(24px, 4vw, 60px);
+  padding: 18px 0 100px;           /* top: line貼文字; bottom: 留白在文字下方 */
+  border-top: 1px solid var(--color-line);
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.contact-bar-item {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2.8vw, 36px);
+  font-weight: 300;
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.contact-bar-item:hover {
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   FOOTER
+   Quiet closing line — small, muted, centered.
+============================================================ */
+.site-footer {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 28px var(--side-pad);
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   On small screens, the layout stacks vertically.
+   The experimental elements simplify so it stays readable.
+============================================================ */
+@media (max-width: 700px) {
+
+  /* Work index — tighter on mobile */
+  .work-index-row {
+    gap: 20px;
+  }
+
+  .work-index-num {
+    font-size: 28px;
+    width: 44px;
+  }
+
+  .work-index-right {
+    gap: 8px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;  /* single column on mobile */
+    gap: 40px;
+  }
+
+  .float-panel {
+    display: none;               /* hide decorative panel on small screens */
+  }
+
+  .blur-shape {
+    opacity: 0.1;                /* reduce blur shapes on mobile */
+    width: 200px;
+    height: 180px;
+  }
+
+  /* Contact — mobile: hide aside, stack bar vertically */
+  .contact-aside {
+    position: static;
+    text-align: left;
+    margin-bottom: 32px;
+  }
+
+  .contact-bar {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+
+/* ============================================================
+   VISUAL ARCHIVE — compact secondary section
+   Sits between Selected Work and About.
+   Default: title / category / year per row.
+   Hover: reveals description + image placeholder.
+============================================================ */
+
+.visual-archive {
+  padding: 64px var(--side-pad) 80px;
+  border-top: 1px solid var(--color-line);
+}
+
+/* Section header — smaller than main sections */
+.va-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.va-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.va-title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Entry container */
+.va-item {
+  border-top: 1px solid var(--color-line);
+  overflow: hidden;
+  cursor: default;
+}
+
+.va-item:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+/* Default visible row */
+.va-item-default {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 14px 0;
+  /* Subtle color shift on hover — applied via parent hover */
+  transition: opacity 0.2s ease;
+}
+
+.va-num {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  min-width: 20px;
+  flex-shrink: 0;
+}
+
+.va-name {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--color-text);
+  flex: 1;
+  min-width: 0;
+}
+
+.va-cats {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.va-year {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  flex-shrink: 0;
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Reveal panel — hidden by default, two-column on hover */
+.va-item-reveal {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  padding-left: 40px; /* indent to align with title */
+}
+
+/* Hover: expand the reveal panel */
+.va-item:hover .va-item-reveal {
+  max-height: 260px;
+  opacity: 1;
+}
+
+/* Active indicator: left border on hover */
+.va-item:hover {
+  border-left: 2px solid var(--color-text);
+  padding-left: 12px;
+  margin-left: -14px;
+}
+
+/* Dim the default row slightly when reveal is open */
+.va-item:hover .va-item-default {
+  opacity: 0.5;
+}
+
+/* LEFT: larger image area */
+.va-reveal-img {
+  flex-shrink: 0;
+  width: 260px;
+  height: 170px;
+  border: 1px solid var(--color-line);
+  overflow: hidden;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+/* Actual image fills the container */
+.va-reveal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* RIGHT: archive note text area */
+.va-reveal-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 4px 0 20px;
+}
+
+.va-desc {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Visual Focus block */
+.va-focus {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.va-focus-label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.va-focus-text {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.va-note {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  border: 1px solid var(--color-line);
+  padding: 2px 8px;
+  align-self: flex-start;
+}
+
+/* ── Mobile: always show content, single column ── */
+@media (max-width: 600px) {
+  .visual-archive {
+    padding: 48px 24px 64px;
+  }
+
+  .va-item-default {
+    flex-wrap: wrap;
+    gap: 4px 16px;
+  }
+
+  .va-cats {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  /* Always visible on mobile */
+  .va-item-reveal {
+    grid-template-columns: 1fr;
+    max-height: none;
+    opacity: 1;
+    padding-left: 0;
+    gap: 12px;
+    overflow: visible;
+  }
+
+  /* Full-width image on mobile */
+  .va-reveal-img {
+    width: 100%;
+    height: 180px;
+  }
+
+  /* Restore opacity — no hover dimming on touch */
+  .va-item:hover .va-item-default {
+    opacity: 1;
+  }
+
+  /* Remove left border active indicator on mobile */
+  .va-item:hover {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+}

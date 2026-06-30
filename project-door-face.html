@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Door Face App: Smart Door iOS App Redesign — Giselle.C</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="project-base.css" />
+</head>
+<body>
+
+  <div class="grain-overlay"></div>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <nav class="proj-nav">
+    <a href="index.html" class="proj-nav-name">Giselle.C</a>
+    <a href="index.html#work" class="proj-nav-back">← Back to Selected Work</a>
+  </nav>
+
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <div class="proj-hero">
+
+    <span class="proj-index-tag">[00] &nbsp; UX/UI Design &nbsp;·&nbsp; Heuristic Evaluation &nbsp;·&nbsp; Prototyping &nbsp;·&nbsp; Spring 2026</span>
+
+    <h1 class="proj-title">Door Face App: Smart Door iOS App Redesign</h1>
+
+    <hr class="proj-rule">
+
+    <!-- Key numbers row -->
+    <div class="proj-stats">
+      <div class="proj-stat-item">
+        <span class="proj-stat-num">2</span>
+        <span class="proj-stat-label">User Personas</span>
+      </div>
+      <div class="proj-stat-item">
+        <span class="proj-stat-num">10</span>
+        <span class="proj-stat-label">Nielsen Heuristics</span>
+      </div>
+      <div class="proj-stat-item">
+        <span class="proj-stat-num">4</span>
+        <span class="proj-stat-label">Core UX Dimensions</span>
+      </div>
+      <div class="proj-stat-item">
+        <span class="proj-stat-num">Lo → Hi</span>
+        <span class="proj-stat-label">Fidelity Delivered</span>
+      </div>
+    </div>
+
+    <!-- Metadata grid -->
+    <div class="proj-meta-grid">
+
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Role</span>
+        <span class="proj-meta-value">UX Researcher · Usability Evaluator · Interaction Designer</span>
+      </div>
+
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Client</span>
+        <span class="proj-meta-value">Door Face Panels (DFP) · Armin Ghauforian</span>
+      </div>
+
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Tools</span>
+        <span class="proj-meta-value">Figma · Heuristic Analysis · HTA · Design System</span>
+      </div>
+
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Timeline</span>
+        <span class="proj-meta-value">Spring 2026 · ASU HSE 521</span>
+      </div>
+
+    </div>
+
+    <p class="proj-summary">
+      A UX/UI redesign for a smart door iOS app — focused on making lock-state feedback trustworthy, interaction flows accessible to all ages, and the design system ready for developer handoff.
+    </p>
+
+  </div><!-- end .proj-hero -->
+
+  <!-- ── HERO IMAGE ────────────────────────────────────────── -->
+  <div class="proj-img-full">
+    <span class="proj-img-label">[ Hero image — replace later ]</span>
+  </div>
+
+
+  <!-- ── [01] OVERVIEW ─────────────────────────────────────── -->
+  <div class="proj-section">
+    <span class="proj-section-idx">[01]</span>
+    <h2 class="proj-section-title">Overview</h2>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Context</span>
+      <div class="proj-body">
+        <p>Door Face Panels (DFP) is a startup building a new generation of smart door systems built on patented IoT technologies with customizable panel designs. Their iOS companion app — the Door Face App — lets users lock, unlock, and manage connected door hardware remotely.</p>
+        <p>Our team was brought in during Spring 2026 (ASU HSE 521) to evaluate the existing app and deliver a research-driven UX/UI redesign. The product handles high-trust, security-sensitive actions — meaning usability failures carry real consequences.</p>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Problem</span>
+      <div class="proj-body">
+        <div class="proj-items">
+
+          <div class="proj-item">
+            <span class="proj-item-num">01</span>
+            <div>
+              <p class="proj-item-title">Invisible System Status</p>
+              <p class="proj-item-desc">The app provided little or no feedback during locking actions. Users couldn't tell if the door had actually locked — a major gap for a security-critical product.</p>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <span class="proj-item-num">02</span>
+            <div>
+              <p class="proj-item-title">Cognitive Load in the Unlock Flow</p>
+              <p class="proj-item-desc">The unlock task required too many decision steps, creating hesitation — especially for older or less tech-confident users.</p>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <span class="proj-item-num">03</span>
+            <div>
+              <p class="proj-item-title">Single-Modal Feedback Only</p>
+              <p class="proj-item-desc">Confirmation relied on visual signals alone, with no audio or haptic reinforcement — leaving users with sensory constraints underserved.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Goal</span>
+      <div class="proj-body">
+        <p>Deliver a redesigned interface across four core dimensions: <strong>Usability, Reliability, Accessibility, and System Feedback Clarity</strong> — with developer-ready Figma assets and a structured design system.</p>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">My Role</span>
+      <div class="proj-body">
+       <p>I led usability evaluation and research-driven interface design. My role focused on diagnosing interaction failures through heuristic analysis, translating findings into design requirements, and shaping interaction decisions for users across age groups and technical backgrounds. </p>
+       <p>This was a four-person team project. Abdullah Albagami contributed to system-oriented design, Stephan Bui supported wireframes and the visual system, and Corrine Kao contributed to research, interface design, and prototyping. Corrine and I both worked on interface design; my contribution centered on usability, interaction logic, and research-to-design translation. </p>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Outcome</span>
+      <div class="proj-body">
+        <p>A full UX/UI redesign delivered as a high-fidelity Figma prototype with a complete design system — including a grid framework, card components, input validation states, and selection controls. The redesign removed interaction friction, made lock state legible at a glance, and added multimodal feedback for accessibility.</p>
+      </div>
+    </div>
+
+  </div><!-- end overview -->
+
+
+  <!-- ── [02] RESEARCH & DISCOVERY ────────────────────────── -->
+  <div class="proj-section">
+    <span class="proj-section-idx">[02]</span>
+    <h2 class="proj-section-title">Research &amp; Discovery</h2>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Approach</span>
+      <div class="proj-body">
+        <p>We applied an <strong>Agile UX Design methodology</strong> — moving in structured sprints from diagnosis to high-fidelity output. Rather than stopping at aesthetic improvement, we grounded every design decision in evaluation data.</p>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Methods</span>
+      <div class="proj-body">
+        <div class="proj-tags">
+          <span class="proj-tag">Heuristic Evaluation (Nielsen)</span>
+          <span class="proj-tag">Hierarchical Task Analysis</span>
+          <span class="proj-tag">Persona Development</span>
+          <span class="proj-tag">Competitive Review</span>
+          <span class="proj-tag">Lo-Fi Wireframing</span>
+          <span class="proj-tag">Hi-Fi Prototyping</span>
+          <span class="proj-tag">Design System Audit</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Heuristic Analysis</span>
+      <div class="proj-body">
+        <p>We evaluated the existing app against <strong>Jakob Nielsen's 10 Usability Heuristics</strong>. The most critical finding was a failure of <em>Visibility of System Status</em>: during locking, the interface gave no clear confirmation that the door had actually changed state.</p>
+        <p>This was rated <strong>major severity</strong> — in a product where users need to trust that their door is locked, silent or ambiguous feedback is not a minor annoyance. It actively erodes trust.</p>
+      </div>
+    </div>
+
+    <div class="proj-section-img">
+      <span class="proj-img-label">[ Heuristic evaluation findings — replace later ]</span>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Key Findings</span>
+      <div class="proj-body">
+        <div class="proj-items">
+
+          <div class="proj-item">
+            <span class="proj-item-num">01</span>
+            <div>
+              <p class="proj-item-title">Lock confirmation was absent or uninterpretable</p>
+              <p class="proj-item-desc">Users could not reliably tell if the door locked. Feedback was either missing entirely or too subtle to act on under stress.</p>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <span class="proj-item-num">02</span>
+            <div>
+              <p class="proj-item-title">Older users faced disproportionate friction</p>
+              <p class="proj-item-desc">The unlock flow had unnecessary decision steps that generated cognitive load and fear of accidental actions — especially for Bob, our 75-year-old persona.</p>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <span class="proj-item-num">03</span>
+            <div>
+              <p class="proj-item-title">No multimodal feedback</p>
+              <p class="proj-item-desc">Confirmation was visual-only. Users with low vision or motor difficulty had no alternative signal to confirm system state.</p>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <span class="proj-item-num">04</span>
+            <div>
+              <p class="proj-item-title">Design system lacked consistency</p>
+              <p class="proj-item-desc">Component patterns were inconsistent, making it harder to establish user expectations or maintain visual trust across screens.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end research -->
+
+
+  <!-- ── [03] PROBLEM FRAMING ──────────────────────────────── -->
+  <div class="proj-section">
+    <span class="proj-section-idx">[03]</span>
+    <h2 class="proj-section-title">Problem Framing</h2>
+
+    <div class="proj-cols">
+      <span class="proj-sub">User Personas</span>
+      <div class="proj-body">
+        <div class="proj-two-col">
+          <div class="proj-two-col-cell">
+            <p class="proj-two-col-label">Leo Miller · Age 32</p>
+            <p>Technologically confident. Prioritises speed and efficiency. Wants the fewest taps possible to accomplish security tasks. Risk: becomes impatient with ambiguous states.</p>
+          </div>
+          <div class="proj-two-col-cell">
+            <p class="proj-two-col-label">Bob Jenson · Age 75</p>
+            <p>Lower technical self-assurance. Likely sensory constraints. Needs clear confirmation at every step and reassurance that actions are reversible. Risk: freezes when feedback is unclear.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Task Analysis</span>
+      <div class="proj-body">
+        <p>A <strong>Hierarchical Task Analysis (HTA)</strong> mapped the full unlock flow. For Bob, two friction points emerged:</p>
+        <p>— Unnecessary decision stages mid-flow required mental effort before the main action<br>
+        — No indication of whether the system had registered his input</p>
+        <p>These weren't edge cases. They were predictable failures for a large portion of real users.</p>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Design Challenge</span>
+      <div class="proj-body">
+        <div class="proj-callout">
+          <span class="proj-callout-label">HMW</span>
+          <p class="proj-callout-text">How might we design a smart lock interface that communicates real-time physical state clearly enough that a 75-year-old with low tech confidence can trust it — without slowing down a 32-year-old power user?</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Opportunity</span>
+      <div class="proj-body">
+        <p>The core opportunity was <strong>feedback redesign</strong>: replace silent or ambiguous status signals with immediate, legible, multimodal confirmation. This single change would serve both personas — and make the product trustworthy for high-stakes security actions.</p>
+      </div>
+    </div>
+
+  </div><!-- end problem framing -->
+
+
+  <!-- ── [04] PROCESS ──────────────────────────────────────── -->
+  <div class="proj-section">
+    <span class="proj-section-idx">[04]</span>
+    <h2 class="proj-section-title">Process</h2>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Design Process</span>
+      <div class="proj-body">
+        <div class="proj-steps">
+
+          <div class="proj-step">
+            <span class="proj-step-num">01</span>
+            <div>
+              <p class="proj-step-title">Evaluate the Existing App</p>
+              <p class="proj-step-desc">Systematic heuristic walkthrough against Nielsen's 10 principles. Documented severity ratings for each issue.</p>
+            </div>
+          </div>
+
+          <div class="proj-step">
+            <span class="proj-step-num">02</span>
+            <div>
+              <p class="proj-step-title">Define Users Through Personas + HTA</p>
+              <p class="proj-step-desc">Built Leo and Bob as contrasting need profiles. Mapped the unlock flow as a task hierarchy to locate specific points of failure.</p>
+            </div>
+          </div>
+
+          <div class="proj-step">
+            <span class="proj-step-num">03</span>
+            <div>
+              <p class="proj-step-title">Frame Design Requirements</p>
+              <p class="proj-step-desc">Translated evaluation findings into requirements: clear lock-state feedback, streamlined flow, multimodal cues, consistent component language.</p>
+            </div>
+          </div>
+
+          <div class="proj-step">
+            <span class="proj-step-num">04</span>
+            <div>
+              <p class="proj-step-title">Low-Fidelity Wireframes</p>
+              <p class="proj-step-desc">Focused on information hierarchy, task flow structure, and iOS navigation conventions. Established screen layout before visual styling.</p>
+            </div>
+          </div>
+
+          <div class="proj-step">
+            <span class="proj-step-num">05</span>
+            <div>
+              <p class="proj-step-title">High-Fidelity Prototype + Design System</p>
+              <p class="proj-step-desc">Full visual build in Figma. Defined grid system, card components, input validation states, and selection controls as developer-ready assets.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section-img">
+      <span class="proj-img-label">[ Wireframes / Figma flow — replace later ]</span>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Before / After</span>
+      <div class="proj-body">
+        <div class="proj-two-col">
+          <div class="proj-two-col-cell">
+            <p class="proj-two-col-label">Before — Original App</p>
+            <p>Locking action returns no clear feedback. Users see the same screen regardless of door state. Unlock flow requires multiple taps through ambiguous menus. Single-modal visual feedback only.</p>
+          </div>
+          <div class="proj-two-col-cell">
+            <p class="proj-two-col-label">After — Redesign</p>
+            <p>Lock state is displayed immediately and clearly in the interface. Unlock flow is shortened by removing unnecessary decision stages. Visual + audio + haptic feedback confirm every state change.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end process -->
+
+
+  <!-- ── [05] DESIGN SOLUTION ──────────────────────────────── -->
+  <div class="proj-section">
+    <span class="proj-section-idx">[05]</span>
+    <h2 class="proj-section-title">Design Solution</h2>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Core Principles</span>
+      <div class="proj-body">
+        <div class="proj-items">
+
+          <div class="proj-item">
+            <span class="proj-item-num">01</span>
+            <div>
+              <p class="proj-item-title">Real-Time Lock State Visibility</p>
+              <p class="proj-item-desc">The door's true physical state is the most important thing the interface communicates. Redesigned lock control reports state immediately on every change — no ambiguity.</p>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <span class="proj-item-num">02</span>
+            <div>
+              <p class="proj-item-title">Multimodal Confirmation</p>
+              <p class="proj-item-desc">Visual cues paired with audio feedback for every security-sensitive action. Users don't have to look at the screen to know the door locked.</p>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <span class="proj-item-num">03</span>
+            <div>
+              <p class="proj-item-title">Streamlined Interaction Order</p>
+              <p class="proj-item-desc">Unnecessary steps removed from the unlock flow. Interaction order matches the user's mental model — what they expect to tap next is what's next on screen.</p>
+            </div>
+          </div>
+
+          <div class="proj-item">
+            <span class="proj-item-num">04</span>
+            <div>
+              <p class="proj-item-title">Consistent Component Language</p>
+              <p class="proj-item-desc">A structured design system — grid, cards, inputs, selection controls — creates predictable visual patterns across all screens, building user confidence through familiarity.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-section-img">
+      <span class="proj-img-label">[ High-fidelity prototype screens — replace later ]</span>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Design System</span>
+      <div class="proj-body">
+        <p>The full design system was built and maintained in Figma as developer-ready assets:</p>
+        <div class="proj-items">
+          <div class="proj-item">
+            <span class="proj-item-num">A</span>
+            <div>
+              <p class="proj-item-title">Grid System</p>
+              <p class="proj-item-desc">Column structure, spacing, and responsive breakpoints across desktop, tablet, and mobile.</p>
+            </div>
+          </div>
+          <div class="proj-item">
+            <span class="proj-item-num">B</span>
+            <div>
+              <p class="proj-item-title">Card Components</p>
+              <p class="proj-item-desc">Reusable card patterns with defined content hierarchy, visual grouping, and CTA placement.</p>
+            </div>
+          </div>
+          <div class="proj-item">
+            <span class="proj-item-num">C</span>
+            <div>
+              <p class="proj-item-title">Input Fields</p>
+              <p class="proj-item-desc">Text inputs with label structure, placeholder usage, and validation states: success, warning, error.</p>
+            </div>
+          </div>
+          <div class="proj-item">
+            <span class="proj-item-num">D</span>
+            <div>
+              <p class="proj-item-title">Selection Controls</p>
+              <p class="proj-item-desc">Dropdowns, checkboxes, radio buttons, and toggles — structured for flexible, predictable input patterns.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-img-grid">
+      <div class="proj-img-half">
+        <span class="proj-img-label">[ Lock state redesign — replace later ]</span>
+      </div>
+      <div class="proj-img-half">
+        <span class="proj-img-label">[ Design system components — replace later ]</span>
+      </div>
+    </div>
+
+  </div><!-- end design solution -->
+
+
+  <!-- ── [06] EVALUATION ───────────────────────────────────── -->
+  <div class="proj-section">
+    <span class="proj-section-idx">[06]</span>
+    <h2 class="proj-section-title">Evaluation &amp; Next Steps</h2>
+
+    <div class="proj-cols">
+      <span class="proj-sub">What Was Delivered</span>
+      <div class="proj-body">
+        <p>The project concluded with a full UX/UI baseline: heuristic evaluation documentation, persona and HTA artifacts, low-fidelity wireframes, and a high-fidelity Figma prototype with a complete design system.</p>
+        <p>This established a clear design direction and development-ready foundation for the Door Face App team.</p>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Recommended Next Steps</span>
+      <div class="proj-body">
+        <div class="proj-steps">
+
+          <div class="proj-step">
+            <span class="proj-step-num">01</span>
+            <div>
+              <p class="proj-step-title">Empirical Usability Validation</p>
+              <p class="proj-step-desc">Controlled sessions with target users to quantify task completion, time-on-task, error rates, and SUS scores. This turns design intent into measurable evidence.</p>
+            </div>
+          </div>
+
+          <div class="proj-step">
+            <span class="proj-step-num">02</span>
+            <div>
+              <p class="proj-step-title">Scenario-Based Testing Under Real Conditions</p>
+              <p class="proj-step-desc">Test under network latency, device disconnections, and repeated input sequences. Reliability failures won't surface in ideal lab conditions.</p>
+            </div>
+          </div>
+
+          <div class="proj-step">
+            <span class="proj-step-num">03</span>
+            <div>
+              <p class="proj-step-title">System Synchronization Validation</p>
+              <p class="proj-step-desc">Confirm that on-screen lock state always matches the door's actual physical position. Any mismatch destroys user trust — immediately and lastingly.</p>
+            </div>
+          </div>
+
+          <div class="proj-step">
+            <span class="proj-step-num">04</span>
+            <div>
+              <p class="proj-step-title">Design-to-Development Handoff</p>
+              <p class="proj-step-desc">Translate design system into design tokens, component behavior definitions, and interaction rules — so what ships matches what was designed.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end evaluation -->
+
+
+  <!-- ── [07] IMPACT ───────────────────────────────────────── -->
+  <div class="proj-section">
+    <span class="proj-section-idx">[07]</span>
+    <h2 class="proj-section-title">Impact</h2>
+
+    <div class="proj-cols">
+      <span class="proj-sub">User Impact</span>
+      <div class="proj-body">
+        <div class="proj-two-col">
+          <div class="proj-two-col-cell">
+            <p class="proj-two-col-label">Confidence in High-Trust Actions</p>
+            <p>Users can lock their door and know — immediately — that it worked. Removing uncertainty from a security action has outsized psychological value.</p>
+          </div>
+          <div class="proj-two-col-cell">
+            <p class="proj-two-col-label">Accessible to Both Personas</p>
+            <p>Leo gets a streamlined, fast flow. Bob gets clear feedback and reduced decision load. The redesign doesn't sacrifice one user for the other.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">Product Impact</span>
+      <div class="proj-body">
+        <p>The design system gives DFP a consistent visual foundation that can scale with their product. Developer-ready Figma assets reduce handoff friction and the risk of inconsistent implementation.</p>
+        <p>Strategic recommendations around accessibility (WCAG 2.1), security evaluation, and behavioral analytics position the product for sustainable, evidence-based iteration.</p>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">What I Learned</span>
+      <div class="proj-body">
+        <p>This project reinforced that <strong>high-stakes products require a different UX standard</strong>. When a user can't tell if their door is locked, that's not a minor friction point — it's a failure of the product's core promise.</p>
+        <p>Designing for two very different users (Leo vs. Bob) without creating two different experiences required careful prioritisation: the solution had to be fast enough for Leo and clear enough for Bob. That constraint forced better design thinking than either persona in isolation would have.</p>
+      </div>
+    </div>
+
+  </div><!-- end impact -->
+
+
+  <!-- ── [08] REFLECTION ───────────────────────────────────── -->
+  <div class="proj-section">
+    <span class="proj-section-idx">[08]</span>
+    <h2 class="proj-section-title">Reflection</h2>
+
+    <div class="proj-cols">
+      <span class="proj-sub">What I'd Do Differently</span>
+      <div class="proj-body">
+        <p>I'd push for user testing earlier — even informal walkthroughs with 3–5 participants would have validated whether our feedback redesign actually resolved Bob's uncertainty, rather than leaving that as an open recommendation. The project ended with strong design artifacts but limited behavioral evidence.</p>
+        <p>I'd also prioritise the system synchronization challenge earlier. The hardest usability problem for this product isn't in the interface — it's in the gap between what the app shows and what the door is actually doing. That's an engineering and trust problem, and UX can't solve it alone.</p>
+      </div>
+    </div>
+
+    <div class="proj-cols">
+      <span class="proj-sub">What This Shows</span>
+      <div class="proj-body">
+        <p>This project demonstrates how I apply structured evaluation frameworks — heuristic analysis, task decomposition, persona-driven scenario thinking — to translate abstract usability problems into concrete design decisions.</p>
+        <p>It also shows my interest in the intersection of UX and trust: how the interface shapes whether a person believes a system is working, even when the underlying system is correct. That gap between perceived reliability and actual reliability is where a lot of the most important UX work happens.</p>
+      </div>
+    </div>
+
+  </div><!-- end reflection -->
+
+
+  <!-- ── NAV FOOTER ────────────────────────────────────────── -->
+
+   <div class="proj-nav-footer">
+    <div>
+      <a href="index.html#work">← Back to Selected Work</a>
+    </div>
+    <div style="text-align:right;">
+      <a href="project-stories-to-you.html">Next Project
+        <span class="proj-nav-footer-next">Stories to You →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span>Based in Gilbert, AZ</span>
+    <span>Open to opportunities</span>
+    <span>Giselle.C &nbsp;·&nbsp; 2026</span>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
