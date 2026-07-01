@@ -284,21 +284,125 @@
       <div class="proj-body">
         <div class="proj-two-col">
           <div class="proj-two-col-cell">
-            <!-- Leo persona photo — mix-blend-mode:multiply removes white Figma export background -->
-            <img src="assets/door-face/persona-leo.jpg" alt="Persona — Leo Miller, age 32"
-                 style="width:100%;display:block;border-radius:4px;margin-bottom:14px;mix-blend-mode:multiply;">
+            <!-- Leo persona portrait — transparent PNG, iPhone frame -->
+            <img src="assets/door-face/persona-leo.png" alt="Leo Miller — persona portrait"
+                 style="width:60%;display:block;margin:0 auto 20px;">
             <p class="proj-two-col-label">Leo Miller · Age 32</p>
-            <p>Technologically confident. Prioritises speed and efficiency. Wants the fewest taps possible to accomplish security tasks. Risk: becomes impatient with ambiguous states.</p>
+            <div class="proj-items" style="margin-top:12px;">
+              <div class="proj-item">
+                <span class="proj-item-num">—</span>
+                <div><p class="proj-item-desc">Software engineer, highly tech-confident, uses multiple smart home devices</p></div>
+              </div>
+              <div class="proj-item">
+                <span class="proj-item-num">—</span>
+                <div><p class="proj-item-desc">Goal: fastest path to action — fewest taps, no friction</p></div>
+              </div>
+              <div class="proj-item">
+                <span class="proj-item-num">—</span>
+                <div><p class="proj-item-desc">Frustration: ambiguous lock state forces him to re-check; wasted time</p></div>
+              </div>
+            </div>
           </div>
           <div class="proj-two-col-cell">
-            <!-- Bob persona photo — mix-blend-mode:multiply removes white Figma export background -->
-            <img src="assets/door-face/persona-bob.jpg" alt="Persona — Bob Jenson, age 75"
-                 style="width:100%;display:block;border-radius:4px;margin-bottom:14px;mix-blend-mode:multiply;">
+            <!-- Bob persona portrait — transparent PNG, iPhone frame -->
+            <img src="assets/door-face/persona-bob.png" alt="Bob Jenson — persona portrait"
+                 style="width:60%;display:block;margin:0 auto 20px;">
             <p class="proj-two-col-label">Bob Jenson · Age 75</p>
-            <p>Lower technical self-assurance. Likely sensory constraints. Needs clear confirmation at every step and reassurance that actions are reversible. Risk: freezes when feedback is unclear.</p>
+            <div class="proj-items" style="margin-top:12px;">
+              <div class="proj-item">
+                <span class="proj-item-num">—</span>
+                <div><p class="proj-item-desc">Retired government official, lower digital confidence, wears glasses</p></div>
+              </div>
+              <div class="proj-item">
+                <span class="proj-item-num">—</span>
+                <div><p class="proj-item-desc">Goal: unlock door safely and quickly, with clear confirmation it worked</p></div>
+              </div>
+              <div class="proj-item">
+                <span class="proj-item-num">—</span>
+                <div><p class="proj-item-desc">Frustration: face recognition fails with glasses; no fallback, no feedback — anxiety spikes</p></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Journey Map — Bob Jenson, 5 phases, HTML table from Journeymap.jpg reference -->
+    <div class="proj-cols" style="margin-top: 8px;">
+      <span class="proj-sub">Journey Map</span>
+      <div class="proj-body">
+        <p>Bob Jenson · Age 75 · Goal: Unlock door and enter home safely and quickly</p>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto; margin: 0 0 40px;">
+      <table style="width:100%;border-collapse:collapse;font-family:var(--font-sans);font-size:11px;min-width:680px;">
+
+        <!-- Phase header row -->
+        <thead>
+          <tr>
+            <td style="width:110px;padding:12px 14px;background:var(--color-surface);border:1px solid var(--color-line);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-muted);"></td>
+            <th style="padding:12px 14px;background:var(--color-accent);border:1px solid var(--color-line);color:#fff;font-weight:400;font-size:10px;letter-spacing:.08em;text-align:left;">
+              Phase 1<br><span style="font-size:13px;">😰</span><br><span style="opacity:.85;">Face Recognition + Auto Unlock</span>
+            </th>
+            <th style="padding:12px 14px;background:var(--color-accent);border:1px solid var(--color-line);color:#fff;font-weight:400;font-size:10px;letter-spacing:.08em;text-align:left;opacity:.85;">
+              Phase 2<br><span style="font-size:13px;">😟</span><br><span style="opacity:.85;">View Homepage</span>
+            </th>
+            <th style="padding:12px 14px;background:var(--color-accent);border:1px solid var(--color-line);color:#fff;font-weight:400;font-size:10px;letter-spacing:.08em;text-align:left;opacity:.75;">
+              Phase 3<br><span style="font-size:13px;">😐</span><br><span style="opacity:.85;">Find Lock Control</span>
+            </th>
+            <th style="padding:12px 14px;background:var(--color-accent);border:1px solid var(--color-line);color:#fff;font-weight:400;font-size:10px;letter-spacing:.08em;text-align:left;opacity:.75;">
+              Phase 4<br><span style="font-size:13px;">😟</span><br><span style="opacity:.85;">Unlock Action</span>
+            </th>
+            <th style="padding:12px 14px;background:var(--color-accent);border:1px solid var(--color-line);color:#fff;font-weight:400;font-size:10px;letter-spacing:.08em;text-align:left;opacity:.6;">
+              Phase 5<br><span style="font-size:13px;">🙂</span><br><span style="opacity:.85;">Enter Home</span>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Actions -->
+          <tr>
+            <td style="padding:12px 14px;background:var(--color-surface);border:1px solid var(--color-line);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text);vertical-align:top;">Actions</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Arrives at front door. Stands in front of camera. System fails to recognise face. Takes out phone and opens app.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Opens app homepage. Looks at camera feed, AI Learning panel, temperature, and locked status.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Searches for the lock/unlock button. Scans the interface to identify the right icon.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Presses unlock button. Waits for a response from the system.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Opens door. Enters home.</td>
+          </tr>
+
+          <!-- Thoughts & Feelings -->
+          <tr>
+            <td style="padding:12px 14px;background:var(--color-surface);border:1px solid var(--color-line);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text);vertical-align:top;">Thoughts &amp; Feelings</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-muted);line-height:1.65;vertical-align:top;font-style:italic;">"Why isn't it opening?" · "Do I need to take off my glasses?" · "This is taking too long."</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-muted);line-height:1.65;vertical-align:top;font-style:italic;">"I just want to unlock the door." · "Where's the quickest way to do this?" · Mild hesitation.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-muted);line-height:1.65;vertical-align:top;font-style:italic;">"Is this the unlock button?" · Uncertain before acting.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-muted);line-height:1.65;vertical-align:top;font-style:italic;">"Did it work?" · Anxiety while waiting for door response.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-muted);line-height:1.65;vertical-align:top;font-style:italic;">"Okay, it worked." · Relief.</td>
+          </tr>
+
+          <!-- Pain Points -->
+          <tr>
+            <td style="padding:12px 14px;background:var(--color-surface);border:1px solid var(--color-line);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text);vertical-align:top;">Pain Points</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Face recognition fails under real-world conditions (glasses, lighting). No clear fallback or error explanation.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">AI Learning label is unclear. Temperature and non-essential content competes with the primary action.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Lock control not visually prioritised. User must scan entire screen to find the action.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">No immediate feedback during the unlock process. User uncertain whether the door has responded.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Process felt longer than expected. Too many steps for what should be a simple task.</td>
+          </tr>
+
+          <!-- Insights -->
+          <tr>
+            <td style="padding:12px 14px;background:var(--color-surface);border:1px solid var(--color-line);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text);vertical-align:top;">Insights</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Real-world conditions reduce system reliability. Entry must remain fast even when recognition fails.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Not all information is useful in every context. Interface must prioritise task-relevant actions.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Critical actions must be immediately recognisable — not buried in a scan.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Immediate feedback is essential for trust. Silence after action creates anxiety.</td>
+            <td style="padding:12px 14px;background:var(--color-bg);border:1px solid var(--color-line);color:var(--color-text);line-height:1.65;vertical-align:top;">Even small delays erode the overall experience. Fewer steps = more trust.</td>
+          </tr>
+        </tbody>
+
+      </table>
     </div>
 
     <div class="proj-cols">
@@ -388,7 +492,7 @@
     <!-- Prototype 2.png: two iPhones side by side showing Locked and Unlocked states -->
     <div style="padding: 40px 0; background: transparent;">
       <img src="assets/door-face/prototype-2.png" alt="Door Face App — Locked State and Unlocked State side by side"
-           style="width:100%;display:block;mix-blend-mode:multiply;">
+           style="width:100%;display:block;">
       <p class="proj-photo-caption" style="text-align:center;margin-top:12px;">Lo-Fi → Hi-Fi · Locked State &amp; Unlocked State</p>
     </div>
 
@@ -460,7 +564,7 @@
     <!-- Prototype 3.png: single iPhone showing Visual Settings screen -->
     <div style="padding: 40px 0; background: transparent;">
       <img src="assets/door-face/prototype-3.png" alt="Door Face App — Visual Settings screen, high-fidelity prototype"
-           style="width:100%;display:block;mix-blend-mode:multiply;">
+           style="width:100%;display:block;">
       <p class="proj-photo-caption" style="text-align:center;margin-top:12px;">High-Fidelity Prototype · Visual Settings Screen</p>
     </div>
 
@@ -505,7 +609,7 @@
       <!-- Prototype 4.png: two iPhones showing Devices list + Front Door detail -->
       <div style="display:flex; justify-content:center; align-items:center; padding: 32px 24px; background: var(--color-surface);">
         <img src="assets/door-face/prototype-4.png" alt="Door Face App — Devices list and Front Door detail"
-             style="width:100%;display:block;mix-blend-mode:multiply;">
+             style="width:100%;display:block;">
       </div>
       <div style="background: var(--color-surface); padding: 32px 24px;">
         <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Design System Components</p>
