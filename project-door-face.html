@@ -489,26 +489,19 @@
       </div>
     </div>
 
-    <!-- Prototype 2.png: two iPhones side by side showing Locked and Unlocked states -->
-    <div style="padding: 40px 0; background: transparent;">
-      <img src="assets/door-face/prototype-2.png" alt="Door Face App — Locked State and Unlocked State side by side"
-           style="width:100%;display:block;">
-      <p class="proj-photo-caption" style="text-align:center;margin-top:12px;">Lo-Fi → Hi-Fi · Locked State &amp; Unlocked State</p>
-    </div>
-
-    <div class="proj-cols">
-      <span class="proj-sub">Before / After</span>
-      <div class="proj-body">
-        <div class="proj-two-col">
-          <div class="proj-two-col-cell">
-            <p class="proj-two-col-label">Before — Original App</p>
-            <p>Locking action returns no clear feedback. Users see the same screen regardless of door state. Unlock flow requires multiple taps through ambiguous menus. Single-modal visual feedback only.</p>
-          </div>
-          <div class="proj-two-col-cell">
-            <p class="proj-two-col-label">After — Redesign</p>
-            <p>Lock state is displayed immediately and clearly in the interface. Unlock flow is shortened by removing unnecessary decision stages. Visual + audio + haptic feedback confirm every state change.</p>
-          </div>
-        </div>
+    <!-- 2-col: Locked/Unlocked prototype left, Before/After text right — equal weight, no full-bleed -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--color-line);border:1px solid var(--color-line);margin:40px 0;align-items:start;">
+      <div style="background:var(--color-bg);padding:32px 24px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Lo-Fi → Hi-Fi · Locked &amp; Unlocked States</p>
+        <img src="assets/door-face/prototype-2.png" alt="Door Face App — Locked State and Unlocked State side by side"
+             style="width:100%;display:block;">
+      </div>
+      <div style="background:var(--color-bg);padding:32px 24px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:24px;">Before / After</p>
+        <p style="font-family:var(--font-sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text);margin-bottom:8px;">Before — Original App</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-muted);line-height:1.75;margin-bottom:28px;">Locking action returns no clear feedback. Users see the same screen regardless of door state. Unlock flow requires multiple taps through ambiguous menus. Single-modal visual feedback only.</p>
+        <p style="font-family:var(--font-sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text);margin-bottom:8px;">After — Redesign</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-muted);line-height:1.75;">Lock state is displayed immediately and clearly in the interface. Unlock flow is shortened by removing unnecessary decision stages. Visual + audio + haptic feedback confirm every state change.</p>
       </div>
     </div>
 
@@ -561,11 +554,18 @@
       </div>
     </div>
 
-    <!-- Prototype 3.png: single iPhone showing Visual Settings screen -->
-    <div style="padding: 40px 0; background: transparent;">
-      <img src="assets/door-face/prototype-3.png" alt="Door Face App — Visual Settings screen, high-fidelity prototype"
-           style="width:100%;display:block;">
-      <p class="proj-photo-caption" style="text-align:center;margin-top:12px;">High-Fidelity Prototype · Visual Settings Screen</p>
+    <!-- 2-col: annotation text left, single phone right at natural proportions — never full-bleed -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--color-line);border:1px solid var(--color-line);margin:0 0 40px;align-items:start;">
+      <div style="background:var(--color-bg);padding:32px 24px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">High-Fidelity Prototype · Visual Settings</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-muted);line-height:1.75;margin-bottom:20px;">The Visual Settings screen applies the redesigned component system to a secondary feature — LED colour picker, brightness and transparency sliders, and light mode selector.</p>
+        <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-muted);line-height:1.75;">Consistent input patterns (dropdowns, sliders, colour swatch selection) ensure users carry the same mental model from the homepage into settings — reducing relearning cost across screens.</p>
+      </div>
+      <div style="background:var(--color-bg);padding:32px 24px;display:flex;justify-content:center;align-items:flex-start;">
+        <!-- max-width contains single phone at natural proportions -->
+        <img src="assets/door-face/prototype-3.png" alt="Door Face App — Visual Settings screen, high-fidelity prototype"
+             style="width:100%;max-width:260px;display:block;">
+      </div>
     </div>
 
     <div class="proj-cols">
@@ -605,9 +605,9 @@
       </div>
     </div>
 
-    <div class="proj-img-grid" style="align-items: start;">
-      <!-- Prototype 4.png: two iPhones showing Devices list + Front Door detail -->
-      <div style="display:flex; justify-content:center; align-items:center; padding: 32px 24px; background: var(--color-surface);">
+    <!-- align-items default = stretch, so both columns reach the same bottom edge -->
+    <div class="proj-img-grid">
+      <div style="background:var(--color-surface);padding:32px 24px;">
         <img src="assets/door-face/prototype-4.png" alt="Door Face App — Devices list and Front Door detail"
              style="width:100%;display:block;">
       </div>
