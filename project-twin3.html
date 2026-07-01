@@ -75,10 +75,47 @@
 
   </div><!-- end .proj-hero -->
 
-  <!-- Hero image -->
-  <div class="proj-img-full">
-    <!-- Replace with <img src="..." alt="Twin3 hero"> when ready -->
-    <span class="proj-img-label">[ Hero image — replace later ]</span>
+  <!-- Hero — Architecture diagram -->
+  <div class="proj-img-full" style="min-height:auto; padding:0; background: transparent;">
+    <div class="proj-arch">
+      <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Product Architecture — twin3.ai</p>
+      <div class="proj-arch-stages">
+
+        <div class="proj-arch-stage">
+          <span class="proj-arch-stage-num">Stage 01</span>
+          <p class="proj-arch-stage-title">Build Your Digital Soul</p>
+          <p class="proj-arch-stage-desc">Transform human identity into a 256-dimensional Twin Matrix — a Soulbound Token (ERC-4671) that permanently records who you are.</p>
+          <div class="proj-arch-items">
+            <span class="proj-arch-item">Physical Me · Digital Me</span>
+            <span class="proj-arch-item">Social Me · Spiritual Me</span>
+            <span class="proj-arch-item">256 DNAs (Decentralised Nodes of Authenticity)</span>
+          </div>
+        </div>
+
+        <div class="proj-arch-stage" style="border-left: 1px solid var(--color-line); border-right: 1px solid var(--color-line);">
+          <span class="proj-arch-stage-num">Stage 02</span>
+          <p class="proj-arch-stage-title">Soul Injection Protocol</p>
+          <p class="proj-arch-stage-desc">Cryptographic binding (ERC-8004) links the Twin Matrix SBT to an AI agent — activating a Personal Agent that auto-updates as identity evolves.</p>
+          <div class="proj-arch-items">
+            <span class="proj-arch-item">Identity Crystallisation</span>
+            <span class="proj-arch-item">Binding &amp; Activation</span>
+            <span class="proj-arch-item">Continuous Injection Loop</span>
+          </div>
+        </div>
+
+        <div class="proj-arch-stage">
+          <span class="proj-arch-stage-num">Stage 03</span>
+          <p class="proj-arch-stage-title">The Agent Economy</p>
+          <p class="proj-arch-stage-desc">Deploy specialised agents into the A2A marketplace — DeFi Trader, Social Assistant, RWA Trader — operating on your behalf 24/7 in Web 4.0.</p>
+          <div class="proj-arch-items">
+            <span class="proj-arch-item">A2A Agent Marketplace</span>
+            <span class="proj-arch-item">Scoped authorisation + validity periods</span>
+            <span class="proj-arch-item">Real World Asset trading</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
 
@@ -209,10 +246,35 @@
       </div>
     </div>
 
-    <!-- Image: research artifacts -->
-    <div class="proj-section-img">
-      <!-- Replace with research artifact image -->
-      <span class="proj-img-label">[ Research artifacts / affinity map — replace later ]</span>
+    <!-- UX Research findings as structured chart -->
+    <div class="proj-section-img" style="min-height:auto; display:block; padding:0; background:transparent;">
+      <div class="proj-heuristic">
+        <div class="proj-heuristic-header">
+          <span>Research Finding</span>
+          <span>User Insight</span>
+          <span>Priority</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">Agent Identity Mental Model</span>
+          <span class="proj-heuristic-issue">Users understood AI agents conceptually but couldn't map the relationship between their identity data, the agent, and onchain actions. Needed a clearer "who controls what" framework.</span>
+          <span class="proj-heuristic-sev sev-4">High</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">Trust &amp; Transparency Gap</span>
+          <span class="proj-heuristic-issue">First-time users felt uncertain about permissioning scope. How much access does the agent have? When does it stop? Authorization UI needed explicit scope labels and validity periods.</span>
+          <span class="proj-heuristic-sev sev-4">High</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">Onboarding Wizard Friction</span>
+          <span class="proj-heuristic-issue">The Soul injection wizard required users to grasp Web3 concepts mid-flow. Terminology ("SBT", "ERC-8004") created drop-off. Plain-language framing at each step reduced abandonment.</span>
+          <span class="proj-heuristic-sev sev-3">Medium</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">Matrix Visualisation Legibility</span>
+          <span class="proj-heuristic-issue">The 256-dimension matrix was conceptually powerful but visually overwhelming in early iterations. Users needed a scannable summary before the full data layer.</span>
+          <span class="proj-heuristic-sev sev-3">Medium</span>
+        </div>
+      </div>
     </div>
 
     <div class="proj-cols">
@@ -362,10 +424,38 @@
       </div>
     </div>
 
-    <!-- Journey map image -->
-    <div class="proj-section-img">
-      <!-- Replace with journey map image -->
-      <span class="proj-img-label">[ Journey map — replace later ]</span>
+    <!-- User flow diagram -->
+    <div class="proj-section-img" style="min-height:auto; display:block; padding:0; background:transparent;">
+      <div class="proj-arch">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Wizard Flow — Soul Injection Onboarding</p>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--color-line);border:1px solid var(--color-line);">
+          <div style="background:var(--color-bg);padding:24px 20px;">
+            <span style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);display:block;margin-bottom:10px;">01</span>
+            <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-text);margin-bottom:6px;">Landing</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.6;">Value prop · Hero · CTA to begin</p>
+          </div>
+          <div style="background:var(--color-bg);padding:24px 20px;">
+            <span style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);display:block;margin-bottom:10px;">02</span>
+            <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-text);margin-bottom:6px;">Matrix Build</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.6;">4 quadrant input · 256 DNA nodes</p>
+          </div>
+          <div style="background:var(--color-bg);padding:24px 20px;">
+            <span style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);display:block;margin-bottom:10px;">03</span>
+            <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-text);margin-bottom:6px;">Injection</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.6;">Bind SBT to agent · confirm scope</p>
+          </div>
+          <div style="background:var(--color-bg);padding:24px 20px;">
+            <span style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);display:block;margin-bottom:10px;">04</span>
+            <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-text);margin-bottom:6px;">Authorisation</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.6;">Grant access · set validity period</p>
+          </div>
+          <div style="background:var(--color-bg);padding:24px 20px;">
+            <span style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);display:block;margin-bottom:10px;">05</span>
+            <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-text);margin-bottom:6px;">Monitor</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.6;">Agent dashboard · modify or revoke</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="proj-cols">
@@ -406,15 +496,35 @@
       </div>
     </div>
 
-    <!-- Wireframe / iteration images -->
-    <div class="proj-img-grid">
-      <div class="proj-img-half">
-        <!-- Replace with early wireframe -->
-        <span class="proj-img-label">[ Early wireframe — replace later ]</span>
+    <!-- Before / After iteration comparison -->
+    <div class="proj-img-grid" style="gap:1px; background:var(--color-line); border:1px solid var(--color-line); margin: 40px 0;">
+      <div style="background:var(--color-bg); padding:28px 28px 32px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Alpha · Testnet Version</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="height:3px;background:var(--color-line);border-radius:2px;width:60%;"></div>
+          <div style="height:48px;background:var(--color-surface);border-radius:4px;"></div>
+          <div style="height:3px;background:var(--color-line);border-radius:2px;width:40%;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div style="height:36px;background:var(--color-surface);border-radius:4px;"></div>
+            <div style="height:36px;background:var(--color-surface);border-radius:4px;"></div>
+          </div>
+          <div style="height:24px;background:var(--color-surface);border-radius:4px;width:80%;"></div>
+        </div>
+        <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);margin-top:16px;line-height:1.6;">Dense layout, technical labels visible, wizard steps unclear</p>
       </div>
-      <div class="proj-img-half">
-        <!-- Replace with refined iteration -->
-        <span class="proj-img-label">[ Refined iteration — replace later ]</span>
+      <div style="background:var(--color-bg); padding:28px 28px 32px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Refined · Post-testnet Version</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="height:3px;background:var(--color-accent);border-radius:2px;width:45%;"></div>
+          <div style="height:48px;background:var(--color-surface);border-radius:4px;border:1px solid var(--color-line);"></div>
+          <div style="height:3px;background:var(--color-line);border-radius:2px;width:55%;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div style="height:36px;background:var(--color-accent);border-radius:4px;opacity:0.15;"></div>
+            <div style="height:36px;background:var(--color-surface);border-radius:4px;border:1px solid var(--color-line);"></div>
+          </div>
+          <div style="height:24px;background:var(--color-surface);border-radius:4px;width:65%;border:1px solid var(--color-line);"></div>
+        </div>
+        <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);margin-top:16px;line-height:1.6;">Clear hierarchy, plain-language labels, explicit permission scope</p>
       </div>
     </div>
 
@@ -500,19 +610,88 @@
       </div>
     </div>
 
-    <!-- Final design image -->
-    <div class="proj-section-img">
-      <!-- Replace with final UI screenshots -->
-      <span class="proj-img-label">[ Final design / prototype screens — replace later ]</span>
+    <!-- Browser frame — landing page representation -->
+    <div class="proj-browser-wrap" style="padding-top:40px;">
+      <div class="proj-browser">
+        <div class="proj-browser-bar">
+          <div class="proj-browser-dots">
+            <div class="proj-browser-dot"></div>
+            <div class="proj-browser-dot"></div>
+            <div class="proj-browser-dot"></div>
+          </div>
+          <span class="proj-browser-url">twin3.ai</span>
+        </div>
+        <div class="proj-browser-screen" style="background:#0a0a0f; padding: 40px 48px; min-height: 320px;">
+          <div style="max-width:600px;">
+            <p style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5a5a7a;margin-bottom:16px;">twin3.ai · Landing Page</p>
+            <p style="font-family:Georgia,serif;font-size:clamp(24px,4vw,40px);font-weight:300;color:#e8e8f0;line-height:1.2;margin-bottom:20px;">Injecting Human Soul<br>into AI Agents</p>
+            <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#7a7a9a;line-height:1.7;margin-bottom:32px;">Transform your 256-dimensional identity into a Soulbound Token — then deploy AI agents that work and earn on your behalf in a decentralised agent economy.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <span style="background:#3a3aff;color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;padding:10px 24px;border-radius:4px;">Build Your Soul</span>
+              <span style="border:1px solid #3a3a5a;color:#7a7a9a;font-family:'DM Sans',sans-serif;font-size:12px;padding:10px 24px;border-radius:4px;">Learn More</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;">
+              <div style="border-top:1px solid #2a2a3a;padding-top:12px;">
+                <p style="font-family:'DM Sans',sans-serif;font-size:22px;color:#e8e8f0;margin-bottom:4px;">256D</p>
+                <p style="font-family:'DM Sans',sans-serif;font-size:11px;color:#5a5a7a;">Identity dimensions</p>
+              </div>
+              <div style="border-top:1px solid #2a2a3a;padding-top:12px;">
+                <p style="font-family:'DM Sans',sans-serif;font-size:22px;color:#e8e8f0;margin-bottom:4px;">6k+</p>
+                <p style="font-family:'DM Sans',sans-serif;font-size:11px;color:#5a5a7a;">Community members</p>
+              </div>
+              <div style="border-top:1px solid #2a2a3a;padding-top:12px;">
+                <p style="font-family:'DM Sans',sans-serif;font-size:22px;color:#e8e8f0;margin-bottom:4px;">Mainnet</p>
+                <p style="font-family:'DM Sans',sans-serif;font-size:11px;color:#5a5a7a;">Live on-chain</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="proj-photo-caption">Landing Page · My Role: UX Research, Interaction Design, Wizard Flow, Agent &amp; Matrix Screens</p>
     </div>
 
-    <!-- Screen details -->
-    <div class="proj-img-grid">
-      <div class="proj-img-half">
-        <span class="proj-img-label">[ Screen detail A — replace later ]</span>
+    <!-- Screen details — my specific contribution areas -->
+    <div class="proj-img-grid" style="gap:1px;background:var(--color-line);border:1px solid var(--color-line);margin:0 0 0;">
+      <div style="background:var(--color-bg);padding:28px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Screen A — Matrix Dashboard</p>
+        <div style="background:var(--color-surface);border-radius:6px;padding:20px;aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="background:var(--color-bg);border-radius:4px;padding:12px;">
+              <p style="font-family:var(--font-sans);font-size:9px;color:var(--color-muted);margin-bottom:6px;letter-spacing:.1em;text-transform:uppercase;">Physical Me</p>
+              <div style="height:4px;background:var(--color-accent);border-radius:2px;width:72%;opacity:0.5;"></div>
+            </div>
+            <div style="background:var(--color-bg);border-radius:4px;padding:12px;">
+              <p style="font-family:var(--font-sans);font-size:9px;color:var(--color-muted);margin-bottom:6px;letter-spacing:.1em;text-transform:uppercase;">Digital Me</p>
+              <div style="height:4px;background:var(--color-accent);border-radius:2px;width:55%;opacity:0.5;"></div>
+            </div>
+            <div style="background:var(--color-bg);border-radius:4px;padding:12px;">
+              <p style="font-family:var(--font-sans);font-size:9px;color:var(--color-muted);margin-bottom:6px;letter-spacing:.1em;text-transform:uppercase;">Social Me</p>
+              <div style="height:4px;background:var(--color-accent);border-radius:2px;width:88%;opacity:0.5;"></div>
+            </div>
+            <div style="background:var(--color-bg);border-radius:4px;padding:12px;">
+              <p style="font-family:var(--font-sans);font-size:9px;color:var(--color-muted);margin-bottom:6px;letter-spacing:.1em;text-transform:uppercase;">Spiritual Me</p>
+              <div style="height:4px;background:var(--color-accent);border-radius:2px;width:40%;opacity:0.5;"></div>
+            </div>
+          </div>
+          <p style="font-family:var(--font-sans);font-size:10px;color:var(--color-muted);text-align:center;margin-top:8px;">256 DNA nodes · 4 quadrant overview</p>
+        </div>
       </div>
-      <div class="proj-img-half">
-        <span class="proj-img-label">[ Screen detail B — replace later ]</span>
+      <div style="background:var(--color-bg);padding:28px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Screen B — Agent Authorization Wizard</p>
+        <div style="background:var(--color-surface);border-radius:6px;padding:20px;aspect-ratio:4/3;display:flex;flex-direction:column;gap:10px;justify-content:center;">
+          <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);letter-spacing:.1em;text-transform:uppercase;">Step 3 of 5 — Grant Access</p>
+          <div style="background:var(--color-bg);border-radius:4px;padding:12px;border:1px solid var(--color-line);">
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">DeFi Trading Agent</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);">Scope: Portfolio view only &nbsp;·&nbsp; Valid: 30 days</p>
+          </div>
+          <div style="background:var(--color-bg);border-radius:4px;padding:12px;border:1px solid var(--color-line);">
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">Social Assistant Agent</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);">Scope: Read-only &nbsp;·&nbsp; Valid: 7 days</p>
+          </div>
+          <div style="background:var(--color-accent);border-radius:4px;padding:10px;text-align:center;opacity:0.7;">
+            <p style="font-family:var(--font-sans);font-size:12px;color:#fff;letter-spacing:.05em;">Confirm &amp; Inject →</p>
+          </div>
+        </div>
       </div>
     </div>
 

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dallas to Denver: Family Road Trip Guide — Giselle.C</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="project-base.css" />
+</head>
+<body>
+
+  <div class="grain-overlay"></div>
+
+  <!-- NAV -->
+  <nav class="proj-nav">
+    <a href="index.html" class="proj-nav-name">Giselle.C</a>
+    <a href="index.html#work" class="proj-nav-back">← Back to Selected Work</a>
+  </nav>
+
+
+  <!-- ── [00] HERO ─────────────────────────────────────────── -->
+  <div class="proj-hero">
+
+    <span class="proj-index-tag">[04] &nbsp; Web Design · Information Design · Bilingual UX &nbsp;·&nbsp; 2026</span>
+
+    <h1 class="proj-title">Dallas to Denver:<br>Family Road Trip Guide</h1>
+
+    <hr class="proj-rule">
+
+    <div class="proj-meta-grid">
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Role</span>
+        <span class="proj-meta-value">Designer · Developer</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Tools</span>
+        <span class="proj-meta-value">HTML · CSS · JavaScript · Claude Code</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Timeline</span>
+        <span class="proj-meta-value">June 2026</span>
+      </div>
+      <div class="proj-meta-item">
+        <span class="proj-meta-label">Type</span>
+        <span class="proj-meta-value">Personal Project · Web Design · Bilingual UX</span>
+      </div>
+    </div>
+
+    <!-- Live demo link -->
+    <div style="margin-top: 2.5rem;">
+      <a href="roadtrip/" target="_blank" rel="noopener noreferrer" class="proj-link-pill">
+        View Live Site →
+      </a>
+    </div>
+
+  </div>
+
+
+  <!-- ── [01] OVERVIEW ─────────────────────────────────────── -->
+  <section class="proj-section">
+    <div class="proj-section-inner">
+
+      <div class="proj-section-label">[01] Overview</div>
+
+      <div class="proj-body-grid">
+
+        <div class="proj-body-left">
+          <h2 class="proj-section-heading">A trip guide built for family, designed for the world.</h2>
+        </div>
+
+        <div class="proj-body-right">
+          <p class="proj-paragraph">
+            This project started as a private planning tool for a 6-day family road trip from Dallas, TX to Denver, CO — covering four states, 2,000 miles, and a mix of canyons, volcanoes, mountain passes, and open plains.
+          </p>
+          <p class="proj-paragraph">
+            After the trip, I redesigned the site for a public audience: adding a bilingual Chinese/English toggle, a polished navigation system, and visual refinements that bring it closer to a real travel editorial. The goal was to demonstrate that a personal project could meet portfolio-level standards of design and usability.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── [02] THE CHALLENGE ────────────────────────────────── -->
+  <section class="proj-section proj-section--alt">
+    <div class="proj-section-inner">
+
+      <div class="proj-section-label">[02] The Challenge</div>
+
+      <div class="proj-body-grid">
+
+        <div class="proj-body-left">
+          <h2 class="proj-section-heading">Information-dense content. Two audiences. One page.</h2>
+        </div>
+
+        <div class="proj-body-right">
+          <p class="proj-paragraph">
+            A road trip guide carries a lot of information — routes, stops, food, notes, checklists, photography — and it needs to be scannable on the go, not just readable at a desk.
+          </p>
+          <p class="proj-paragraph">
+            The original version was Chinese-only, intended for family. Expanding it meant translating not just language but design intent: keeping the warmth and personal detail of a family guide while making it readable and credible to a general audience.
+          </p>
+          <p class="proj-paragraph">
+            Key constraints: single-page (no routing), no frameworks, real trip photographs, and a language toggle that persists across sessions.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── [03] DESIGN DECISIONS ─────────────────────────────── -->
+  <section class="proj-section">
+    <div class="proj-section-inner">
+
+      <div class="proj-section-label">[03] Design Decisions</div>
+
+      <h2 class="proj-section-heading" style="max-width: 560px; margin-bottom: 3rem;">Three layers of design thinking.</h2>
+
+      <!-- Decision cards -->
+      <div class="proj-cards-grid">
+
+        <div class="proj-card">
+          <span class="proj-card-num">01</span>
+          <h3 class="proj-card-title">Information Architecture</h3>
+          <p class="proj-card-body">
+            The accordion pattern for day entries solves the density problem — everything is accessible, but only one day is open at a time. The hero SVG map gives immediate spatial orientation before any scrolling happens.
+          </p>
+        </div>
+
+        <div class="proj-card">
+          <span class="proj-card-num">02</span>
+          <h3 class="proj-card-title">Bilingual Toggle System</h3>
+          <p class="proj-card-body">
+            Rather than two separate pages, a single language state governs both static HTML elements (via <code>data-zh</code> / <code>data-en</code> attributes) and dynamically rendered JS content. Language preference persists via <code>localStorage</code>.
+          </p>
+        </div>
+
+        <div class="proj-card">
+          <span class="proj-card-num">03</span>
+          <h3 class="proj-card-title">Visual Tone</h3>
+          <p class="proj-card-body">
+            Warm paper tones, editorial typography, and real photography keep the site feeling personal and travel-authentic — not like a generic template. The route SVG was hand-crafted to match actual geography.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── [04] FEATURES ─────────────────────────────────────── -->
+  <section class="proj-section proj-section--alt">
+    <div class="proj-section-inner">
+
+      <div class="proj-section-label">[04] Features</div>
+
+      <div class="proj-body-grid">
+
+        <div class="proj-body-left">
+          <h2 class="proj-section-heading">What the site does.</h2>
+        </div>
+
+        <div class="proj-body-right">
+          <ul class="proj-feature-list">
+            <li><span class="proj-feature-label">Route Map SVG</span> — Hand-drawn vector map in the hero showing outbound (solid) and return (dashed) routes across 4 states</li>
+            <li><span class="proj-feature-label">Bilingual Toggle</span> — One click switches all content between Traditional Chinese and English; preference saved to localStorage</li>
+            <li><span class="proj-feature-label">Day Accordions</span> — Each of the 6 days expands to reveal a photo header, route SVG, metadata, two-column content, and a photo gallery</li>
+            <li><span class="proj-feature-label">Interactive Checklist</span> — Per-item checkboxes saved to localStorage; survives page refresh</li>
+            <li><span class="proj-feature-label">Sticky Navigation</span> — Transparent over the hero, solidifies on scroll; includes a back-to-portfolio link</li>
+            <li><span class="proj-feature-label">Google Maps Links</span> — Each day links directly to its route in Google Maps</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── [05] REFLECTION ───────────────────────────────────── -->
+  <section class="proj-section">
+    <div class="proj-section-inner">
+
+      <div class="proj-section-label">[05] Reflection</div>
+
+      <div class="proj-body-grid">
+
+        <div class="proj-body-left">
+          <h2 class="proj-section-heading">What I learned.</h2>
+        </div>
+
+        <div class="proj-body-right">
+          <p class="proj-paragraph">
+            Building this site without a framework forced me to think carefully about state management — the language toggle needs to coordinate between HTML attributes, JS-rendered DOM, and localStorage without any reactivity library to help.
+          </p>
+          <p class="proj-paragraph">
+            It also reinforced how much visual weight real photography carries. Even with a well-structured layout, the site only comes alive once the actual trip images are in place. Design and content are inseparable.
+          </p>
+          <p class="proj-paragraph">
+            The biggest design insight: the audience shift from family to public required almost no content change — just tone, structure, and the removal of inside jokes. Good information design is already audience-agnostic.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── CTA ───────────────────────────────────────────────── -->
+  <section class="proj-cta">
+    <p class="proj-cta-label">Live Project</p>
+    <h2 class="proj-cta-heading">See it in action.</h2>
+    <a href="roadtrip/" target="_blank" rel="noopener noreferrer" class="proj-cta-link">
+      Open Road Trip Guide →
+    </a>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="proj-footer">
+    <a href="index.html" class="proj-footer-back">← Giselle.C</a>
+    <span>04 / Dallas to Denver &nbsp;·&nbsp; 2026</span>
+  </footer>
+
+</body>
+</html>

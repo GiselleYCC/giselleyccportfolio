@@ -82,8 +82,15 @@
   </div><!-- end .proj-hero -->
 
   <!-- ── HERO IMAGE ────────────────────────────────────────── -->
-  <div class="proj-img-full">
-    <span class="proj-img-label">[ Hero image — replace later ]</span>
+  <div class="proj-img-full" style="background: transparent; min-height: auto;">
+    <div class="proj-phone-wrap">
+      <div class="proj-phone">
+        <div class="proj-phone-screen">
+          <img src="assets/door-face/hero.png" alt="Door Face App — Homepage Locked State">
+        </div>
+        <p class="proj-phone-label">Homepage · Locked State</p>
+      </div>
+    </div>
   </div>
 
 
@@ -193,8 +200,39 @@
       </div>
     </div>
 
-    <div class="proj-section-img">
-      <span class="proj-img-label">[ Heuristic evaluation findings — replace later ]</span>
+    <div class="proj-section-img" style="min-height: auto; display: block; padding: 0; background: transparent;">
+      <div class="proj-heuristic">
+        <div class="proj-heuristic-header">
+          <span>Heuristic</span>
+          <span>Issue Identified</span>
+          <span>Severity</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">Visibility of System Status</span>
+          <span class="proj-heuristic-issue">No confirmation animation when toggling lock state. Interface fails to update all status indicators — user cannot tell if the door is locked.</span>
+          <span class="proj-heuristic-sev sev-4">4 — Critical</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">Match Between System &amp; Real World</span>
+          <span class="proj-heuristic-issue">Navigation labels "Automative" and "Lifestyle" are ambiguous — unclear at first glance what these tabs contain or what action they enable.</span>
+          <span class="proj-heuristic-sev sev-2">2 — Minor</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">User Control &amp; Freedom</span>
+          <span class="proj-heuristic-issue">Back arrow lacks label text. Navigation bar icons are too small; excessive tab count creates cognitive overload for new users.</span>
+          <span class="proj-heuristic-sev sev-2">2 — Minor</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">Error Prevention</span>
+          <span class="proj-heuristic-issue">No confirmation step before executing high-risk security actions. Single tap triggers irreversible lock/unlock without safeguard.</span>
+          <span class="proj-heuristic-sev sev-3">3 — Major</span>
+        </div>
+        <div class="proj-heuristic-row">
+          <span class="proj-heuristic-name">Accessibility</span>
+          <span class="proj-heuristic-issue">Feedback is visual-only. No audio or haptic confirmation for security-sensitive actions — underserves users with sensory constraints.</span>
+          <span class="proj-heuristic-sev sev-3">3 — Major</span>
+        </div>
+      </div>
     </div>
 
     <div class="proj-cols">
@@ -346,8 +384,15 @@
       </div>
     </div>
 
-    <div class="proj-section-img">
-      <span class="proj-img-label">[ Wireframes / Figma flow — replace later ]</span>
+    <div class="proj-section-img" style="min-height:auto; display:block; padding:0; background:transparent;">
+      <div class="proj-phone-wrap">
+        <div class="proj-phone">
+          <div class="proj-phone-screen">
+            <img src="assets/door-face/hero.png" alt="Door Face App — Redesigned Homepage">
+          </div>
+          <p class="proj-phone-label">Redesigned Homepage</p>
+        </div>
+      </div>
     </div>
 
     <div class="proj-cols">
@@ -415,8 +460,15 @@
       </div>
     </div>
 
-    <div class="proj-section-img">
-      <span class="proj-img-label">[ High-fidelity prototype screens — replace later ]</span>
+    <div class="proj-section-img" style="min-height:auto; display:block; padding:0; background:transparent;">
+      <div class="proj-phone-wrap">
+        <div class="proj-phone">
+          <div class="proj-phone-screen">
+            <img src="assets/door-face/hero.png" alt="Door Face App — High Fidelity Prototype">
+          </div>
+          <p class="proj-phone-label">High-Fidelity Prototype</p>
+        </div>
+      </div>
     </div>
 
     <div class="proj-cols">
@@ -456,12 +508,35 @@
       </div>
     </div>
 
-    <div class="proj-img-grid">
-      <div class="proj-img-half">
-        <span class="proj-img-label">[ Lock state redesign — replace later ]</span>
+    <div class="proj-img-grid" style="align-items: start;">
+      <div style="display:flex; justify-content:center; padding: 32px 0; background: var(--color-surface);">
+        <div class="proj-phone" style="width:200px;">
+          <div class="proj-phone-screen">
+            <img src="assets/door-face/hero.png" alt="Door Face App — Lock State">
+          </div>
+          <p class="proj-phone-label">Lock State · Clear Feedback</p>
+        </div>
       </div>
-      <div class="proj-img-half">
-        <span class="proj-img-label">[ Design system components — replace later ]</span>
+      <div style="background: var(--color-surface); padding: 32px 24px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Design System Components</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:var(--color-bg);padding:14px 16px;border-radius:8px;border:1px solid var(--color-line);">
+            <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted);margin-bottom:4px;">A — Grid System</p>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);">Column structure &amp; responsive breakpoints</p>
+          </div>
+          <div style="background:var(--color-bg);padding:14px 16px;border-radius:8px;border:1px solid var(--color-line);">
+            <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted);margin-bottom:4px;">B — Card Components</p>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);">Reusable patterns with defined content hierarchy</p>
+          </div>
+          <div style="background:var(--color-bg);padding:14px 16px;border-radius:8px;border:1px solid var(--color-line);">
+            <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted);margin-bottom:4px;">C — Input Fields</p>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);">Success · Warning · Error validation states</p>
+          </div>
+          <div style="background:var(--color-bg);padding:14px 16px;border-radius:8px;border:1px solid var(--color-line);">
+            <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted);margin-bottom:4px;">D — Selection Controls</p>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);">Dropdowns · Checkboxes · Toggles · Radio</p>
+          </div>
+        </div>
       </div>
     </div>
 

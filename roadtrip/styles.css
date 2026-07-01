@@ -1,0 +1,880 @@
+/* =============================================
+   DALLAS TO DENVER — Road Trip Guide
+   Visual style: outdoor route journal / travel atlas
+   Color scheme: warm paper / ink / muted green / slate blue
+============================================== */
+
+:root {
+  --bg:         #EFE8DC;
+  --paper:      #FBF8F1;
+  --ink:        #1E2A36;
+  --ink-light:  #3D5266;
+  --green:      #6F8C7A;
+  --brown:      #A0764B;
+  --sand:       #D8C7AA;
+  --blue:       #395B73;
+  --gold:       #C4893A;
+  --border:     #CEC4B2;
+  --muted:      #7A8B9A;
+  --note-bg:    #FDF4E3;
+
+  /* 全站使用無襯線字體 */
+  --font-serif: 'Inter', 'Noto Sans TC', 'PingFang TC', system-ui, sans-serif;
+  --font-sans:  'Inter', 'Noto Sans TC', 'PingFang TC', system-ui, sans-serif;
+
+  --max-w: 1100px;
+  --t: 0.22s ease;
+}
+
+/* =============================================
+   NAV
+============================================== */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+  /* starts transparent over the hero */
+  background: rgba(15, 28, 46, 0);
+  border-bottom: 1px solid rgba(255,255,255,0);
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+/* After scrolling past hero, nav turns solid */
+.site-nav.scrolled {
+  background: rgba(15, 28, 46, 0.96);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav-back {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: rgba(255,255,255,0.90); }
+
+.nav-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Language toggle button */
+.lang-toggle {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.70);
+  font-family: var(--font-sans);
+  font-size: 0.70rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 0.30rem 0.75rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-toggle:hover {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  border-color: rgba(255,255,255,0.40);
+}
+
+/* Push hero down so content starts below the nav */
+.hero { padding-top: 52px; }
+
+/* =============================================
+   RESET & BASE
+============================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =============================================
+   HERO
+============================================== */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 38%;
+}
+
+/* 深藍色漸層 overlay（不用純黑，更有旅行氣氛） */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    168deg,
+    rgba(12, 24, 42, 0.40) 0%,
+    rgba(20, 35, 55, 0.55) 45%,
+    rgba(15, 28, 48, 0.88) 100%
+  );
+}
+
+/* SVG 路線圖：放大佔滿 hero 上半部，文字在其前方 */
+.hero-route-svg {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: min(1000px, 95vw);  /* 幾乎全寬 */
+  pointer-events: none;
+  z-index: 1; /* 低於 hero-content（z-index:2），確保文字在前 */
+}
+
+.hero-route-svg svg { width: 100%; height: auto; overflow: visible; }
+
+/* 路線線條：色鉛筆感，不加 glow，細一點 */
+.route-outbound {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: drawPath 2.8s ease forwards 0.5s;
+}
+
+.route-return {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: drawPath 2.4s ease forwards 1.5s;
+}
+
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
+}
+
+.stop-dot {
+  opacity: 0;
+  animation: popDot 0.3s ease forwards;
+}
+
+@keyframes popDot {
+  from { opacity: 0; transform: scale(0); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Hero 文字 */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 clamp(1.5rem, 5vw, 4.5rem) clamp(2rem, 4vh, 3.5rem);
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.44);
+  margin-bottom: 0.8rem;
+}
+
+.hero-title {
+  font-family: var(--font-sans);
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 32px rgba(0,0,0,0.30);
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-tagline {
+  font-size: clamp(0.73rem, 1.8vw, 0.85rem);
+  color: rgba(255,255,255,0.50);
+  letter-spacing: 0.09em;
+  margin-bottom: 2rem;
+}
+
+/* 過夜城市列表 */
+.hero-overnight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  margin-bottom: 2.6rem;
+}
+
+.overnight-item {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.60);
+  font-weight: 400;
+}
+
+.overnight-item::before {
+  content: '○ ';
+  color: #f0d98a;
+  font-size: 0.65rem;
+}
+
+.hero-scroll {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.40);
+  animation: floatDown 2.5s ease infinite;
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0); }
+  55% { transform: translateY(7px); }
+}
+
+/* =============================================
+   OVERVIEW STRIP（英雄區正下方的快速摘要列）
+============================================== */
+.overview-strip {
+  background: var(--ink);
+  padding: 1.75rem clamp(1.5rem, 5vw, 3rem);
+}
+
+.overview-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+}
+
+.ov-stats {
+  display: flex;
+  gap: 2rem;
+  flex-shrink: 0;
+}
+
+.ov-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ov-num {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f0d98a;
+  line-height: 1;
+}
+
+.ov-label {
+  font-size: 0.60rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.42);
+  margin-top: 0.22rem;
+}
+
+.ov-divider {
+  width: 1px;
+  height: 2.5rem;
+  background: rgba(255,255,255,0.14);
+  flex-shrink: 0;
+}
+
+/* 過夜城市 */
+.ov-cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.25rem;
+}
+
+.ov-city {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.50);
+  font-weight: 400;
+}
+
+.ov-city-n {
+  color: rgba(255,255,255,0.25);
+  font-size: 0.60rem;
+  margin-right: 0.3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* =============================================
+   SECTION 共用
+============================================== */
+.section {
+  padding: clamp(3.5rem, 9vh, 6.5rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.section-sub {
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-bottom: 2.75rem;
+}
+
+/* =============================================
+   CHECKLIST
+============================================== */
+.checklist-section {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0 3rem;
+}
+
+.checklist-category { margin-bottom: 1.75rem; }
+
+.checklist-cat-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.38rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.42rem 0.4rem;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background var(--t);
+  user-select: none;
+}
+
+.checklist-item:hover { background: var(--bg); }
+
+.checklist-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--t);
+}
+
+.checklist-item input[type="checkbox"]:checked {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.checklist-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.checklist-item span {
+  font-size: 0.85rem;
+  color: var(--ink);
+  transition: color var(--t);
+}
+
+.checklist-item.checked span {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+/* =============================================
+   DAYS SECTION
+============================================== */
+.days-section { background: var(--bg); }
+
+/* =============================================
+   DAY ENTRY — 橫向 timeline 排版
+   ┌───┬──────────────────────────────────┬───┐
+   │ 01│ Title / route text / quick meta  │ ▾ │
+   └───┴──────────────────────────────────┴───┘
+============================================== */
+.day-entry {
+  border-top: 1px solid var(--border);
+}
+
+.day-entry:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.day-entry-header {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 0 1.75rem;
+  padding: 1.65rem 0;
+  cursor: pointer;
+  transition: opacity var(--t);
+}
+
+.day-entry-header:hover { opacity: 0.75; }
+
+/* 左側：大 serif 數字 */
+.day-num-col {
+  text-align: right;
+  padding-right: 1.5rem;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.day-label-small {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.1rem;
+}
+
+.day-num-large {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--blue);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* 中間：標題 + 路線 + meta */
+.day-header-text {}
+
+.day-entry-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.22rem;
+  letter-spacing: -0.01em;
+}
+
+/* Subtitle line below the day title (bilingual subtitle) */
+.day-entry-subtitle {
+  font-size: 0.78rem;
+  color: var(--green);
+  font-style: italic;
+  margin-bottom: 0.18rem;
+}
+
+.day-entry-route-text {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.28rem;
+  line-height: 1.4;
+}
+
+.day-entry-quick-meta {
+  font-size: 0.76rem;
+  color: var(--green);
+  font-weight: 500;
+}
+
+/* 右側：展開按鈕（圓形，無填色） */
+.day-toggle-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.22s;
+}
+
+.day-entry.open .day-toggle-btn {
+  transform: rotate(180deg);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* =============================================
+   DAY ENTRY BODY（展開後的內容）
+   左邊縮排對齊文字欄
+============================================== */
+.day-entry-body {
+  display: none;
+  padding-left: calc(80px + 1.75rem); /* 對齊中間文字欄 */
+  padding-right: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.day-entry.open .day-entry-body {
+  display: block;
+  animation: fadeSlide 0.26s ease;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   ROUTE PHOTO HEADER
+   每天展開後的照片式 header card
+============================================== */
+.route-photo-header {
+  position: relative;
+  height: 270px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--blue); /* 圖片載入失敗的 fallback 色 */
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.rph-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15,28,46,0.92) 0%,
+    rgba(15,28,46,0.58) 50%,
+    rgba(15,28,46,0.30) 100%
+  );
+}
+
+.rph-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem 1.75rem;
+}
+
+.rph-eyebrow {
+  font-size: 0.60rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.46);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.rph-route-name {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.22;
+  margin-bottom: 0.65rem;
+}
+
+/* 每天的簡化路線 SVG */
+.rph-route-svg {
+  width: 100%;
+  max-width: 540px;
+  height: 54px;
+  margin-bottom: 0.9rem;
+  overflow: visible;
+}
+
+.rph-stats-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.rph-stat {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.62);
+  font-weight: 500;
+}
+
+.rph-stat strong {
+  color: #f0d98a;
+  font-weight: 600;
+  margin-left: 0.2rem;
+}
+
+/* =============================================
+   METADATA TABLE（metadata 改為直排 label/value）
+============================================== */
+.day-meta-table {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.75rem;
+}
+
+.dmt-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 90px;
+}
+
+.dmt-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.dmt-value {
+  font-size: 0.88rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Google Maps 連結：文字連結樣式，不用 pill */
+.maps-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--blue);
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 1px;
+  margin-left: auto;
+  white-space: nowrap;
+  align-self: center;
+  transition: opacity var(--t);
+}
+
+.maps-text-link:hover { opacity: 0.60; }
+
+/* =============================================
+   CONTENT GRID（2 欄旅遊手冊排版）
+============================================== */
+.day-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 3.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.content-section-h {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.4rem;
+}
+
+.content-list li {
+  font-size: 0.86rem;
+  padding: 0.26rem 0 0.26rem 1.1rem;
+  color: var(--ink-light);
+  position: relative;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.content-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--sand);
+  font-size: 0.75rem;
+  top: 0.35rem;
+}
+
+/* 注意事項：左側金色邊框 */
+.notes-block {
+  border-left: 2px solid var(--gold);
+  padding: 0.75rem 0.9rem;
+  background: var(--note-bg);
+  border-radius: 0 3px 3px 0;
+}
+
+.notes-block p {
+  font-size: 0.83rem;
+  color: var(--brown);
+  padding: 0.2rem 0;
+  line-height: 1.58;
+}
+
+/* =============================================
+   PHOTO GRID
+============================================== */
+.day-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.photo-item {
+  height: 135px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--sand); /* fallback */
+  border-radius: 2px;
+}
+
+/* =============================================
+   FOOTER
+============================================== */
+.site-footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.40);
+  text-align: center;
+  padding: 2.75rem 1.5rem;
+  font-size: 0.82rem;
+  line-height: 2.2;
+}
+
+.footer-note {
+  font-size: 0.70rem;
+  opacity: 0.40;
+}
+
+/* =============================================
+   BACK TO TOP
+============================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  transition: all var(--t);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  z-index: 100;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.back-to-top:hover { background: var(--blue); }
+
+/* =============================================
+   RESPONSIVE
+============================================== */
+@media (max-width: 680px) {
+  .day-entry-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .day-entry-header {
+    grid-template-columns: 62px 1fr auto;
+    gap: 0 1.1rem;
+    padding: 1.25rem 0;
+  }
+
+  .day-num-large { font-size: 2rem; }
+  .day-num-col { padding-right: 1rem; }
+
+  .day-content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .day-meta-table { gap: 0.85rem 1.5rem; }
+
+  .maps-text-link { margin-left: 0; }
+
+  .route-photo-header { height: 220px; }
+
+  .ov-stats { gap: 1.25rem; }
+}
+
+@media (max-width: 420px) {
+  .day-entry-header { grid-template-columns: 52px 1fr auto; }
+  .day-num-large { font-size: 1.75rem; }
+  .rph-route-name { font-size: 1.2rem; }
+}
