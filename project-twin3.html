@@ -79,6 +79,8 @@
   <div class="proj-img-full" style="min-height:auto; padding:0; background: transparent;">
     <div class="proj-arch">
       <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Product Architecture — twin3.ai</p>
+
+      <!-- Three product stages -->
       <div class="proj-arch-stages">
 
         <div class="proj-arch-stage">
@@ -115,6 +117,48 @@
         </div>
 
       </div>
+
+      <!-- Tech stack layers — from Dorahacks technical reference -->
+      <div style="margin-top:1px;border-top:1px solid var(--color-line);">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin:24px 0 16px;">Technical Stack</p>
+        <div style="display:flex;flex-direction:column;gap:1px;">
+
+          <!-- Layer 3: top = Agent execution -->
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:0;border:1px solid var(--color-line);">
+            <div style="background:var(--color-accent);padding:16px 18px;display:flex;align-items:center;">
+              <span style="font-family:var(--font-sans);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:0.9;">Auth &amp; Payment</span>
+            </div>
+            <div style="background:var(--color-bg);padding:14px 20px;border-left:1px solid var(--color-line);">
+              <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-text);margin-bottom:2px;">x402 Execution Layer</p>
+              <p style="font-family:var(--font-sans);font-size:10px;color:var(--color-muted);">Agent micropayments · On-chain task settlement · Any agent can plug in</p>
+            </div>
+          </div>
+
+          <!-- Layer 2: middle = binding protocol -->
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:0;border:1px solid var(--color-line);border-top:none;">
+            <div style="background:var(--color-accent);padding:16px 18px;display:flex;align-items:center;opacity:0.7;">
+              <span style="font-family:var(--font-sans);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#fff;">Identity Layer</span>
+            </div>
+            <div style="background:var(--color-bg);padding:14px 20px;border-left:1px solid var(--color-line);">
+              <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-text);margin-bottom:2px;">ERC-8004 Binding Protocol</p>
+              <p style="font-family:var(--font-sans);font-size:10px;color:var(--color-muted);">Soul Injection · Agent–identity binding · Continuous update loop</p>
+            </div>
+          </div>
+
+          <!-- Layer 1: base = SBT identity container -->
+          <div style="display:grid;grid-template-columns:120px 1fr;gap:0;border:1px solid var(--color-line);border-top:none;">
+            <div style="background:var(--color-accent);padding:16px 18px;display:flex;align-items:center;opacity:0.45;">
+              <span style="font-family:var(--font-sans);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#fff;">Twin Matrix</span>
+            </div>
+            <div style="background:var(--color-bg);padding:14px 20px;border-left:1px solid var(--color-line);">
+              <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-text);margin-bottom:2px;">ERC-4671 SBT Container</p>
+              <p style="font-family:var(--font-sans);font-size:10px;color:var(--color-muted);">SOUL.md (256D vector) · MEMORY.md (history) · IDENTITY.md (cryptographic ownership)</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -610,7 +654,7 @@
       </div>
     </div>
 
-    <!-- Browser frame — landing page representation -->
+    <!-- Real screenshot: Landing Page inside browser chrome -->
     <div class="proj-browser-wrap" style="padding-top:40px;">
       <div class="proj-browser">
         <div class="proj-browser-bar">
@@ -621,79 +665,47 @@
           </div>
           <span class="proj-browser-url">twin3.ai</span>
         </div>
-        <div class="proj-browser-screen" style="background:#0a0a0f; padding: 40px 48px; min-height: 320px;">
-          <div style="max-width:600px;">
-            <p style="font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5a5a7a;margin-bottom:16px;">twin3.ai · Landing Page</p>
-            <p style="font-family:Georgia,serif;font-size:clamp(24px,4vw,40px);font-weight:300;color:#e8e8f0;line-height:1.2;margin-bottom:20px;">Injecting Human Soul<br>into AI Agents</p>
-            <p style="font-family:'DM Sans',sans-serif;font-size:14px;color:#7a7a9a;line-height:1.7;margin-bottom:32px;">Transform your 256-dimensional identity into a Soulbound Token — then deploy AI agents that work and earn on your behalf in a decentralised agent economy.</p>
-            <div style="display:flex;gap:12px;flex-wrap:wrap;">
-              <span style="background:#3a3aff;color:#fff;font-family:'DM Sans',sans-serif;font-size:12px;padding:10px 24px;border-radius:4px;">Build Your Soul</span>
-              <span style="border:1px solid #3a3a5a;color:#7a7a9a;font-family:'DM Sans',sans-serif;font-size:12px;padding:10px 24px;border-radius:4px;">Learn More</span>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;">
-              <div style="border-top:1px solid #2a2a3a;padding-top:12px;">
-                <p style="font-family:'DM Sans',sans-serif;font-size:22px;color:#e8e8f0;margin-bottom:4px;">256D</p>
-                <p style="font-family:'DM Sans',sans-serif;font-size:11px;color:#5a5a7a;">Identity dimensions</p>
-              </div>
-              <div style="border-top:1px solid #2a2a3a;padding-top:12px;">
-                <p style="font-family:'DM Sans',sans-serif;font-size:22px;color:#e8e8f0;margin-bottom:4px;">6k+</p>
-                <p style="font-family:'DM Sans',sans-serif;font-size:11px;color:#5a5a7a;">Community members</p>
-              </div>
-              <div style="border-top:1px solid #2a2a3a;padding-top:12px;">
-                <p style="font-family:'DM Sans',sans-serif;font-size:22px;color:#e8e8f0;margin-bottom:4px;">Mainnet</p>
-                <p style="font-family:'DM Sans',sans-serif;font-size:11px;color:#5a5a7a;">Live on-chain</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Actual landing page screenshot -->
+        <img src="assets/twin3/landing-page.png" alt="twin3.ai landing page — Injecting Human Soul into AI Agents"
+             style="width:100%;display:block;">
       </div>
       <p class="proj-photo-caption">Landing Page · My Role: UX Research, Interaction Design, Wizard Flow, Agent &amp; Matrix Screens</p>
     </div>
 
-    <!-- Screen details — my specific contribution areas -->
-    <div class="proj-img-grid" style="gap:1px;background:var(--color-line);border:1px solid var(--color-line);margin:0 0 0;">
-      <div style="background:var(--color-bg);padding:28px;">
-        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Screen A — Matrix Dashboard</p>
-        <div style="background:var(--color-surface);border-radius:6px;padding:20px;aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:space-between;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-            <div style="background:var(--color-bg);border-radius:4px;padding:12px;">
-              <p style="font-family:var(--font-sans);font-size:9px;color:var(--color-muted);margin-bottom:6px;letter-spacing:.1em;text-transform:uppercase;">Physical Me</p>
-              <div style="height:4px;background:var(--color-accent);border-radius:2px;width:72%;opacity:0.5;"></div>
-            </div>
-            <div style="background:var(--color-bg);border-radius:4px;padding:12px;">
-              <p style="font-family:var(--font-sans);font-size:9px;color:var(--color-muted);margin-bottom:6px;letter-spacing:.1em;text-transform:uppercase;">Digital Me</p>
-              <div style="height:4px;background:var(--color-accent);border-radius:2px;width:55%;opacity:0.5;"></div>
-            </div>
-            <div style="background:var(--color-bg);border-radius:4px;padding:12px;">
-              <p style="font-family:var(--font-sans);font-size:9px;color:var(--color-muted);margin-bottom:6px;letter-spacing:.1em;text-transform:uppercase;">Social Me</p>
-              <div style="height:4px;background:var(--color-accent);border-radius:2px;width:88%;opacity:0.5;"></div>
-            </div>
-            <div style="background:var(--color-bg);border-radius:4px;padding:12px;">
-              <p style="font-family:var(--font-sans);font-size:9px;color:var(--color-muted);margin-bottom:6px;letter-spacing:.1em;text-transform:uppercase;">Spiritual Me</p>
-              <div style="height:4px;background:var(--color-accent);border-radius:2px;width:40%;opacity:0.5;"></div>
-            </div>
-          </div>
-          <p style="font-family:var(--font-sans);font-size:10px;color:var(--color-muted);text-align:center;margin-top:8px;">256 DNA nodes · 4 quadrant overview</p>
-        </div>
+    <!-- Real screenshots: Matrix Dashboard + Agent Page -->
+    <div class="proj-img-grid" style="gap:1px;background:var(--color-line);border:1px solid var(--color-line);margin:0;">
+      <div style="background:var(--color-bg);padding:20px 20px 12px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:12px;">Screen A — Matrix Dashboard</p>
+        <img src="assets/twin3/matrix.png" alt="twin3 Matrix Dashboard — 256-dimensional Twin Matrix visualization"
+             style="width:100%;display:block;border-radius:4px;">
       </div>
-      <div style="background:var(--color-bg);padding:28px;">
-        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Screen B — Agent Authorization Wizard</p>
-        <div style="background:var(--color-surface);border-radius:6px;padding:20px;aspect-ratio:4/3;display:flex;flex-direction:column;gap:10px;justify-content:center;">
-          <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);letter-spacing:.1em;text-transform:uppercase;">Step 3 of 5 — Grant Access</p>
-          <div style="background:var(--color-bg);border-radius:4px;padding:12px;border:1px solid var(--color-line);">
-            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">DeFi Trading Agent</p>
-            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);">Scope: Portfolio view only &nbsp;·&nbsp; Valid: 30 days</p>
-          </div>
-          <div style="background:var(--color-bg);border-radius:4px;padding:12px;border:1px solid var(--color-line);">
-            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">Social Assistant Agent</p>
-            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);">Scope: Read-only &nbsp;·&nbsp; Valid: 7 days</p>
-          </div>
-          <div style="background:var(--color-accent);border-radius:4px;padding:10px;text-align:center;opacity:0.7;">
-            <p style="font-family:var(--font-sans);font-size:12px;color:#fff;letter-spacing:.05em;">Confirm &amp; Inject →</p>
-          </div>
-        </div>
+      <div style="background:var(--color-bg);padding:20px 20px 12px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:12px;">Screen B — Agent Profile Page</p>
+        <img src="assets/twin3/agent-page.png" alt="twin3 Agent Page — soul injection authorization details"
+             style="width:100%;display:block;border-radius:4px;">
       </div>
     </div>
+
+    <!-- Real screenshots: Soul Wizard onboarding flow -->
+    <div class="proj-cols" style="margin-top:48px;">
+      <span class="proj-sub">Soul Wizard Flow</span>
+      <div class="proj-body">
+        <p>A 9-question onboarding flow that encodes the user's identity into 256 dimensions. Each question maps to one of four quadrants — Physical, Digital, Social, Spiritual Me — before the final Soul Vector is generated on-chain.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--color-line);border:1px solid var(--color-line);margin:0;">
+      <div style="background:var(--color-bg);padding:20px 20px 12px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:12px;">Step 1 — Choose Your Generational Anchor</p>
+        <img src="assets/twin3/wizard-1.png" alt="Soul Wizard Step 1 — generational anchor question"
+             style="width:100%;display:block;border-radius:4px;">
+      </div>
+      <div style="background:var(--color-bg);padding:20px 20px 12px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:12px;">Step 9 — Soul Vector Encoding Complete</p>
+        <img src="assets/twin3/wizard-complete.png" alt="Soul Wizard complete — 242/256 dimensions analyzed, encoding soul vector"
+             style="width:100%;display:block;border-radius:4px;">
+      </div>
+    </div>
+    <p class="proj-photo-caption">Soul Wizard · 9 Questions → 256-Dimensional Identity Vector → On-Chain SBT</p>
 
   </div>
 
