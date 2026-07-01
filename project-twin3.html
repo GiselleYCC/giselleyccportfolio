@@ -540,36 +540,53 @@
       </div>
     </div>
 
-    <!-- Before / After iteration comparison -->
-    <div class="proj-img-grid" style="gap:1px; background:var(--color-line); border:1px solid var(--color-line); margin: 40px 0;">
-      <div style="background:var(--color-bg); padding:28px 28px 32px;">
-        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Alpha · Testnet Version</p>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div style="height:3px;background:var(--color-line);border-radius:2px;width:60%;"></div>
-          <div style="height:48px;background:var(--color-surface);border-radius:4px;"></div>
-          <div style="height:3px;background:var(--color-line);border-radius:2px;width:40%;"></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-            <div style="height:36px;background:var(--color-surface);border-radius:4px;"></div>
-            <div style="height:36px;background:var(--color-surface);border-radius:4px;"></div>
+    <!-- Before / After iteration comparison — text-based, no placeholder boxes -->
+    <div style="border:1px solid var(--color-line); margin: 40px 0; display:grid; grid-template-columns:1fr 1fr;">
+
+      <div style="padding:28px 32px; border-right:1px solid var(--color-line);">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Alpha · Hackathon Build</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:12px;">
+            <span style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);flex-shrink:0;margin-top:1px;">—</span>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);line-height:1.65;">Web3 terminology (SBT, ERC-8004) introduced before users understood the product's core value</p>
           </div>
-          <div style="height:24px;background:var(--color-surface);border-radius:4px;width:80%;"></div>
-        </div>
-        <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);margin-top:16px;line-height:1.6;">Dense layout, technical labels visible, wizard steps unclear</p>
-      </div>
-      <div style="background:var(--color-bg); padding:28px 28px 32px;">
-        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:16px;">Refined · Post-testnet Version</p>
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <div style="height:3px;background:var(--color-accent);border-radius:2px;width:45%;"></div>
-          <div style="height:48px;background:var(--color-surface);border-radius:4px;border:1px solid var(--color-line);"></div>
-          <div style="height:3px;background:var(--color-line);border-radius:2px;width:55%;"></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-            <div style="height:36px;background:var(--color-accent);border-radius:4px;opacity:0.15;"></div>
-            <div style="height:36px;background:var(--color-surface);border-radius:4px;border:1px solid var(--color-line);"></div>
+          <div style="display:flex;gap:12px;">
+            <span style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);flex-shrink:0;margin-top:1px;">—</span>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);line-height:1.65;">Dense information layout; wizard step count and purpose were unclear mid-flow</p>
           </div>
-          <div style="height:24px;background:var(--color-surface);border-radius:4px;width:65%;border:1px solid var(--color-line);"></div>
+          <div style="display:flex;gap:12px;">
+            <span style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);flex-shrink:0;margin-top:1px;">—</span>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);line-height:1.65;">Permission scope and validity periods not surfaced — users uncertain what they were authorizing</p>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <span style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);flex-shrink:0;margin-top:1px;">—</span>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);line-height:1.65;">Visual system inconsistent across screens; component patterns not yet standardized</p>
+          </div>
         </div>
-        <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);margin-top:16px;line-height:1.6;">Clear hierarchy, plain-language labels, explicit permission scope</p>
       </div>
+
+      <div style="padding:28px 32px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Refined · Post-testnet</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:12px;">
+            <span style="font-family:var(--font-sans);font-size:11px;color:var(--color-accent);flex-shrink:0;margin-top:1px;">→</span>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);line-height:1.65;">Product value established first; technical concepts introduced progressively through the wizard</p>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <span style="font-family:var(--font-sans);font-size:11px;color:var(--color-accent);flex-shrink:0;margin-top:1px;">→</span>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);line-height:1.65;">Step count visible, plain-language labels at each stage; reduced mid-flow abandonment</p>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <span style="font-family:var(--font-sans);font-size:11px;color:var(--color-accent);flex-shrink:0;margin-top:1px;">→</span>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);line-height:1.65;">Explicit scope labels and validity periods on authorization screen — users know exactly what they grant</p>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <span style="font-family:var(--font-sans);font-size:11px;color:var(--color-accent);flex-shrink:0;margin-top:1px;">→</span>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);line-height:1.65;">Consistent light/dark system, unified typography and spacing — UI perceived as stable and credible</p>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="proj-cols">
@@ -672,17 +689,51 @@
       <p class="proj-photo-caption">Landing Page · My Role: UX Research, Interaction Design, Wizard Flow, Agent &amp; Matrix Screens</p>
     </div>
 
-    <!-- Real screenshots: Matrix Dashboard + Agent Page -->
-    <div class="proj-img-grid" style="gap:1px;background:var(--color-line);border:1px solid var(--color-line);margin:0;">
-      <div style="background:var(--color-bg);padding:20px 20px 12px;">
-        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:12px;">Screen A — Matrix Dashboard</p>
+    <!-- Screen A: full-width browser frame, same treatment as Landing Page -->
+    <div class="proj-browser-wrap" style="padding-top:24px;">
+      <div class="proj-browser">
+        <div class="proj-browser-bar">
+          <div class="proj-browser-dots">
+            <div class="proj-browser-dot"></div>
+            <div class="proj-browser-dot"></div>
+            <div class="proj-browser-dot"></div>
+          </div>
+          <span class="proj-browser-url">twin3.ai / matrix</span>
+        </div>
         <img src="assets/twin3/matrix.png" alt="twin3 Matrix Dashboard — 256-dimensional Twin Matrix visualization"
-             style="width:100%;display:block;border-radius:4px;">
+             style="width:100%;display:block;">
       </div>
-      <div style="background:var(--color-bg);padding:20px 20px 12px;">
-        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:12px;">Screen B — Agent Profile Page</p>
-        <img src="assets/twin3/agent-page.png" alt="twin3 Agent Page — soul injection authorization details"
-             style="width:100%;display:block;border-radius:4px;">
+      <p class="proj-photo-caption">Screen A — Matrix Dashboard · 256D Twin Matrix · 4-Quadrant Identity Overview</p>
+    </div>
+
+    <!-- Screen B: 3 stacked agent screenshots left, descriptive text right -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;padding:40px 0 0;">
+      <!-- Left: agent-page → agent-setting → agent-setting2, stacked flush -->
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <img src="assets/twin3/agent-page.png" alt="Agent Profile — identity, soul injection status, authorized dimensions"
+             style="width:100%;display:block;border-radius:4px 4px 0 0;">
+        <img src="assets/twin3/agent-setting.png" alt="Openclaw Persona Settings — system prompt, temperature, memory"
+             style="width:100%;display:block;">
+        <img src="assets/twin3/agent-setting2.png" alt="On-Chain Permissions — bound status, expiry, revoke controls"
+             style="width:100%;display:block;border-radius:0 0 4px 4px;">
+      </div>
+      <!-- Right: annotation text -->
+      <div style="padding-top:8px;">
+        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Screen B — Agent Profile</p>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">Identity &amp; Authorization Status</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.7;">Displays agent ownership, active status, soul injection dimensions authorized, and engine deployment specs (vCPU / memory). Makes authorization scope visible at a glance.</p>
+          </div>
+          <div>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">Openclaw Persona Settings</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.7;">User-controlled system prompt, creativity level, web search toggle, and long-term memory — putting persona configuration directly in the user's hands rather than hidden in the backend.</p>
+          </div>
+          <div>
+            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">On-Chain Permission Controls</p>
+            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.7;">Shows binding status, expiry date, authorized bits, and clear Renew / Revoke &amp; Delete actions. Expired permissions surface immediately with plain-language instructions — no guessing what to do next.</p>
+          </div>
+        </div>
       </div>
     </div>
 
