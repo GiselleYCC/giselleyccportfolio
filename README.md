@@ -17,6 +17,7 @@
 | **twin3: AI Agent Identity Platform** | AI/UX · Interaction Design |
 | **Door Face App** | iOS Redesign · Smart Home |
 | **Stories to You** | Elderly Care · Interaction Design |
+| **Dallas to Denver: Road Trip Guide** | Personal Project · Web Design · Bilingual UX |
 
 ---
 
@@ -37,6 +38,7 @@ The visual language draws from editorial print — no cards, no thumbnails. Proj
 ├── project-twin3.html           # Project: twin3
 ├── project-door-face.html       # Project: Door Face App
 ├── project-stories-to-you.html  # Project: Stories to You
+├── project-roadtrip.html        # Project: Roadtrip Guide
 └── assets/
     └── files/
         └── resume.pdf           # Downloadable résumé
