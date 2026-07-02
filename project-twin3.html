@@ -707,35 +707,23 @@
       <p class="proj-photo-caption">Screen A — Matrix Dashboard · 256D Twin Matrix · 4-Quadrant Identity Overview</p>
     </div>
 
-    <!-- Screen B: 3 stacked agent screenshots left, descriptive text right -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;padding:40px 0 0;">
-      <!-- Left: agent-page → agent-setting → agent-setting2, stacked flush -->
-      <div style="display:flex;flex-direction:column;gap:2px;">
-        <img src="assets/twin3/agent-page.png" alt="Agent Profile — identity, soul injection status, authorized dimensions"
-             style="width:100%;display:block;border-radius:4px 4px 0 0;">
-        <img src="assets/twin3/agent-setting.png" alt="Openclaw Persona Settings — system prompt, temperature, memory"
-             style="width:100%;display:block;">
-        <img src="assets/twin3/agent-setting2.png" alt="On-Chain Permissions — bound status, expiry, revoke controls"
-             style="width:100%;display:block;border-radius:0 0 4px 4px;">
-      </div>
-      <!-- Right: annotation text -->
-      <div style="padding-top:8px;">
-        <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--color-muted);margin-bottom:20px;">Screen B — Agent Profile</p>
-        <div style="display:flex;flex-direction:column;gap:20px;">
-          <div>
-            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">Identity &amp; Authorization Status</p>
-            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.7;">Displays agent ownership, active status, soul injection dimensions authorized, and engine deployment specs (vCPU / memory). Makes authorization scope visible at a glance.</p>
+
+    <!-- Real screenshot: Agent Setting -->
+    <div class="proj-browser-wrap" style="padding-top:40px;">
+      <div class="proj-browser">
+        <div class="proj-browser-bar">
+          <div class="proj-browser-dots">
+            <div class="proj-browser-dot"></div>
+            <div class="proj-browser-dot"></div>
+            <div class="proj-browser-dot"></div>
           </div>
-          <div>
-            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">Openclaw Persona Settings</p>
-            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.7;">User-controlled system prompt, creativity level, web search toggle, and long-term memory — putting persona configuration directly in the user's hands rather than hidden in the backend.</p>
-          </div>
-          <div>
-            <p style="font-family:var(--font-sans);font-size:12px;color:var(--color-text);margin-bottom:4px;">On-Chain Permission Controls</p>
-            <p style="font-family:var(--font-sans);font-size:11px;color:var(--color-muted);line-height:1.7;">Shows binding status, expiry date, authorized bits, and clear Renew / Revoke &amp; Delete actions. Expired permissions surface immediately with plain-language instructions — no guessing what to do next.</p>
-          </div>
+          <span class="proj-browser-url">twin3.ai/ agent</span>
         </div>
+        <!-- Actual landing page screenshot -->
+        <img src="assets/twin3/agent.png" alt="twin3.ai agent page"
+             style="width:100%;display:block;">
       </div>
+      <p class="proj-photo-caption">Screen B — Agent Settings · Temperature (Creativity) · Web Search Plugin · Long-term Memory </p>
     </div>
 
     <!-- Real screenshots: Soul Wizard onboarding flow -->
