@@ -26,13 +26,29 @@
     <a href="index.html#work" class="proj-nav-back">← Back to Selected Work</a>
   </nav>
 
+  <!-- Section chapter rail — desktop only, see project-base.css -->
+  <nav class="proj-chapters" aria-label="Section navigation">
+    <a href="#s01" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">01</span></a>
+    <a href="#s02" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">02</span></a>
+    <a href="#s03" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">03</span></a>
+    <a href="#s04" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">04</span></a>
+    <a href="#s05" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">05</span></a>
+    <a href="#s06" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">06</span></a>
+    <a href="#s07" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">07</span></a>
+  </nav>
+
 
   <!-- ── [00] HERO ─────────────────────────────────────────── -->
   <div class="proj-hero">
 
 <span class="proj-index-tag">[04] &nbsp; Web Design · Information Architecture · Bilingual UX &nbsp;·&nbsp; 2026</span>
 
-    <h1 class="proj-title">Dallas to Denver:<br>Family Road Trip Guide</h1>
+    <div class="proj-title-row">
+      <h1 class="proj-title">Dallas to Denver:<br>Family Road Trip Guide</h1>
+      <a href="https://mrdonutsroadtrip.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link-pill proj-title-cta">
+        View Live Site →
+      </a>
+    </div>
 
     <hr class="proj-rule">
 
@@ -74,18 +90,11 @@
       </div>
     </div>
 
-    <!-- Live demo link -->
-    <div style="margin-top: 2.5rem;">
-      <a href="https://mrdonutsroadtrip.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link-pill">
-        View Live Site →
-      </a>
-    </div>
-
   </div>
 
 
   <!-- ── [01] OVERVIEW ─────────────────────────────────────── -->
-  <section class="proj-section">
+  <section id="s01" class="proj-section">
     <div class="proj-section-inner">
 
       <div class="proj-section-label">[01] Overview</div>
@@ -134,7 +143,7 @@
   </div>
 
   <!-- ── [02] THE CHALLENGE ────────────────────────────────── -->
-  <section class="proj-section proj-section--alt">
+  <section id="s02" class="proj-section proj-section--alt">
     <div class="proj-section-inner">
 
       <div class="proj-section-label">[02] The Challenge</div>
@@ -159,12 +168,23 @@
 
       </div>
 
+      <div class="proj-two-col">
+        <div class="proj-two-col-cell">
+          <span class="proj-two-col-label">Family Reader</span>
+          <p class="proj-two-col-text">Already trusts the source. Reading fast, usually mid-drive or at a rest stop — needs today's route, food, and checklist in seconds, not a pitch for why the site is credible.</p>
+        </div>
+        <div class="proj-two-col-cell">
+          <span class="proj-two-col-label">Public Reader</span>
+          <p class="proj-two-col-text">Has no relationship with the trip yet. Needs the guide to earn trust first — through real photography, clear structure, and editorial polish — before they'll take the itinerary underneath seriously.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
 
   <!-- ── [03] DESIGN DECISIONS ─────────────────────────────── -->
-  <section class="proj-section">
+  <section id="s03" class="proj-section">
     <div class="proj-section-inner">
 
       <div class="proj-section-label">[03] Design Decisions</div>
@@ -178,7 +198,7 @@
           <span class="proj-card-num">01</span>
           <h3 class="proj-card-title">Information Architecture</h3>
           <p class="proj-card-body">
-            The accordion pattern for day entries solves the density problem — everything is accessible, but only one day is open at a time. The hero SVG map gives immediate spatial orientation before any scrolling happens.
+            The accordion pattern for day entries solves the density problem — everything is accessible, but only one day is open at a time. The hero SVG map gives immediate spatial orientation before any scrolling happens. For a reader checking tomorrow's route from a phone at a rest stop, this means finding what they need without scrolling past five other days first.
           </p>
         </div>
 
@@ -186,7 +206,7 @@
           <span class="proj-card-num">02</span>
           <h3 class="proj-card-title">Bilingual Toggle System</h3>
           <p class="proj-card-body">
-            Rather than two separate pages, a single language state governs both static HTML elements (via <code>data-zh</code> / <code>data-en</code> attributes) and dynamically rendered JS content. Language preference persists via <code>localStorage</code>.
+            Rather than two separate pages, a single language state governs both static HTML elements (via <code>data-zh</code> / <code>data-en</code> attributes) and dynamically rendered JS content. Language preference persists via <code>localStorage</code>. For family members who read fastest in Chinese and public visitors who don't read Chinese at all, neither has to fight the interface to get information in the language they actually think in.
           </p>
         </div>
 
@@ -194,7 +214,7 @@
           <span class="proj-card-num">03</span>
           <h3 class="proj-card-title">Visual Tone</h3>
           <p class="proj-card-body">
-            Warm paper tones, editorial typography, and real photography keep the site feeling personal and travel-authentic — not like a generic template. The route SVG was hand-crafted to match actual geography.
+            Warm paper tones, editorial typography, and real photography keep the site feeling personal and travel-authentic — not like a generic template. The route SVG was hand-crafted to match actual geography. For a stranger with no prior trust in the source, this tone is often the first — and fastest — signal of whether the guide is worth their time before they read a single itinerary.
           </p>
         </div>
 
@@ -205,7 +225,7 @@
 
 
   <!-- ── [04] FEATURES ─────────────────────────────────────── -->
-  <section class="proj-section proj-section--alt">
+  <section id="s04" class="proj-section proj-section--alt">
     <div class="proj-section-inner">
 
       <div class="proj-section-label">[04] Features</div>
@@ -266,11 +286,46 @@
     <p class="proj-photo-caption">03 · Day Log — Journey Pages</p>
   </div>
 
-  <!-- ── [05] REFLECTION ───────────────────────────────────── -->
-  <section class="proj-section">
+  <!-- ── [05] IMPACT & EVIDENCE ───────────────────────────────── -->
+  <section id="s05" class="proj-section">
     <div class="proj-section-inner">
 
-      <div class="proj-section-label">[05] Reflection</div>
+      <div class="proj-section-label">[05] Impact &amp; Evidence</div>
+
+      <div class="proj-body-grid">
+
+        <div class="proj-body-left">
+          <h2 class="proj-section-heading">Tested on the one trip that mattered.</h2>
+        </div>
+
+        <div class="proj-body-right">
+          <p class="proj-paragraph">
+            This project never ran a formal usability study — but it had something more direct: my own family used it, unprompted, for the entire trip it was built for. Checking routes at breakfast, pulling up Google Maps links at rest stops, ticking off the packing checklist the night before we left. That's not a survey response. It's behavior.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="proj-stats" style="margin-top: 40px;">
+        <div class="proj-stat-item">
+          <span class="proj-stat-num">6 / 6</span>
+          <span class="proj-stat-label">Days Actively Navigated</span>
+        </div>
+        <div class="proj-stat-item">
+          <span class="proj-stat-num">3</span>
+          <span class="proj-stat-label">Core Features Used Daily</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── [06] REFLECTION ───────────────────────────────────── -->
+  <section id="s06" class="proj-section proj-section--alt">
+    <div class="proj-section-inner">
+
+      <div class="proj-section-label">[06] Reflection</div>
 
       <div class="proj-body-grid">
 
@@ -288,8 +343,32 @@
           <p class="proj-paragraph">
             The biggest design insight: the audience shift from family to public required almost no content change — just tone, structure, and the removal of inside jokes. Good information design is already audience-agnostic.
           </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── [07] LIMITATIONS & NEXT STEPS ────────────────────────── -->
+  <section id="s07" class="proj-section">
+    <div class="proj-section-inner">
+
+      <div class="proj-section-label">[07] Limitations &amp; Next Steps</div>
+
+      <div class="proj-body-grid">
+
+        <div class="proj-body-left">
+          <h2 class="proj-section-heading">Where this stays honest about its scope.</h2>
+        </div>
+
+        <div class="proj-body-right">
           <p class="proj-paragraph">
-            And the most honest validation: my family actually used this site to navigate all six days of the trip — checking routes at breakfast, pulling up Google Maps links at rest stops, and ticking off the packing checklist the night before we left.
+            The evidence here is real but narrow — one family, one trip, six days. It shows the design held up under actual use, not that it would hold up across many different families' habits, devices, or trip styles.
+          </p>
+          <p class="proj-paragraph">
+            If this were to scale to more families: I'd want structured feedback from a few other households planning their own trips, not just observation of mine. I'd also test the bilingual toggle with someone who reads only one of the two languages fluently, to see if the switch is ever a moment of friction rather than a convenience.
           </p>
         </div>
 

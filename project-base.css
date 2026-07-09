@@ -83,6 +83,33 @@
   margin: 0 0 48px;
 }
 
+/* Title + live-site CTA side by side — CTA anchors to the
+   bottom-right of the (often multi-line) title, above the rule. */
+.proj-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin: 0 0 48px;
+}
+
+.proj-title-row .proj-title {
+  margin: 0;
+}
+
+.proj-title-cta {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .proj-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
 /* Hairline divider */
 .proj-rule {
   border: none;
@@ -1152,5 +1179,64 @@
   /* Wizard flow: 5-across becomes a vertical stack */
   div[style*="grid-template-columns:repeat(5,1fr)"] {
     grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ── CHAPTER NAV ─────────────────────────────────────────────
+   Fixed vertical rail of section numbers, right edge of the
+   viewport. Only shown when there's enough margin outside the
+   1100px content column for it not to crowd the text (>=1400px).
+   Highlights the section currently centered in the viewport.
+─────────────────────────────────────────────────────────── */
+.proj-section {
+  scroll-margin-top: 90px; /* clears the fixed .proj-nav on anchor jump */
+}
+
+.proj-chapters {
+  display: none;
+  position: fixed;
+  right: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.proj-chapter-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.proj-chapter-dash {
+  width: 12px;
+  height: 1px;
+  background: var(--color-line);
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.proj-chapter-link:hover,
+.proj-chapter-link.is-active {
+  color: var(--color-text);
+}
+
+.proj-chapter-link:hover .proj-chapter-dash,
+.proj-chapter-link.is-active .proj-chapter-dash {
+  width: 24px;
+  background: var(--color-text);
+}
+
+@media (min-width: 1400px) {
+  .proj-chapters {
+    display: flex;
   }
 }

@@ -66,8 +66,8 @@ body {
   font-weight: 300;
   font-size: 15px;
   line-height: 1.8;
-  opacity: 0;                    /* starts invisible */
-  animation: fadeIn 0.8s ease forwards; /* fades in on load */
+  opacity: 0.85;                 /* starts near-visible, never blank */
+  animation: fadeIn 0.4s ease forwards; /* quick settle-in on load */
 }
 
 /* The fade-in animation */
@@ -425,6 +425,11 @@ section {
 ───────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .hero-letter {
+    animation: none;
+  }
+
+  body {
+    opacity: 1;
     animation: none;
   }
 }

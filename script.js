@@ -74,4 +74,44 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', highlightNav);
   highlightNav();
 
+  // ----------------------------------------------------------
+  // PROJECT CHAPTER NAV
+  // Case study pages have a fixed side rail of section numbers
+  // (see .proj-chapters in project-base.css). This highlights
+  // whichever section is currently centered in the viewport.
+  // No-ops entirely on pages without the rail, like the homepage.
+  // ----------------------------------------------------------
+  const chapterLinks = document.querySelectorAll('.proj-chapter-link');
+
+  if (chapterLinks.length > 0) {
+    const chapterSections = Array.from(chapterLinks)
+      .map(function (link) {
+        return document.getElementById(link.getAttribute('href').slice(1));
+      })
+      .filter(Boolean);
+
+    const setActiveChapter = function (id) {
+      chapterLinks.forEach(function (link) {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+      });
+    };
+
+    // Shrinks the observation area to a thin band near vertical
+    // center — whichever section crosses that band is "current".
+    const chapterObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setActiveChapter(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    );
+
+    chapterSections.forEach(function (section) {
+      chapterObserver.observe(section);
+    });
+  }
+
 });
