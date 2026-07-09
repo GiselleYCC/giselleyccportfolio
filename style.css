@@ -144,6 +144,35 @@ body {
   color: var(--color-text);
 }
 
+/* Resume button — thin editorial outline, same type treatment */
+.nav-links a.nav-resume {
+  border: 1px solid var(--color-line);
+  padding: 8px 16px;
+  color: var(--color-text);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.nav-links a.nav-resume:hover {
+  border-color: var(--color-text);
+  background: var(--color-surface);
+}
+
+/* Compact nav on small screens so all links + resume fit */
+@media (max-width: 600px) {
+  .nav {
+    padding: 16px 20px;
+  }
+  .nav-links {
+    gap: 16px;
+  }
+  .nav-links a {
+    letter-spacing: 0.08em;
+  }
+  .nav-links a.nav-resume {
+    padding: 6px 10px;
+  }
+}
+
 /* ============================================================
    SHARED SECTION STYLES
    Every section shares this padding and max-width.

@@ -14,10 +14,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   navLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
+      const targetId = link.getAttribute('href'); // e.g. "#work"
+
+      // Only intercept in-page anchor links (#section).
+      // External/file links like the Resume PDF must open normally.
+      if (!targetId || targetId.charAt(0) !== '#') {
+        return;
+      }
+
       e.preventDefault(); // stop the default jump behavior
 
       // Find which section this link points to (e.g. #work → .work section)
-      const targetId = link.getAttribute('href'); // e.g. "#work"
       const targetSection = document.querySelector(targetId);
 
       if (targetSection) {
