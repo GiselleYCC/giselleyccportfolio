@@ -1078,22 +1078,58 @@ section {
     padding: 20px 0;
   }
 
+  /* Poster composition only works with room to layer absolutely-
+     positioned elements. On mobile, drop the layering entirely and
+     stack everything in normal flow so text never overlaps and the
+     photo is never cropped by a fixed-height container. */
   .about-poster {
-    min-height: 70vh;
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 56px 24px 48px;
+  }
+
+  /* Large blurred wordmark is a desktop-only decorative flourish */
+  .about-poster-name {
+    display: none;
+  }
+
+  .about-scatter--role {
+    position: static;
+    order: 1;
   }
 
   .about-photo-wrap {
-    left: 50%;
-    transform: translateX(-40%);
+    position: static;
+    left: auto;
+    transform: none;
+    height: auto;
+    width: 100%;
+    order: 2;
+    justify-content: center;
   }
 
   .about-photo {
-    height: 65vh;
+    height: auto;
+    max-height: none;
+    width: 100%;
+    max-width: 300px;
   }
 
   .about-poster-bio {
-    max-width: 180px;
-    left: 20px;
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    max-width: 100%;
+    width: 100%;
+    order: 3;
+    text-align: left;
   }
 
   .about-scatter--field,
@@ -1324,8 +1360,9 @@ section {
 /* ============================================================
    VISUAL ARCHIVE — compact secondary section
    Sits between Selected Work and About.
-   Default: title / category / year per row.
-   Hover: reveals description + image placeholder.
+   Each row shows title / category / year plus a permanently
+   expanded preview (image + description). The whole row links
+   through to a dedicated archive detail page.
 ============================================================ */
 
 .visual-archive {
@@ -1358,11 +1395,15 @@ section {
   color: var(--color-muted);
 }
 
-/* Entry container */
+/* Entry container — now a link to a detail page */
 .va-item {
+  display: block;
   border-top: 1px solid var(--color-line);
   overflow: hidden;
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, padding-left 0.2s ease, margin-left 0.2s ease;
 }
 
 .va-item:last-child {
@@ -1375,8 +1416,6 @@ section {
   align-items: baseline;
   gap: 20px;
   padding: 14px 0;
-  /* Subtle color shift on hover — applied via parent hover */
-  transition: opacity 0.2s ease;
 }
 
 .va-num {
@@ -1413,34 +1452,24 @@ section {
   text-align: right;
 }
 
-/* Reveal panel — hidden by default, two-column on hover */
+/* Preview panel — permanently expanded, two-column layout */
 .va-item-reveal {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 28px;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
   padding-left: 40px; /* indent to align with title */
+  padding-bottom: 4px;
 }
 
-/* Hover: expand the reveal panel */
-.va-item:hover .va-item-reveal {
-  max-height: 260px;
-  opacity: 1;
-}
-
-/* Active indicator: left border on hover */
+/* Hover: left border shows the row is clickable */
 .va-item:hover {
   border-left: 2px solid var(--color-text);
   padding-left: 12px;
   margin-left: -14px;
 }
 
-/* Dim the default row slightly when reveal is open */
-.va-item:hover .va-item-default {
-  opacity: 0.5;
+.va-item:hover .va-name {
+  color: var(--color-text);
 }
 
 /* LEFT: larger image area */
@@ -1532,14 +1561,10 @@ section {
     flex-basis: 100%;
   }
 
-  /* Always visible on mobile */
   .va-item-reveal {
     grid-template-columns: 1fr;
-    max-height: none;
-    opacity: 1;
     padding-left: 0;
     gap: 12px;
-    overflow: visible;
   }
 
   /* Full-width image on mobile */
@@ -1548,15 +1573,124 @@ section {
     height: 180px;
   }
 
-  /* Restore opacity — no hover dimming on touch */
-  .va-item:hover .va-item-default {
-    opacity: 1;
-  }
-
-  /* Remove left border active indicator on mobile */
+  /* Remove left border active indicator on touch */
   .va-item:hover {
     border-left: none;
     padding-left: 0;
     margin-left: 0;
+  }
+}
+
+
+/* ============================================================
+   VISUAL ARCHIVE — DETAIL PAGE
+   One layout: large hero image, then a two-column split below —
+   left: index tag, title, brief, categories. Right: What I Learned.
+   Uses .proj-nav / .proj-footer from project-base.css for chrome.
+============================================================ */
+
+.va-detail-hero {
+  padding: 140px clamp(20px, 5vw, 72px) 0;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.va-detail-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--color-line);
+}
+
+.va-detail-body {
+  max-width: 1320px;
+  margin: 40px auto 0;
+  padding: 48px clamp(20px, 5vw, 72px) 100px;
+  border-top: 1px solid var(--color-line);
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 72px;
+}
+
+.va-detail-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.va-detail-index {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.va-detail-title {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4.2vw, 54px);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.va-detail-brief {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--color-text);
+  max-width: 520px;
+  margin: 0;
+}
+
+.va-detail-cats {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.va-detail-right {
+  border-left: 1px solid var(--color-line);
+  padding-left: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.va-detail-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.va-detail-learned {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .va-detail-body {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .va-detail-right {
+    border-left: none;
+    border-top: 1px solid var(--color-line);
+    padding-left: 0;
+    padding-top: 32px;
+  }
+
+  .va-detail-brief {
+    max-width: none;
   }
 }
