@@ -50,6 +50,23 @@
   color: var(--color-text);
 }
 
+/* Right-side nav link group — About / Contact / Back */
+.proj-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+@media (max-width: 600px) {
+  .proj-nav-links {
+    gap: 16px;
+  }
+  /* Keep the essential link; hide secondary jumps on small screens */
+  .proj-nav-links a:not(:last-child) {
+    display: none;
+  }
+}
+
 /* ── PROJECT HERO ────────────────────────────────────────────
    Full-width opening: title, metadata grid, summary, image.
 ─────────────────────────────────────────────────────────── */
@@ -1235,7 +1252,26 @@
   background: var(--color-text);
 }
 
-@media (min-width: 1400px) {
+/* Section title — hidden at rest, slides in on hover so the rail
+   stays a quiet numbers-only strip until the reader reaches for it */
+.proj-chapter-label {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.proj-chapter-link:hover .proj-chapter-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (min-width: 1280px) {
   .proj-chapters {
     display: flex;
   }

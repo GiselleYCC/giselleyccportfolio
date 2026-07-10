@@ -23,19 +23,23 @@
   <!-- NAV -->
   <nav class="proj-nav">
     <a href="index.html" class="proj-nav-name">Giselle.C</a>
-    <a href="index.html#work" class="proj-nav-back">← Back to Selected Work</a>
+    <div class="proj-nav-links">
+      <a href="index.html#about" class="proj-nav-back">About</a>
+      <a href="index.html#contact" class="proj-nav-back">Contact</a>
+      <a href="index.html#work" class="proj-nav-back">← Back to Selected Work</a>
+    </div>
   </nav>
 
   <!-- Section chapter rail — desktop only, see project-base.css -->
   <nav class="proj-chapters" aria-label="Section navigation">
-    <a href="#s01" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">01</span></a>
-    <a href="#s02" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">02</span></a>
-    <a href="#s03" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">03</span></a>
-    <a href="#s04" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">04</span></a>
-    <a href="#s05" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">05</span></a>
-    <a href="#s06" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">06</span></a>
-    <a href="#s07" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">07</span></a>
-    <a href="#s08" class="proj-chapter-link"><span class="proj-chapter-dash"></span><span class="proj-chapter-num">08</span></a>
+    <a href="#s01" class="proj-chapter-link"><span class="proj-chapter-label">Overview</span><span class="proj-chapter-dash"></span><span class="proj-chapter-num">01</span></a>
+    <a href="#s02" class="proj-chapter-link"><span class="proj-chapter-label">Research &amp; Discovery</span><span class="proj-chapter-dash"></span><span class="proj-chapter-num">02</span></a>
+    <a href="#s03" class="proj-chapter-link"><span class="proj-chapter-label">Problem Framing</span><span class="proj-chapter-dash"></span><span class="proj-chapter-num">03</span></a>
+    <a href="#s04" class="proj-chapter-link"><span class="proj-chapter-label">Process</span><span class="proj-chapter-dash"></span><span class="proj-chapter-num">04</span></a>
+    <a href="#s05" class="proj-chapter-link"><span class="proj-chapter-label">Design Solution</span><span class="proj-chapter-dash"></span><span class="proj-chapter-num">05</span></a>
+    <a href="#s06" class="proj-chapter-link"><span class="proj-chapter-label">Evaluation</span><span class="proj-chapter-dash"></span><span class="proj-chapter-num">06</span></a>
+    <a href="#s07" class="proj-chapter-link"><span class="proj-chapter-label">Impact</span><span class="proj-chapter-dash"></span><span class="proj-chapter-num">07</span></a>
+    <a href="#s08" class="proj-chapter-link"><span class="proj-chapter-label">Reflection</span><span class="proj-chapter-dash"></span><span class="proj-chapter-num">08</span></a>
   </nav>
 
 
@@ -91,7 +95,46 @@
       </div>
     </div>
 
+    <!-- 30-second summary for time-pressed readers -->
+    <div style="border:1px solid var(--color-line);padding:28px 32px;margin-top:-16px;">
+      <p style="font-family:var(--font-sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-muted);margin-bottom:18px;">The 30-Second Version</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:baseline;">
+          <span style="font-family:var(--font-sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted);">The Problem</span>
+          <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-text);line-height:1.7;margin:0;">People are asked to trust AI agents and on-chain systems they can't inspect — what an agent knows, whom it represents, and what it's allowed to do.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:baseline;">
+          <span style="font-family:var(--font-sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted);">What I Did</span>
+          <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-text);line-height:1.7;margin:0;">Led UX end-to-end: the Soul Wizard onboarding, agent profile and permission screens, and an information architecture that explains identity and authorization in plain language.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:baseline;">
+          <span style="font-family:var(--font-sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-muted);">The Result</span>
+          <p style="font-family:var(--font-sans);font-size:13px;color:var(--color-text);line-height:1.7;margin:0;">From 10-day hackathon to live mainnet product — with 36 alpha testers reporting clearer understanding of agent roles and permission boundaries along the way.</p>
+        </div>
+      </div>
+    </div>
+
   </div><!-- end .proj-hero -->
+
+  <!-- The shipped product, up front and enlarged — before the research deep-dive -->
+  <div class="proj-img-full" style="min-height:auto; padding:0 clamp(24px,5vw,80px); background:transparent;">
+    <div class="proj-browser-wrap" style="max-width:1320px; padding:24px 0 8px;">
+      <div class="proj-browser">
+        <div class="proj-browser-bar">
+          <div class="proj-browser-dots">
+            <div class="proj-browser-dot"></div>
+            <div class="proj-browser-dot"></div>
+            <div class="proj-browser-dot"></div>
+          </div>
+          <span class="proj-browser-url">twin3.ai</span>
+        </div>
+        <!-- Actual landing page screenshot -->
+        <img src="assets/twin3/landing-page.png" alt="twin3.ai landing page — Injecting Human Soul into AI Agents"
+             style="width:100%;display:block;">
+      </div>
+      <p class="proj-photo-caption">The shipped product — twin3.ai · My Role: UX Research, Interaction Design, Wizard Flow, Agent &amp; Matrix Screens</p>
+    </div>
+  </div>
 
   <!-- Hero — Architecture diagram -->
   <div class="proj-img-full" style="min-height:auto; padding:0; background: transparent;">
@@ -694,25 +737,7 @@
       </div>
     </div>
 
-    <!-- Real screenshot: Landing Page inside browser chrome -->
-    <div class="proj-browser-wrap" style="padding-top:40px;">
-      <div class="proj-browser">
-        <div class="proj-browser-bar">
-          <div class="proj-browser-dots">
-            <div class="proj-browser-dot"></div>
-            <div class="proj-browser-dot"></div>
-            <div class="proj-browser-dot"></div>
-          </div>
-          <span class="proj-browser-url">twin3.ai</span>
-        </div>
-        <!-- Actual landing page screenshot -->
-        <img src="assets/twin3/landing-page.png" alt="twin3.ai landing page — Injecting Human Soul into AI Agents"
-             style="width:100%;display:block;">
-      </div>
-      <p class="proj-photo-caption">Landing Page · My Role: UX Research, Interaction Design, Wizard Flow, Agent &amp; Matrix Screens</p>
-    </div>
-
-    <!-- Screen A: full-width browser frame, same treatment as Landing Page -->
+    <!-- Screen A: full-width browser frame -->
     <div class="proj-browser-wrap" style="padding-top:24px;">
       <div class="proj-browser">
         <div class="proj-browser-bar">
