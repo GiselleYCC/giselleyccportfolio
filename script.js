@@ -6,6 +6,31 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // ----------------------------------------------------------
+  // MOBILE NAV — hamburger toggle
+  // On small screens the links collapse into a dropdown.
+  // The button opens/closes it; tapping any link closes it.
+  // No-ops on pages without a .nav-toggle.
+  // ----------------------------------------------------------
+  const nav = document.querySelector('.nav');
+  const navToggle = document.querySelector('.nav-toggle');
+
+  if (nav && navToggle) {
+    navToggle.addEventListener('click', function () {
+      const isOpen = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    nav.querySelectorAll('.nav-links a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
+  }
+
+  // ----------------------------------------------------------
   // SMOOTH SCROLL
   // When a nav link is clicked, the page scrolls smoothly
   // to that section instead of jumping instantly.

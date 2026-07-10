@@ -121,6 +121,36 @@ body {
   color: var(--color-text);
 }
 
+/* Hamburger toggle — hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-text);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Open state — lines cross into an X */
+.nav.open .nav-toggle span:first-child {
+  transform: translateY(3.25px) rotate(45deg);
+}
+.nav.open .nav-toggle span:last-child {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
 /* Removes the default bullet points from the nav list */
 .nav-links {
   list-style: none;
@@ -157,19 +187,58 @@ body {
   background: var(--color-surface);
 }
 
-/* Compact nav on small screens so all links + resume fit */
+/* Mobile nav — collapse links into a hamburger dropdown */
 @media (max-width: 600px) {
   .nav {
     padding: 16px 20px;
   }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Links become a full-width dropdown panel under the nav bar */
   .nav-links {
-    gap: 16px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 20px 16px;
+    background-color: rgba(240, 241, 243, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-line);
+    /* collapsed by default */
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
+
+  .nav.open .nav-links {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    border-top: 1px solid var(--color-line);
+  }
+  .nav-links li:first-child {
+    border-top: none;
+  }
+
   .nav-links a {
-    letter-spacing: 0.08em;
+    display: block;
+    padding: 14px 0;
+    letter-spacing: 0.12em;
   }
+
+  /* Resume drops its outline in the stacked menu — reads as a row */
   .nav-links a.nav-resume {
-    padding: 6px 10px;
+    border: none;
+    padding: 14px 0;
   }
 }
 
@@ -551,6 +620,57 @@ section {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-muted);
+}
+
+/* ── HERO — MOBILE REPOSITION ────────────────────────────────
+   [00] + Arizona top-left flush; statement centered flush-right;
+   name block bottom-right with the same edge gap; blurred letters
+   restacked into a more vertical column.
+   NOTE: the .hero-letter--* rules below carry the mobile opacity
+   (depth) knobs — tune those values to adjust how faint the
+   background "Giselle.C" reads, without touching desktop. */
+@media (max-width: 600px) {
+  .hero-index {
+    top: 88px;
+    left: 24px;
+  }
+
+  .hero-tag--loc {
+    top: 108px;
+    left: 24px;
+  }
+
+  .hero-statement {
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    max-width: 210px;
+  }
+
+  .hero-nameblock {
+    bottom: 104px;
+    left: auto;
+    right: 24px;
+    text-align: right;
+  }
+
+  .hero-meta {
+    left: 24px;
+    right: 24px;
+    bottom: 28px;
+  }
+
+  /* Blurred "Giselle.C" — mobile arrangement per Giselle's spec.
+     font-size = letter scale · opacity = depth (tune freely). */
+  .hero-letter--G   { top: 6%;  left: -8%; font-size: 210px !important; opacity: 0.62; }
+  .hero-letter--i   { top: 13%; left: 42%; font-size: 150px !important; opacity: 0.55; }
+  .hero-letter--s   { top: 13%; left: 60%; font-size: 155px !important; opacity: 0.53; }
+  .hero-letter--e1  { top: 36%; left: 35%; font-size: 170px !important; opacity: 0.5; }
+  .hero-letter--l1  { top: 38%; left: 50%; font-size: 210px !important; opacity: 0.52; }
+  .hero-letter--l2  { top: 39%; left: 61%; font-size: 215px !important; opacity: 0.48; }
+  .hero-letter--e2  { top: 42%; left: 69%; font-size: 180px !important; opacity: 0.46; }
+  .hero-letter--dot { top: 63%; left: 46%; font-size: 90px  !important; opacity: 0.4; }
+  .hero-letter--C   { top: 67%; left: 72%; right: auto; font-size: 320px !important; opacity: 0.58; }
 }
 
 /* ============================================================
@@ -1112,20 +1232,35 @@ section {
     padding: 20px 0;
   }
 
-  /* Poster composition only works with room to layer absolutely-
-     positioned elements. On mobile, drop the layering entirely and
-     stack everything in normal flow so text never overlaps and the
-     photo is never cropped by a fixed-height container. */
+  /* About header — flush-left. Collapse the label's large bottom
+     margin and the header's bottom padding so the photo top rises
+     right up to the "About" underline. */
+  .about-header {
+    padding: 52px 24px 0;
+  }
+  .about-header .section-label {
+    margin-bottom: 0;
+  }
+
+  /* Mobile poster: a robust grid instead of absolute layering.
+     Top band = role label (left) + photo (flush to the right edge),
+     both aligned to the same top line; bio spans full width below. */
   .about-poster {
     position: relative;
     height: auto;
     min-height: 0;
     overflow: visible;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    padding: 56px 24px 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "role  photo"
+      "bio   bio";
+    align-items: start;
+    column-gap: 12px;
+    row-gap: 28px;
+    /* no right padding so the photo can touch the screen edge;
+       no top padding so the photo top rises to the header line */
+    padding: 0 0 48px 20px;
   }
 
   /* Large blurred wordmark is a desktop-only decorative flourish */
@@ -1134,36 +1269,42 @@ section {
   }
 
   .about-scatter--role {
+    grid-area: role;
     position: static;
-    order: 1;
+    align-self: center;   /* sits mid-height beside the tall photo */
+    text-align: left;
   }
 
   .about-photo-wrap {
+    grid-area: photo;
     position: static;
     left: auto;
     transform: none;
     height: auto;
-    width: 100%;
-    order: 2;
-    justify-content: center;
+    width: auto;
+    justify-content: flex-end;
+    /* pull up so the visible photo (Profile.png has a white smear top)
+       rises to touch the About underline — tune this to nudge it up/down */
+    margin-top: -48px;
   }
 
   .about-photo {
     height: auto;
     max-height: none;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
   }
 
   .about-poster-bio {
+    grid-area: bio;
     position: static;
     top: auto;
     left: auto;
     transform: none;
     max-width: 100%;
     width: 100%;
-    order: 3;
     text-align: left;
+    padding-right: 24px;   /* restore edge gap the poster dropped */
   }
 
   .about-scatter--field,
@@ -1178,6 +1319,13 @@ section {
   .about-exp-grid {
     grid-template-columns: 1fr 1fr;
     gap: 36px 20px;
+  }
+
+  /* Keep work (3) and education (2) as separate groups: force the 4th
+     item (ASU, first education entry) onto a new row so LINE sits alone
+     with whitespace beside it, and ASU | NTUB share the next row. */
+  .about-exp-grid > .about-exp-item:nth-child(4) {
+    grid-column: 1;
   }
 
   .about-mist--2,
@@ -1389,9 +1537,15 @@ section {
     margin-bottom: 32px;
   }
 
+  /* Push the divider line down toward the email row, and
+     right-align the three contact items. */
   .contact-bar {
     flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
     gap: 16px;
+    margin-top: 96px;      /* lowers the divider line */
+    padding: 18px 0 80px;
   }
 }
 
