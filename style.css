@@ -1275,19 +1275,15 @@ section {
   left: auto;
   transform: none;
   height: auto;
-  width: 200%;
-  max-width: none;
+  width: auto;
   justify-content: flex-end;
-  margin-top: -48px;
-  margin-left: -70%;
-  overflow: visible;
 }
 
 .about-photo {
   height: auto;
   max-height: none;
   width: 100%;
-  max-width: none;
+  max-width: 290px;
   display: block;
 }
 

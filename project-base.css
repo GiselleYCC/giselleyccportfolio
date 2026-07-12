@@ -1276,3 +1276,113 @@
     display: flex;
   }
 }
+
+
+/* ============================================================
+   DOOR FACE — PHONE MOCKUPS & PHASE COMPARISON
+   Pure-CSS phone shell (no frame PNG needed). The screen area
+   scrolls; the shell stays fixed. Used for the product gallery
+   and the Phase 1 → Phase 2 evolution comparison.
+============================================================ */
+
+/* Scrollable phone shell */
+.df-phone {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  background: #1c1c1e;
+  border-radius: 44px;
+  padding: 10px;
+  box-shadow: 0 22px 55px rgba(28, 28, 30, 0.18);
+}
+
+.df-phone-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1419 / 2796;     /* snug to a single-screen shot; long shots scroll */
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 34px;
+  background: #f6f3ea;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.df-phone-screen::-webkit-scrollbar { display: none; }
+
+.df-phone-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Small scroll affordance under each phone */
+.df-phone-hint {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Caption under a phone / comparison */
+.df-caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--color-muted);
+  margin-top: 12px;
+}
+.df-caption strong { color: var(--color-text); font-weight: 400; }
+
+/* ── PHASE 1 → PHASE 2 COMPARISON (static, side by side) ──────
+   Two flat screenshots with phase labels — for explaining the
+   information-architecture / design decisions, not for scrolling. */
+.df-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin: 28px 0 8px;
+  align-items: start;
+}
+
+.df-compare-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.df-phase-tag {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.df-phase-tag--now { color: var(--color-text); }
+
+.df-shot {
+  width: 100%;
+  max-width: 280px;            /* phone-sized, never full-bleed */
+  margin: 0;
+  /* the mockup PNGs already carry an iPhone frame on a transparent
+     background — no box, border, or fill behind them */
+}
+.df-shot img { display: block; width: 100%; height: auto; }
+
+/* ── FINAL PRODUCT GALLERY — row of scrollable phones ───────── */
+.df-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px 28px;
+  margin: 32px 0 8px;
+}
+.df-gallery-item { display: flex; flex-direction: column; }
+
+@media (max-width: 700px) {
+  .df-compare { gap: 16px; }
+  .df-shot { border-radius: 14px; }
+}
