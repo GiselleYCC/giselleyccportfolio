@@ -149,11 +149,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // images that sit directly under <body> (the Roadtrip screenshots),
     // so take them all and exclude the chrome instead.
     // On a case study: every content image. On the homepage: only the
-    // Personal Index photos, which are deliberately small — the album
-    // covers are links to Spotify and must keep that click.
+    // Road Notes photos, which are deliberately small. The album covers
+    // are links to Spotify and must keep that click, and the card
+    // artwork reads fine at its own size.
     const scope = document.querySelector('.proj-title')
       ? document.querySelectorAll('img')
-      : document.querySelectorAll('.pi-note img, .pi-pair img');
+      : document.querySelectorAll('.pi-note img');
 
     const zoomables = [].filter.call(scope, function (img) {
       return !img.closest('.proj-nav, .proj-nav-footer, .proj-footer, .proj-chapters, .pi-cover');
