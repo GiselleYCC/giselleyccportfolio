@@ -144,21 +144,19 @@ document.addEventListener('DOMContentLoaded', function () {
      Case-study pages only: click any content image to open it
      full-screen. Uses the native <dialog>, so Esc closes it and
      focus is trapped without any extra code. */
-  if (document.querySelector('.proj-title') || document.querySelector('.about-personal')) {
+  if (document.querySelector('.proj-title')) {
     // Every content image on the page. Selecting by container missed
     // images that sit directly under <body> (the Roadtrip screenshots),
     // so take them all and exclude the chrome instead.
-    // On a case study: every content image. On the homepage: only the
-    // Road Notes photos, which are deliberately small. The album covers
-    // are links to Spotify and must keep that click, and the card
-    // artwork reads fine at its own size.
-    const scope = document.querySelector('.proj-title')
-      ? document.querySelectorAll('img')
-      : document.querySelectorAll('.pi-note img');
-
-    const zoomables = [].filter.call(scope, function (img) {
-      return !img.closest('.proj-nav, .proj-nav-footer, .proj-footer, .proj-chapters, .pi-cover');
-    });
+    // Every content image on the page, minus the chrome. Selecting by
+    // container missed images that sit directly under <body> (the
+    // Roadtrip screenshots), so take them all and exclude the rest.
+    const zoomables = [].filter.call(
+      document.querySelectorAll('img'),
+      function (img) {
+        return !img.closest('.proj-nav, .proj-nav-footer, .proj-footer, .proj-chapters');
+      }
+    );
 
     if (zoomables.length) {
       const dialog = document.createElement('dialog');
