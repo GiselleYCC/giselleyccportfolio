@@ -2081,39 +2081,62 @@ section {
 }
 
 /* ── 03 · On the road ──────────────────────────────────────── */
+/* Two columns of numbered entries. Each one is a state pair with a rule
+   drawn between them, the route underneath — the rule stretches to fill
+   whatever space the column leaves, so the pairs line up down the page
+   regardless of how long the route names are. */
 .pi-routes {
-  border-top: 1px solid var(--color-line);
-  margin-bottom: 56px;
-  max-width: 620px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px 72px;
+  max-width: 760px;
+  margin-bottom: 64px;
 }
 
-.pi-route {
-  display: grid;
-  grid-template-columns: 116px 1fr;
-  gap: 24px;
-  align-items: baseline;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--color-line);
+.pi-route-num {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--color-muted);
+  margin-bottom: 12px;
 }
 
 .pi-route-states {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--color-muted);
-  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+/* The connecting line. Takes the leftover width of the row. */
+.pi-route-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
 }
 
 .pi-route-name {
+  display: block;
   font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 300;
   color: var(--color-text);
+  line-height: 1.6;
 }
 
+/* The open-ended last entry: the map is still growing. */
 .pi-route--more .pi-route-states,
 .pi-route--more .pi-route-name {
   color: var(--color-muted);
+}
+
+.pi-route--more .pi-route-name {
   font-style: italic;
 }
 
@@ -2172,7 +2195,8 @@ section {
   .pi-pair--wide-last,
   .pi-pair--slim-first { grid-template-columns: auto 1fr; }
   .pi-pair--slim-first > img:first-child { max-height: 240px; }
-  .pi-route { grid-template-columns: 104px 1fr; gap: 16px; }
+  /* The two-column route log stacks; the rules still stretch. */
+  .pi-routes { grid-template-columns: 1fr; gap: 26px; margin-bottom: 48px; }
   /* Four columns collapse to two on a phone, and the staggered
      offsets go with them — at this width they only make gaps. */
   /* No room to break out of anything on a phone. */
