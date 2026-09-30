@@ -1838,9 +1838,16 @@ section {
   margin: 0;
 }
 
+/* "What I Learned" runs as a full-width band under both columns, so it
+   spans the grid rather than sitting in one side of it. Spanning means
+   it picks up the container's own side padding and lines up exactly
+   with the title and the reveal above — before this it was escaping to
+   the window edges. */
 .va-detail-right {
-  border-left: 1px solid var(--color-line);
-  padding-left: 48px;
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--color-line);
+  padding-top: 40px;
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1878,4 +1885,461 @@ section {
   .va-detail-brief {
     max-width: none;
   }
+}
+
+/* ── VISUAL ARCHIVE · REVEAL ─────────────────────────────────
+   A "guess who" prompt on the portrait study. Built on native
+   <details> so it costs no JavaScript and stays keyboard- and
+   screen-reader-accessible. Closed by default, so the answer is
+   never spoiled before the image has been looked at.
+   ──────────────────────────────────────────────────────────── */
+
+.va-reveal {
+  margin-top: 32px;
+  border-top: 1px solid var(--color-line);
+  padding-top: 20px;
+}
+
+.va-reveal-q {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s ease;
+}
+
+/* Hide the default disclosure triangle in both engines. */
+.va-reveal-q::-webkit-details-marker { display: none; }
+.va-reveal-q::marker { content: ""; }
+
+.va-reveal-q::after {
+  content: "+";
+  font-size: 13px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.va-reveal[open] .va-reveal-q::after {
+  transform: rotate(45deg);   /* + becomes × */
+}
+
+.va-reveal-q:hover {
+  color: var(--color-text);
+}
+
+.va-reveal-a {
+  margin-top: 18px;
+}
+
+.va-reveal-a p {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.85;
+  margin: 0 0 12px;
+}
+
+.va-reveal-a p:last-child { margin-bottom: 0; }
+
+.va-reveal-a strong {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PERSONAL INDEX
+   The third block of About, after [Experience & Education] and
+   [Capability Index]. Same typographic language as those two —
+   uppercase micro-labels, hairlines, no cards or shadows — so it
+   reads as a continuation of the portfolio, not a separate site.
+   ═══════════════════════════════════════════════════════════ */
+
+.about-personal {
+  padding: 0 var(--side-pad) 40px;
+  max-width: var(--max-width);
+  margin: 96px auto 0;
+}
+
+/* ── One module (01 / 02 / 03) ─────────────────────────────── */
+.pi-module {
+  margin-bottom: 120px;
+}
+
+.pi-module:last-child {
+  margin-bottom: 0;
+}
+
+.pi-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pi-num {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--color-muted);
+}
+
+.pi-title {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.pi-intro {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--color-text);
+  max-width: 620px;
+  margin: 0 0 48px;
+}
+
+.pi-intro + .pi-intro {
+  margin-top: -32px;
+}
+
+/* ── Shared micro-label above a group of images ────────────── */
+.pi-label {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  display: block;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-line);
+  margin-bottom: 24px;
+}
+
+.pi-caption {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin: 14px 0 0;
+  line-height: 1.7;
+}
+
+/* ── 02 · Little things I make ─────────────────────────────── */
+.pi-occasion {
+  margin-bottom: 72px;
+  max-width: 760px;
+}
+
+/* Occasions alternate sides so the column reads as a scrapbook
+   rather than a uniform grid. */
+.pi-occasion:nth-child(even) {
+  margin-left: auto;
+}
+
+.pi-occasion:last-child {
+  margin-bottom: 0;
+}
+
+.pi-pair {
+  display: grid;
+  gap: 20px;
+  align-items: end;
+}
+
+.pi-pair--wide-first { grid-template-columns: 1.45fr 1fr; }
+.pi-pair--wide-last  { grid-template-columns: 1fr 1.45fr; }
+/* The graduation artwork is a tall, narrow crop (323 x 957). Left to
+   fill a grid column it would tower over everything around it, so it
+   is capped and sized by its height instead of its width. */
+.pi-pair--slim-first { grid-template-columns: auto 1fr; }
+.pi-pair--slim-first > img:first-child {
+  max-height: 380px;
+  width: auto;
+}
+
+.pi-pair img {
+  width: 100%;
+  height: auto;
+  display: block;   /* never cropped — natural aspect ratio kept */
+}
+
+/* ── 03 · On the road ──────────────────────────────────────── */
+.pi-routes {
+  border-top: 1px solid var(--color-line);
+  margin-bottom: 56px;
+  max-width: 620px;
+}
+
+.pi-route {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 24px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.pi-route-states {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.pi-route-name {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+.pi-route--more .pi-route-states,
+.pi-route--more .pi-route-name {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.pi-notes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* The four photos are portrait (3:4). Across four columns they land at
+   a readable "note" scale instead of the ~700px towers they made when
+   each filled half the width. Natural aspect, never cropped — click any
+   of them to open it full-screen. */
+.pi-note img {
+  width: 100%;
+  height: auto;
+  max-height: 460px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Road Notes alone steps outside the text column — four photographs
+   need more room than a paragraph does. The label breaks out with the
+   grid so the two stay aligned with each other. Everything else in
+   Personal Index keeps the column it shares with the rest of About. */
+.pi-wide {
+  width: min(1336px, calc(100vw - 104px));
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Each note hangs at its own height, so the row reads as four things
+   pinned up rather than a filmstrip. The offsets are deliberately
+   uneven — an alternating high/low pattern looks mechanical. */
+.pi-note:nth-child(1) { margin-top: 120px; }
+.pi-note:nth-child(2) { margin-top: 0; }
+.pi-note:nth-child(3) { margin-top: 148px; }
+.pi-note:nth-child(4) { margin-top: 72px; }
+
+.pi-note-idx {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 760px) {
+  .about-personal { margin-top: 64px; padding-bottom: 8px; }
+  .pi-module { margin-bottom: 80px; }
+  .pi-occasion { margin-bottom: 56px; }
+  .pi-pair--wide-first,
+  .pi-pair--wide-last,
+  .pi-pair--slim-first { grid-template-columns: auto 1fr; }
+  .pi-pair--slim-first > img:first-child { max-height: 240px; }
+  .pi-route { grid-template-columns: 104px 1fr; gap: 16px; }
+  /* Four columns collapse to two on a phone, and the staggered
+     offsets go with them — at this width they only make gaps. */
+  /* No room to break out of anything on a phone. */
+  .pi-wide { width: auto; margin-left: 0; transform: none; }
+  .pi-notes { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .pi-note:nth-child(n) { margin-top: 0; }
+  .pi-note img { max-height: none; }
+}
+
+/* ── 01 · On rotation ──────────────────────────────────────────
+   Album artwork only — no embedded Spotify player, which would drag
+   its own green-on-black visual system into this page.
+
+   The artwork is the content, so it is never dimmed, tinted or
+   desaturated. The artist and album appear in reserved space BELOW
+   the cover rather than on top of it — that keeps the text readable
+   over pale covers, and the space is always there so nothing shifts
+   when it fades in.
+   ──────────────────────────────────────────────────────────── */
+
+.pi-music {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px 64px;
+  max-width: 820px;
+}
+
+.pi-covers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.pi-cover {
+  display: block;
+  text-decoration: none;
+}
+
+.pi-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.pi-cover:hover img,
+.pi-cover:focus-visible img {
+  transform: scale(1.02);
+}
+
+/* Reserved height keeps the grid still whether or not anything is
+   hovered — nothing below this row moves. */
+.pi-cover-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 38px;
+  padding-top: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pi-cover:hover .pi-cover-meta,
+.pi-cover:focus-visible .pi-cover-meta {
+  opacity: 1;
+}
+
+.pi-cover-artist {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+.pi-cover-album {
+  /* Cormorant Garamond carries no CJK glyphs, so a Chinese album title
+     silently fell back to the system sans. The Ming/Song faces below
+     keep it serif to match the Latin titles. They are system fonts —
+     a CJK webfont would cost more than this one line is worth.
+
+     The stack is written out rather than using var(--font-serif),
+     because that variable ends in a generic `serif` — the browser
+     stops there and never reaches the CJK faces listed after it.
+     The artist name above stays sans on purpose. */
+  font-family: "Cormorant Garamond", "Songti TC", "Songti SC", "Noto Serif CJK TC",
+               "Source Han Serif TC", "PMingLiU", "MingLiU", Georgia, serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.pi-cover:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Touch devices never hover, so the text would be unreachable —
+   show it permanently instead. */
+@media (hover: none) {
+  .pi-cover-meta { opacity: 1; }
+}
+
+@media (max-width: 760px) {
+  .pi-music { grid-template-columns: 1fr; gap: 44px; }
+  .pi-covers { gap: 16px; }
+}
+
+/* The album behind the portrait. Same idea as the covers in About —
+   the link is the whole block, and no Spotify chrome comes with it. */
+.va-listen {
+  display: block;
+  text-decoration: none;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-line);
+  max-width: 420px;
+}
+
+.va-listen-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 10px;
+}
+
+.va-listen-album {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.3;
+  transition: opacity 0.2s ease;
+}
+
+.va-listen-album::after {
+  content: "\2197";              /* ↗ — opens in a new tab */
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-muted);
+  transition: transform 0.25s ease;
+}
+
+.va-listen:hover .va-listen-album { opacity: 0.6; }
+.va-listen:hover .va-listen-album::after { transform: translate(2px, -2px); }
+
+.va-listen-note {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--color-muted);
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+.va-listen:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 6px;
 }

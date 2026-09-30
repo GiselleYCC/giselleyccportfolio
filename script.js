@@ -139,4 +139,56 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+
+  /* ── IMAGE LIGHTBOX ──────────────────────────────────────────
+     Case-study pages only: click any content image to open it
+     full-screen. Uses the native <dialog>, so Esc closes it and
+     focus is trapped without any extra code. */
+  if (document.querySelector('.proj-title') || document.querySelector('.about-personal')) {
+    // Every content image on the page. Selecting by container missed
+    // images that sit directly under <body> (the Roadtrip screenshots),
+    // so take them all and exclude the chrome instead.
+    // On a case study: every content image. On the homepage: only the
+    // Personal Index photos, which are deliberately small — the album
+    // covers are links to Spotify and must keep that click.
+    const scope = document.querySelector('.proj-title')
+      ? document.querySelectorAll('img')
+      : document.querySelectorAll('.pi-note img, .pi-pair img');
+
+    const zoomables = [].filter.call(scope, function (img) {
+      return !img.closest('.proj-nav, .proj-nav-footer, .proj-footer, .proj-chapters, .pi-cover');
+    });
+
+    if (zoomables.length) {
+      const dialog = document.createElement('dialog');
+      dialog.className = 'lightbox';
+      dialog.innerHTML =
+        '<button class="lightbox-close" aria-label="Close image">\u2715</button>' +
+        '<div class="lightbox-inner">' +
+        '<img class="lightbox-img" alt="">' +
+        '<p class="lightbox-caption"></p>' +
+        '</div>';
+      document.body.appendChild(dialog);
+
+      const bigImg = dialog.querySelector('.lightbox-img');
+      const caption = dialog.querySelector('.lightbox-caption');
+
+      zoomables.forEach(function (img) {
+        img.classList.add('zoomable');
+        img.addEventListener('click', function () {
+          bigImg.src = img.currentSrc || img.src;
+          bigImg.alt = img.alt || '';
+          caption.textContent = img.alt || '';
+          dialog.showModal();
+        });
+      });
+
+      // Click anywhere (the image included) or the X to close.
+      dialog.addEventListener('click', function () { dialog.close(); });
+
+      // Free the large image once closed so it is not kept in memory.
+      dialog.addEventListener('close', function () { bigImg.removeAttribute('src'); });
+    }
+  }
+
 });
