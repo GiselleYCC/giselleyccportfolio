@@ -2470,3 +2470,19 @@ summary:focus-visible,
   }
   .to-top.is-visible { transform: none; }
 }
+
+/* One line to tell the reader how to read the list under it. Without it
+   the capability index is an inventory; with it, it is a point of view. */
+.skills-intro {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.95;
+  color: var(--color-text);
+  max-width: 620px;
+  margin: -24px 0 36px;
+}
+
+@media (max-width: 760px) {
+  .skills-intro { margin: -16px 0 28px; }
+}
