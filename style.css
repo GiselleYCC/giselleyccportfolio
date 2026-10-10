@@ -1838,19 +1838,27 @@ section {
   margin: 0;
 }
 
-/* "What I Learned" runs as a full-width band under both columns, so it
-   spans the grid rather than sitting in one side of it. Spanning means
-   it picks up the container's own side padding and lines up exactly
-   with the title and the reveal above — before this it was escaping to
-   the window edges. */
+/* The right-hand column of an archive detail page. */
 .va-detail-right {
-  grid-column: 1 / -1;
-  border-top: 1px solid var(--color-line);
-  padding-top: 40px;
-  margin-top: 16px;
+  border-left: 1px solid var(--color-line);
+  padding-left: 48px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+/* Portrait Study only: its right column already carries the "who is
+   this?" reveal, so "What I Learned" drops below and spans the grid.
+   Spanning picks up the container's own side padding, which keeps it
+   aligned with the title and the reveal instead of escaping to the
+   window edges. Hokusai has no reveal, so it keeps the plain column. */
+.va-detail-right--wide {
+  grid-column: 1 / -1;
+  border-left: none;
+  padding-left: 0;
+  border-top: 1px solid var(--color-line);
+  padding-top: 40px;
+  margin-top: 16px;
 }
 
 .va-detail-label {
