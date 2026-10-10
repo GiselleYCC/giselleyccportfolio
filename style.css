@@ -501,6 +501,12 @@ section {
     opacity: 1;
     animation: none;
   }
+
+  /* Smooth scrolling is page-level motion the reader did not ask for;
+     anchor links and the back-to-top jump instead. */
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* ── [00] INDEX LABEL — top right ───────────────────────── */
@@ -2391,4 +2397,76 @@ summary:focus-visible,
 [tabindex]:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
+}
+
+/* ── BACK TO TOP ─────────────────────────────────────────────
+   Text, not an icon in a circle — a filled floating button is the
+   one component that would make this site look like every other
+   template. It sits in the bottom-right corner, which the chapter
+   rail leaves empty (that rail is vertically centred).
+
+   Hidden until the reader is more than a screen down, so it never
+   appears on a page short enough not to need it.
+   ──────────────────────────────────────────────────────────── */
+
+.to-top {
+  position: fixed;
+  right: 36px;
+  bottom: 32px;
+  z-index: 95;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0 0;
+  border: none;
+  border-top: 1px solid var(--color-line);
+  background: none;
+  cursor: pointer;
+
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease,
+              visibility 0s linear 0.3s, color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.to-top:hover {
+  color: var(--color-text);
+  border-top-color: var(--color-text);
+}
+
+.to-top-arrow {
+  font-size: 12px;
+  line-height: 1;
+}
+
+@media (max-width: 760px) {
+  .to-top {
+    right: 24px;
+    bottom: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .to-top {
+    transition: opacity 0.01s, visibility 0s;
+    transform: none;
+  }
+  .to-top.is-visible { transform: none; }
 }

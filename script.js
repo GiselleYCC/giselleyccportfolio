@@ -190,4 +190,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+
+  /* ── BACK TO TOP ─────────────────────────────────────────────
+     Built here rather than in each page's markup: it is a
+     convenience, not content, so a reader without JS loses nothing. */
+  (function () {
+    const btn = document.createElement('button');
+    btn.className = 'to-top';
+    btn.setAttribute('aria-label', 'Back to top');
+    btn.innerHTML =
+      '<span class="to-top-arrow" aria-hidden="true">\u2191</span>' +
+      '<span>Top</span>';
+    document.body.appendChild(btn);
+
+    // Show once the reader is past one screenful — on a page shorter
+    // than that, the button never appears at all.
+    let ticking = false;
+    function update() {
+      btn.classList.toggle('is-visible', window.scrollY > window.innerHeight);
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+
+    btn.addEventListener('click', function () {
+      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+      // Send keyboard focus back to the start, or the next Tab would
+      // resume from the bottom of the page.
+      const first = document.querySelector('a, button');
+      if (first) { first.focus({ preventScroll: true }); }
+    });
+  })();
+
 });
