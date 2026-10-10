@@ -18,7 +18,7 @@
   --color-bg:        #F0F1F3;   /* cool pale blue-gray white */
   --color-surface:   #E4E6EA;   /* cool light gray for surfaces */
   --color-text:      #1C1C1E;   /* soft black, slightly cool */
-  --color-muted:     #9099A6;   /* steel blue-gray for labels */
+  --color-muted:     #646E7D;  /* was #9099A6 — only 2.55:1 on --color-bg; this is 4.57:1, same hue */
   --color-accent:    #4A5260;   /* dark steel for hover states */
   --color-line:      #CDD0D6;   /* cool hairline dividers */
 
@@ -2374,4 +2374,21 @@ section {
 .va-listen:focus-visible {
   outline: 1px solid var(--color-accent);
   outline-offset: 6px;
+}
+
+/* ── KEYBOARD FOCUS ──────────────────────────────────────────
+   The browser's own focus ring already worked; this only replaces
+   its colour. Chrome draws it in orange (#E59700), which is the one
+   saturated colour that ever appears on this site. Matching it to
+   --color-accent keeps keyboard navigation on-palette.
+
+   :focus-visible, not :focus — the ring stays hidden after a mouse
+   click and appears only for keyboard and other non-pointer input.
+   ──────────────────────────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
