@@ -149,10 +149,8 @@
     <div class="proj-cols">
       <span class="proj-sub">Context</span>
       <div class="proj-body">
-        <p>Twin3 operates in the emerging space of AI agents, decentralized identity, and human-controlled digital representation. The product is built around the idea that users should not simply be passively interpreted by AI systems — they should actively shape how their digital identity, preferences, and agent permissions are represented.</p>
+        <p>Twin3 is building a marketplace where AI agents act on a person's behalf. The idea behind it is that you decide how your identity and permissions are represented to those agents, instead of a system inferring it for you.</p>
         <br>
-        <p> Shortly after I joined, the team entered a 10-day Binance hackathon; that prototype evolved into a testnet product, a community-tested release, and then the live mainnet product at
-  <a class="text-link external-link" href="https://twin3.ai/" target="_blank" rel="noopener noreferrer">twin3.ai</a>. </p>
         <br>
         <p>The architecture set the constraints I had to design inside. A user's identity is a 256-dimension vector held in a soulbound token; binding that token to an agent, and scoping what the agent may then do, are both on-chain actions with their own vocabulary — SBT, ERC-8004, validity period. None of it is optional and none of it is familiar. The design problem was never to hide that machinery; it was to decide how much of it a person has to hold in their head before they can act.</p>
       </div>
@@ -162,31 +160,6 @@
       <span class="proj-sub">Problem</span>
       <div class="proj-body">
         <p>In most AI and Web3 products, users trust complex systems without understanding what data is being used, how their identity is represented, or what an agent can do on their behalf.</p>
-      </div>
-    </div>
-
-    <!-- Three core problems as visual items -->
-    <div class="proj-items" style="margin-left: 0; margin-bottom: 32px;">
-      <div class="proj-item">
-        <span class="proj-item-num">01</span>
-        <div>
-          <p class="proj-item-title">No mental model for agent identity</p>
-          <p class="proj-item-desc">Users cannot easily understand how an AI agent represents them or what it knows.</p>
-        </div>
-      </div>
-      <div class="proj-item">
-        <span class="proj-item-num">02</span>
-        <div>
-          <p class="proj-item-title">Abstract authorization flows</p>
-          <p class="proj-item-desc">Permission flows are technical and difficult to verify, making users hesitant to engage.</p>
-        </div>
-      </div>
-      <div class="proj-item">
-        <span class="proj-item-num">03</span>
-        <div>
-          <p class="proj-item-title">Unclear identity boundaries</p>
-          <p class="proj-item-desc">Systems lack clear separation between personal data, agent behavior, and on-chain permission.</p>
-        </div>
       </div>
     </div>
 
@@ -201,13 +174,6 @@
       <span class="proj-sub">My Role</span>
       <div class="proj-body">
         <p>I owned the UX for the Soul Wizard onboarding flow and the wallet / agent permission screens — research, information architecture, user flows, UI design, and post-launch iteration through testing and revisions. Product direction was set with the founding team: I proposed and argued for the interaction decisions. Engineering brought platform requirements, and part of my work was designing within those technical constraints and working closely with engineers to keep the flows feasible to implement. The Twin Matrix itself is a team concept: it holds a user persona assembled from the wizard answers and from how the person interacts with the platform, and I worked with engineering on how to visualize it.</p>
-      </div>
-    </div>
-
-    <div class="proj-cols">
-      <span class="proj-sub">Outcome</span>
-      <div class="proj-body">
-        <p>Hackathon prototype → testnet release → community-tested product → mainnet launch. Post-testing refinements addressed trust signals, authorization clarity, and information hierarchy.</p>
       </div>
     </div>
 
@@ -302,39 +268,18 @@
     </div>
 
     <div class="proj-cols">
-      <span class="proj-sub">Key Findings</span>
+      <span class="proj-sub">Also Found</span>
       <div class="proj-body">
         <div class="proj-items">
           <div class="proj-item">
             <span class="proj-item-num">01</span>
-            <div>
-              <p class="proj-item-title">Agent identity needed a clearer mental model</p>
-              <p class="proj-item-desc">Users understood the concept of an AI agent, but the relationship between agent, user, and underlying identity data needed to be more explicit.</p>
-            </div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">02</span>
-            <div>
-              <p class="proj-item-title">Trust depended on visible permission boundaries</p>
-              <p class="proj-item-desc">Users were more comfortable when the interface showed what an agent could and couldn't access, and whether permissions were active, limited, or revocable.</p>
-            </div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">03</span>
-            <div>
-              <p class="proj-item-title">Web3 language created early friction</p>
-              <p class="proj-item-desc">Terms like chains, tokens, and signatures were necessary but confusing when presented before users understood the product's core value.</p>
-            </div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">04</span>
             <div>
               <p class="proj-item-title">Marketplace browsing needed both utility and credibility signals</p>
               <p class="proj-item-desc">Users wanted to evaluate ownership, purpose, permission scope, and reliability — not just agent capabilities.</p>
             </div>
           </div>
           <div class="proj-item">
-            <span class="proj-item-num">05</span>
+            <span class="proj-item-num">02</span>
             <div>
               <p class="proj-item-title">Calm, infrastructural UI outperformed aggressive Web3 aesthetics</p>
               <p class="proj-item-desc">For an identity-related product, users responded better to a stable, minimal interface that communicated reliability.</p>
@@ -351,37 +296,6 @@
   <div class="proj-section" id="s03">
     <span class="proj-section-idx">[03]</span>
     <h2 class="proj-section-title">Problem Framing</h2>
-
-    <div class="proj-cols">
-      <span class="proj-sub">User Pain Points</span>
-      <div class="proj-body">
-        <div class="proj-items">
-          <div class="proj-item">
-            <span class="proj-item-num">—</span>
-            <div><p class="proj-item-desc">No clear way to understand what differentiates one agent from another.</p></div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">—</span>
-            <div><p class="proj-item-desc">Uncertainty about what personal data an agent might access or store.</p></div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">—</span>
-            <div><p class="proj-item-desc">Lack of confidence before granting permissions or making authorization decisions.</p></div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">—</span>
-            <div><p class="proj-item-desc">No simple way to understand the relationship between identity, authorization, and marketplace interaction.</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="proj-cols">
-      <span class="proj-sub">System Friction</span>
-      <div class="proj-body">
-        <p>The system combined AI agents, identity verification, user-controlled data, permission tokens, and marketplace interaction. Without careful UX, these layers appeared as disconnected technical concepts. The challenge was not just exposing information — it was exposing the <em>right level</em> of information at the right moment.</p>
-      </div>
-    </div>
 
     <!-- Design challenge as a callout block -->
     <div class="proj-callout">
@@ -403,50 +317,6 @@
   <div class="proj-section" id="s04">
     <span class="proj-section-idx">[04]</span>
     <h2 class="proj-section-title">Process</h2>
-
-    <div class="proj-cols">
-      <span class="proj-sub">User Journey</span>
-      <div class="proj-body">
-        <p>Mapped across five stages to identify where users needed explanation, stronger hierarchy, or trust signals.</p>
-        <div class="proj-steps">
-          <div class="proj-step">
-            <span class="proj-step-num">01</span>
-            <div>
-              <p class="proj-step-title">Discovery</p>
-              <p class="proj-step-desc">User enters the marketplace and explores available AI agents.</p>
-            </div>
-          </div>
-          <div class="proj-step">
-            <span class="proj-step-num">02</span>
-            <div>
-              <p class="proj-step-title">Understanding</p>
-              <p class="proj-step-desc">User reviews what an agent is, what it does, and how it represents identity.</p>
-            </div>
-          </div>
-          <div class="proj-step">
-            <span class="proj-step-num">03</span>
-            <div>
-              <p class="proj-step-title">Evaluation</p>
-              <p class="proj-step-desc">User checks trust signals, ownership, permission scope, and use cases.</p>
-            </div>
-          </div>
-          <div class="proj-step">
-            <span class="proj-step-num">04</span>
-            <div>
-              <p class="proj-step-title">Authorization</p>
-              <p class="proj-step-desc">User grants access or permission within a clearly defined scope.</p>
-            </div>
-          </div>
-          <div class="proj-step">
-            <span class="proj-step-num">05</span>
-            <div>
-              <p class="proj-step-title">Post-authorization</p>
-              <p class="proj-step-desc">User monitors, modifies, or revokes access as needed.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- User flow diagram -->
     <div class="proj-section-img" style="min-height:auto; display:block; padding:0; background:transparent;">
@@ -507,16 +377,7 @@
     <div class="proj-cols">
       <span class="proj-sub">Iterations</span>
       <div class="proj-body">
-        <div class="proj-two-col">
-          <div class="proj-two-col-cell">
-            <span class="proj-two-col-label">Hackathon Version</span>
-            <p class="proj-two-col-text">Focused on demonstrating the core concept and agent marketplace flow. Technically dense, little progressive disclosure.</p>
-          </div>
-          <div class="proj-two-col-cell">
-            <span class="proj-two-col-label">Post-testnet Version</span>
-            <p class="proj-two-col-text">Refined hierarchy, simplified language, improved visual consistency, made permission actions more explicit.</p>
-          </div>
-        </div>
+        <p>What the hackathon build got wrong, and what changed after the testnet release.</p>
       </div>
     </div>
 
@@ -569,30 +430,6 @@
 
     </div>
 
-    <div class="proj-cols">
-      <span class="proj-sub">Design Principles</span>
-      <div class="proj-body">
-        <div class="proj-items">
-          <div class="proj-item">
-            <span class="proj-item-num">→</span>
-            <div><p class="proj-item-title">Clarity over technical completeness</p></div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">→</span>
-            <div><p class="proj-item-title">Trust over visual excitement</p></div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">→</span>
-            <div><p class="proj-item-title">User control over automation</p></div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">→</span>
-            <div><p class="proj-item-title">Identity transparency over marketplace speed</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 
@@ -604,50 +441,7 @@
     <div class="proj-cols">
       <span class="proj-sub">Final Concept</span>
       <div class="proj-body">
-        <p>An identity-first AI agent marketplace. Users can browse agents, understand what each agent represents, review trust and permission information, and interact under clearer authorization boundaries. The interface is calm, structured, and infrastructural — not a speculative Web3 aesthetic.</p>
-      </div>
-    </div>
-
-    <div class="proj-cols">
-      <span class="proj-sub">Key Features</span>
-      <div class="proj-body">
-        <div class="proj-items">
-          <div class="proj-item">
-            <span class="proj-item-num">01</span>
-            <div>
-              <p class="proj-item-title">Agent identity profile</p>
-              <p class="proj-item-desc">Clearer identity structure showing role, purpose, ownership, and trust signals.</p>
-            </div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">02</span>
-            <div>
-              <p class="proj-item-title">Permission-aware interaction flow</p>
-              <p class="proj-item-desc">Makes authorization explicit — users understand what an agent can access and under what conditions.</p>
-            </div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">03</span>
-            <div>
-              <p class="proj-item-title">Marketplace browsing structure</p>
-              <p class="proj-item-desc">Organized for comparison, exploration, and evaluation — not just listing.</p>
-            </div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">04</span>
-            <div>
-              <p class="proj-item-title">Trust-oriented visual system</p>
-              <p class="proj-item-desc">Soft contrast, neutral color, minimal noise — designed to convey stability over excitement.</p>
-            </div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">05</span>
-            <div>
-              <p class="proj-item-title">User-controlled identity framing</p>
-              <p class="proj-item-desc">Users are not passive data providers — they shape how their identity is represented and used.</p>
-            </div>
-          </div>
-        </div>
+        <p>An identity-first AI agent marketplace. Users can browse agents, understand what each agent represents, review trust and permission information, and interact under clearer authorization boundaries. The visual system stays closer to infrastructure than to crypto marketing.</p>
       </div>
     </div>
 
@@ -779,35 +573,6 @@
       </div>
     </div>
 
-    <div class="proj-cols">
-      <span class="proj-sub">What Changed</span>
-      <div class="proj-body">
-        <div class="proj-steps">
-          <div class="proj-step">
-            <span class="proj-step-num">01</span>
-            <div>
-              <p class="proj-step-title">Strengthened onboarding hierarchy</p>
-              <p class="proj-step-desc">Users understand product concept before encountering Web3 terminology.</p>
-            </div>
-          </div>
-          <div class="proj-step">
-            <span class="proj-step-num">02</span>
-            <div>
-              <p class="proj-step-title">Made identity signals more visible</p>
-              <p class="proj-step-desc">Verification and credibility indicators surfaced earlier in the evaluation flow.</p>
-            </div>
-          </div>
-          <div class="proj-step">
-            <span class="proj-step-num">03</span>
-            <div>
-              <p class="proj-step-title">Polished interface system</p>
-              <p class="proj-step-desc">Light/dark consistency, typography, spacing, and interaction feedback refined before mainnet launch.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 
@@ -821,7 +586,7 @@
       <div class="proj-body">
         <p>The open question from this project became a study I'm running now: <strong>how does it actually feel to authorize an agent to act on your behalf?</strong> Alpha feedback told us people hesitated at the permission step, but not what the hesitation was made of — scope, reversibility, or simply not knowing what the agent would do next.</p>
         <br>
-        <p>The study pairs <strong>cognitive interviews (n=8)</strong> — walking people through the authorization flow while they narrate what each control means to them — with a <strong>survey (n=300)</strong> to see how widely those interpretations hold. The interviews surface the vocabulary people use for permission and control; the survey tests whether the interface's model matches theirs at scale. Findings will feed the permission management and revocation work below.</p>
+        <p>It pairs <strong>cognitive interviews (n=8)</strong>, where people narrate what each control means to them as they move through the flow, with a <strong>survey (n=300)</strong> to test how widely those readings hold.</p>
       </div>
     </div>
 
@@ -829,7 +594,7 @@
     <div class="proj-two-col" style="margin-bottom: 40px;">
       <div class="proj-two-col-cell">
         <span class="proj-two-col-label">User Impact</span>
-        <p class="proj-two-col-text">In alpha testing with 36 builders, the feedback centered on comprehension rather than visual polish — testers called out the onboarding flow, the permission framing, and the visual hierarchy. What we could see improving was how clearly the product explained itself; measuring that comprehension properly is the open question the ongoing study below addresses.</p>
+        <p class="proj-two-col-text">In alpha testing with 36 builders, the feedback centered on comprehension rather than visual polish — testers called out the onboarding flow, the permission framing, and the visual hierarchy. What we could see improving was how clearly the product explained itself; measuring that comprehension properly is the open question the study above addresses.</p>
       </div>
       <div class="proj-two-col-cell">
         <span class="proj-two-col-label">What Shipped</span>
@@ -840,13 +605,13 @@
     <div class="proj-cols">
       <span class="proj-sub">My Contribution</span>
       <div class="proj-body">
-      <p>Designed the Soul Wizard onboarding flow and the wallet / agent permission screens, focusing on how users understand agent roles, permissions, and control — and stayed with them through launch, testing, and revisions. Collaborated with engineering on the Twin Matrix visualization and with the founding team on product positioning.</p>      </div>
+      <p>I stayed with those screens through launch, testing, and the revisions that followed. The Twin Matrix visualization was worked out with engineering, and product positioning with the founding team.</p>      </div>
     </div>
 
     <div class="proj-cols">
       <span class="proj-sub">What I Learned</span>
       <div class="proj-body">
-        <p>AI and Web3 products often fail not because the technology is weak, but because the UX doesn't explain responsibility, permission, and trust clearly enough.</p>
+        <p>Trust and comprehension turned out to be different problems. The alpha feedback was warm about the interface — testers called it slick, smooth, logical — and people still hesitated at the permission step. A system can feel safe before anyone understands what it is actually asking for, and the feeling arrives first.</p>
         <br>
         <p>Designing for AI agents requires designing mental models — not just screens. Who does the agent represent? What can it do? What data can it access? How does the user stay in control?</p>
       </div>
@@ -859,10 +624,6 @@
           <div class="proj-item">
             <span class="proj-item-num">→</span>
             <div><p class="proj-item-desc">Testing with users outside the existing community</p></div>
-          </div>
-          <div class="proj-item">
-            <span class="proj-item-num">→</span>
-            <div><p class="proj-item-desc">Measuring comprehension more systematically, beyond wizard completion rate</p></div>
           </div>
           <div class="proj-item">
             <span class="proj-item-num">→</span>

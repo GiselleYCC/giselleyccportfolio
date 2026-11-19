@@ -148,7 +148,7 @@
             <span class="proj-item-num">01</span>
             <div>
               <p class="proj-item-title">Invisible System Status</p>
-              <p class="proj-item-desc">The app provided little or no feedback during locking actions. Users couldn't tell if the door had actually locked — a major gap for a security-critical product.</p>
+              <p class="proj-item-desc">The app gave little or no feedback during locking actions. In our walkthrough nothing on screen confirmed that the door had changed state — a major gap for a security-critical product.</p>
             </div>
           </div>
 
@@ -254,13 +254,6 @@
     <h2 class="proj-section-title">Research &amp; Discovery</h2>
 
     <div class="proj-cols">
-      <span class="proj-sub">Approach</span>
-      <div class="proj-body">
-        <p>We applied an <strong>Agile UX Design methodology</strong> — moving in structured sprints from diagnosis to high-fidelity output. Rather than stopping at aesthetic improvement, we grounded every design decision in evaluation data.</p>
-      </div>
-    </div>
-
-    <div class="proj-cols">
       <span class="proj-sub">Methods</span>
       <div class="proj-body">
         <div class="proj-tags">
@@ -279,7 +272,7 @@
     <div class="proj-cols">
       <span class="proj-sub">Heuristic Analysis</span>
       <div class="proj-body">
-        <p>We evaluated the existing app against <strong>Jakob Nielsen's 10 Usability Heuristics</strong>. The most critical finding was a failure of <em>Visibility of System Status</em>: during locking, the interface gave no clear confirmation that the door had actually changed state.</p>
+        <p>We evaluated the existing app against <strong>Jakob Nielsen's 10 Usability Heuristics</strong>. The most serious finding was a failure of <em>Visibility of System Status</em>: during locking, the interface never confirmed that the door had actually changed state.</p>
         <p>This was rated <strong>major severity</strong> — in a product where users need to trust that their door is locked, silent or ambiguous feedback is not a minor annoyance. It actively erodes trust.</p>
       </div>
     </div>
@@ -294,7 +287,7 @@
         <div class="proj-heuristic-row">
           <span class="proj-heuristic-name">Visibility of System Status</span>
           <span class="proj-heuristic-issue">No confirmation animation when toggling lock state. Interface fails to update all status indicators — user cannot tell if the door is locked.</span>
-          <span class="proj-heuristic-sev sev-4">4 — Critical</span>
+          <span class="proj-heuristic-sev sev-3">3 — Major</span>
         </div>
         <div class="proj-heuristic-row">
           <span class="proj-heuristic-name">Match Between System &amp; Real World</span>
@@ -328,7 +321,7 @@
             <span class="proj-item-num">01</span>
             <div>
               <p class="proj-item-title">Lock confirmation was absent or uninterpretable</p>
-              <p class="proj-item-desc">Users could not reliably tell if the door locked. Feedback was either missing entirely or too subtle to act on under stress.</p>
+              <p class="proj-item-desc">Nothing in the interface reliably confirmed that the door had locked. Feedback was either missing or too subtle to notice under pressure.</p>
             </div>
           </div>
 
@@ -344,7 +337,7 @@
             <span class="proj-item-num">03</span>
             <div>
               <p class="proj-item-title">No multimodal feedback</p>
-              <p class="proj-item-desc">Confirmation was visual-only. Users with low vision or motor difficulty had no alternative signal to confirm system state.</p>
+              <p class="proj-item-desc">Confirmation was visual-only, which leaves no alternative signal for someone with low vision or limited dexterity.</p>
             </div>
           </div>
 
@@ -404,7 +397,7 @@
               </div>
               <div class="proj-item">
                 <span class="proj-item-num">—</span>
-                <div><p class="proj-item-desc">Goal: unlock door safely and quickly, with clear confirmation it worked</p></div>
+                <div><p class="proj-item-desc">Goal: unlock the door safely and quickly, and know it worked</p></div>
               </div>
               <div class="proj-item">
                 <span class="proj-item-num">—</span>
@@ -420,7 +413,7 @@
     <div class="proj-cols" style="margin-top: 8px;">
       <span class="proj-sub">Journey Map</span>
       <div class="proj-body">
-        <p>Bob Jenson · Age 75 · Goal: Unlock door and enter home safely and quickly</p>
+        <p>Bob Jenson · Age 75 · Goal: Unlock door and enter home safely and quickly<br><span style="color:var(--color-muted);">Persona-based. The steps and reactions below are what we expected Bob to meet in the existing app, not an observed session.</span></p>
       </div>
     </div>
 
@@ -547,7 +540,7 @@
             <span class="proj-item-num">02</span>
             <div>
               <p class="proj-item-title">Multimodal Confirmation</p>
-              <p class="proj-item-desc">Visual cues paired with audio feedback for every security-sensitive action. Users don't have to look at the screen to know the door locked.</p>
+              <p class="proj-item-desc">Visual cues paired with audio feedback for every security-sensitive action, so confirmation does not depend on looking at the screen.</p>
             </div>
           </div>
 
@@ -786,7 +779,7 @@
       <span class="proj-sub">What Was Delivered</span>
       <div class="proj-body">
         <p>The project concluded with a full UX/UI baseline: heuristic evaluation documentation, persona and HTA artifacts, low-fidelity wireframes, and a high-fidelity Figma prototype with a complete design system.</p>
-        <p>This established a clear design direction and development-ready foundation for the Door Face App team.</p>
+        <p>This gave the Door Face App team a design direction and a development-ready foundation. What it did not establish is whether the redesign works: every change below is a response to an evaluation finding, and none of it has been in front of a user yet.</p>
       </div>
     </div>
 
@@ -842,7 +835,7 @@
     <div class="proj-cols">
       <span class="proj-sub">By the Numbers</span>
       <div class="proj-body">
-        <p>The heuristic evaluation identified <strong>five usability issues</strong> across Nielsen’s 10 heuristics, including <strong>three high-severity issues</strong>. The redesign directly addressed all five, with the greatest impact on the two most critical problems: invisible lock status and high cognitive load during the unlock flow.</p>
+        <p>The heuristic evaluation identified <strong>five usability issues</strong> across Nielsen’s 10 heuristics, including <strong>three high-severity issues</strong>. The redesign directly addressed all five, with the greatest impact on the two most serious: invisible lock status and the number of decisions in the unlock flow.</p>
       </div>
     </div>
 
@@ -852,11 +845,11 @@
         <div class="proj-two-col">
           <div class="proj-two-col-cell">
             <p class="proj-two-col-label">Confidence in High-Trust Actions</p>
-            <p>Users can lock their door and know — immediately — that it worked. Removing uncertainty from a security action has outsized psychological value.</p>
+            <p>The redesign is built so that someone can lock their door and know immediately that it worked. Whether it does that for someone like Bob is the first thing I would test.</p>
           </div>
           <div class="proj-two-col-cell">
             <p class="proj-two-col-label">Accessible to Both Personas</p>
-            <p>Leo gets a streamlined, fast flow. Bob gets clear feedback and reduced decision load. The redesign doesn't sacrifice one user for the other.</p>
+            <p>Leo gets a streamlined, fast flow. Bob gets confirmation he can see and hear, and fewer decisions to make. The redesign doesn't sacrifice one user for the other.</p>
           </div>
         </div>
       </div>
@@ -866,7 +859,6 @@
       <span class="proj-sub">Product Impact</span>
       <div class="proj-body">
         <p>The design system gives DFP a consistent visual foundation that can scale with their product. Developer-ready Figma assets reduce handoff friction and the risk of inconsistent implementation.</p>
-        <p>Strategic recommendations around accessibility (WCAG 2.1), security evaluation, and behavioral analytics position the product for sustainable, evidence-based iteration.</p>
       </div>
     </div>
 
